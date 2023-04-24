@@ -24,3 +24,12 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('register');
 })->name('login');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

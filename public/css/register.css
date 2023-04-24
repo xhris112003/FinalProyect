@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://acortar.link/Eugygl');
+    background-image: url('https://i.postimg.cc/1X54vpWV/5c7fa1bdd8f953dd4639a414da2639d2.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -53,6 +53,24 @@ a {
 }
 
 #form input[type="text"] {
+    background-color: #CCDDEE;
+    width: 80%;
+    height: 25px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+#form input[type="password"] {
+    background-color: #CCDDEE;
+    width: 80%;
+    height: 25px;
+    border: none;
+    margin-bottom: 10px;
+    border-radius: 3px;
+}
+
+#form input[type="email"] {
     background-color: #CCDDEE;
     width: 80%;
     height: 25px;

@@ -1,5 +1,5 @@
 body {
-    background-image: url('https://acortar.link/WcKyfQ');
+    background-image: url('https://i.postimg.cc/KcddrZRx/c2f25cea1748625a20598aac1f20ac39.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -18,22 +18,21 @@ nav a:nth-child(1) {
     padding-top: 170px;
 }
 
-p:nth-child(1n) {
+form p:nth-child(1n) {
     color: white;
     font-family: 'Inter', sans-serif;
-    font-size: 45px;
+    font-size: 40px;
 }
 
-p:nth-child(2n) {
+#register-text {
     color: #899AAB;
     font-family: 'Inter', sans-serif;
     font-size: 12px;
 }
 
-a {
-    text-decoration: none;
+#register-text a {
     color: white;
-
+    text-decoration: none;
 }
 
 
@@ -53,6 +52,7 @@ form {
     height: 15%;
     border-radius: 0.5px;
     border: none;
+    margin-bottom: 30px;
 
 }
 
@@ -61,7 +61,7 @@ input::placeholder {
 }
 
 
-#passwd {
+#password {
     background-color: #CCDDEE;
     width: 80%;
     height: 15%;
