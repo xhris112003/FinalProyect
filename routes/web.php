@@ -23,11 +23,15 @@ Route::get('/login', function () {
 
 Route::get('/register', function () {
     return view('register');
-})->name('login');
+})->name('register');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/perfil', function () {
+    return view('profile');
+})->name('perfil');
 
 
 Auth::routes();

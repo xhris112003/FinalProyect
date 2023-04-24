@@ -10,29 +10,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anek+Gurmukhi&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
 </head>
 <header>
     <nav>
-        <b><a href="/">MM</a></b>
+        <b><a href="{{route('dashboard')}}">MM</a></b>
         <a href="">PELÍCULAS</a>
         <a href="">SERIES</a>
         <a href="">ACERCA DE</a>
         <div id="buttons">
-            <button onclick="window.location.href='/login'" id="login">INICIAR SESION</button>
-            <button onclick="window.location.href='/register'" id="register">REGISTRARSE</button>
+        <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" id="logout">LOGOUT</button>
+
+
 
         </div>
+
     </nav>
 </header>
 
 <body>
-    <div id="BodyText">
-        <p>¿No sabes qué película ver? </p>
-        <p> ¡Completa nuestro cuestionario y</p>
-        <p>descubre tu próxima película favorita!</p>
-        <button id="cuestionario">INICIAR CUESTIONARIO</button>
-    </div>
 </body>
 
 </html>

@@ -89,6 +89,26 @@ nav a:nth-child(4) {
 
 }
 
+#perfil{
+    display: flex;
+    height: 30px;
+    width: 100px;
+    justify-content: center;
+    align-items: center;
+    background-color: #00C030;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: 1em;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+
+#perfil:hover {
+    background-color: white;
+    color: black;
+}
 
 #login:hover {
     background-color: white;
