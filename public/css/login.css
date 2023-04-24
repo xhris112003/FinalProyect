@@ -1,0 +1,123 @@
+body {
+    background-image: url('https://acortar.link/WcKyfQ');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav a:nth-child(1) {
+    color: white;
+    margin: 0 5em 0 1em;
+    font-size: 35px;
+    font-family: 'Anek Gurmukhi', sans-serif;
+    text-decoration: none;
+}
+
+#login {
+    display: flex;
+    justify-content: center;
+    padding-top: 170px;
+}
+
+p:nth-child(1n) {
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 45px;
+}
+
+p:nth-child(2n) {
+    color: #899AAB;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+
+}
+
+
+form {
+    display: flex;
+    background-color: rgba(44, 52, 64, 0.85);
+    width: 450px;
+    height: 340px;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+#email {
+    background-color: #CCDDEE;
+    width: 80%;
+    height: 15%;
+    border-radius: 0.5px;
+    border: none;
+
+}
+
+input::placeholder {
+    font-family: 'Anek Gurmukhi', sans-serif;
+}
+
+
+#passwd {
+    background-color: #CCDDEE;
+    width: 80%;
+    height: 15%;
+    border-radius: 0.3px;
+    border: none;
+}
+
+button {
+    display: flex;
+    height: 45px;
+    width: 150px;
+    justify-content: center;
+    align-items: center;
+    background-color: #00C030;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin: 1em;
+    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Anek Gurmukhi', sans-serif;
+
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: auto;
+    }
+
+    p:nth-child(1n) {
+        font-size: 30px;
+    }
+
+    p:nth-child(2n) {
+        font-size: 10px;
+    }
+
+    form {
+        width: 90%;
+        height: 300px;
+    }
+
+    #email,
+    #passwd {
+        width: 90%;
+        height: 12%;
+    }
+
+    button {
+        width: 120px;
+        font-size: 16px;
+        margin: 0.5em;
+    }
+}
