@@ -1,38 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.home')
+  <body>
+    <div class="home">
+      <img class="image-icon3" alt="" src="https://i.postimg.cc/xC8QXtqC/19b9bec76dc4f4653eb05135270b836e-1.jpg" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieMatch</title>
-    <link rel="stylesheet" href="/public/css/app.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gurmukhi&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<header>
-    <nav>
-        <b><a href="/">MM</a></b>
-        <a href="">PELÍCULAS</a>
-        <a href="">SERIES</a>
-        <a href="">ACERCA DE</a>
-        <div id="buttons">
-            <button onclick="window.location.href='/login'" id="login">INICIAR SESION</button>
-            <button onclick="window.location.href='/register'" id="register">REGISTRARSE</button>
+      <div class="rectangle-container">
+        <div class="rectangle2"></div>
 
+        <div class="pelculas-group">
+          <a class="pelculas1">Películas</a>
+          <a class="acerca-de1">Acerca de </a>
+          <a class="series1">Series</a>
         </div>
-    </nav>
-</header>
-
-<body>
-    <div id="BodyText">
-        <p>¿No sabes qué película ver? </p>
-        <p> ¡Completa nuestro cuestionario y</p>
-        <p>descubre tu próxima película favorita!</p>
-        <button id="cuestionario">INICIAR CUESTIONARIO</button>
+        <a class="mm2">mm</a>
+        <button onclick="window.location.href='/login'" class="group-button">
+          <div class="rectangle3"></div>
+          <div class="iniciar-sesin-wrapper">
+            <div class="iniciar-sesin">INICIAR SESIÓN</div>
+          </div>
+        </button>
+        <button onclick="window.location.href='/register'" class="rectangle-parent1">
+          <div class="rectangle3"></div>
+          <div class="iniciar-sesin-wrapper">
+            <div class="iniciar-sesin">registrarse</div>
+          </div>
+        </button>
+      </div>
+      <div class="no-sabes-qu">¿No sabes qué película ver?</div>
+      <div class="completa-nuestro-cuestionario">
+        ¡Completa nuestro cuestionario y descubre tu próxima película favorita!
+      </div>
+      <button class="rectangle-parent2">
+        <div class="rectangle5"></div>
+        <div class="iniciar-cuestionario-wrapper">
+          <div class="iniciar-cuestionario">INICIAR CUESTIONARIO</div>
+        </div>
+      </button>
     </div>
-</body>
-
+  </body>
 </html>

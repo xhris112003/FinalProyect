@@ -1,46 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.dashboard')
+  <body>
+    <div class="home">
+      <img class="image-icon3" alt="" src="https://i.postimg.cc/xC8QXtqC/19b9bec76dc4f4653eb05135270b836e-1.jpg" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieMatch</title>
-    <link rel="stylesheet" href="/public/css/app.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anek+Gurmukhi&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-</head>
-<header>
-    <nav>
-        <b><a href="{{route('dashboard')}}">MM</a></b>
-        <a href="">PELÍCULAS</a>
-        <a href="">SERIES</a>
-        <a href="">ACERCA DE</a>
-        <div id="buttons">
-            <button onclick="window.location.href='/perfil  '" id="perfil">PERFIL</button>
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-
+      <div class="rectangle-container">
+        <div class="rectangle-container"></div>
+      </div>
+      <div class="mm2">mm</div>
+      <div class="no-sabes-qu">¿No sabes qué película ver?</div>
+      <div class="completa-nuestro-cuestionario">
+        ¡Completa nuestro cuestionario y descubre tu próxima película favorita!
+      </div>
+      <button class="group-button">
+        <div class="rectangle3"></div>
+        <div class="iniciar-cuestionario-wrapper">
+          <div class="iniciar-cuestionario">INICIAR CUESTIONARIO</div>
         </div>
-    </nav>
-</header>
+      </button>
+      <div class="vector-parent">
 
-<body>
-    <div id="BodyText">
-        <p>¿No sabes qué película ver? </p>
-        <p> ¡Completa nuestro cuestionario y</p>
-        <p>descubre tu próxima película favorita!</p>
-        <button id="cuestionario">INICIAR CUESTIONARIO</button>
+        <div class="pelculas-group">
+          <a class="pelculas1">Películas</a>
+          <a class="acerca-de1">Acerca de </a>
+          <a class="series1">Series</a>
+        </div>
+        <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-parent1">
+          <div class="rectangle4"></div>
+          <div class="logout-wrapper">
+            <div class="logout">LOGOUT</div>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST">
+              @csrf
+            </form>
+          </div>
+        </button>
+        <button onclick="window.location.href='/perfil'" class="rectangle-parent2">
+          <div class="rectangle4"></div>
+          <div class="logout-wrapper">
+            <div class="logout">PERFIL</div>
+          </div>
+        </button>
+      </div>
+      <img
+        class="logovectorizado-v1-page-0001-r-icon"
+        alt=""
+        src="https://i.postimg.cc/6pY2yNCX/352a7db08063942502e289527485e558.png"
+      />
     </div>
-</body>
-
+  </body>
 </html>

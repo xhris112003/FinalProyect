@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+:root {
+  /* fonts */
+  --font-anek-gurmukhi: "Anek Gurmukhi";
+  --font-roboto: Roboto;
+  --font-inter: Inter;
+
+  /* font sizes */
+  --font-size-xl: 20px;
+  --font-size-base: 16px;
+  --font-size-28xl: 47px;
+  --font-size-31xl: 50px;
+  --font-size-21xl: 40px;
+
+  /* Colors */
+  --fondo-ocsuro: #1e1e1e;
+  --color-gray-100: rgba(0, 0, 0, 0.5);
+  --color-lavender: #ccddee;
+  --letras: #d8e0e8;
+  --color-white: #fff;
+  --primario: #00c030;
+  --color-lightslategray: #899aab;
+  --color-form:#272E39;
+
+  /* border radiuses */
+  --br-8xs: 5px;
+  --br-9xs: 4px;
+  --br-10xs: 3px;
+}
