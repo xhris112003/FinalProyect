@@ -109,7 +109,7 @@
   border-radius: var(--br-8xs);
   width: 27.25rem;
   height: 2.63rem;
-  
+
 }
 .group-item::placeholder{
   font-family: var(--font-anek-gurmukhi);
