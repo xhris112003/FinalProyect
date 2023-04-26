@@ -11,13 +11,16 @@
               <a class="series">Series</a>
             </div>
             <div class="group-parent">
-              <button class="rectangle-parent">
+              <button onclick="window.location.href='/profile'" class="rectangle-parent">
                 <div class="rectangle"></div>
                 <div class="logout-wrapper">
                   <div class="logout">PERFIL</div>
                 </div>
               </button>
-              <button class="rectangle-group">
+              <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
                 <div class="rectangle1"></div>
                 <div class="logout-container">
                   <div class="logout1">LOGOUT</div>

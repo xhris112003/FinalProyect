@@ -29,9 +29,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::get('/perfil', function () {
+Route::get('/profile', function () {
     return view('profile');
-})->name('perfil');
+})->name('profile');
 
 
 Auth::routes();

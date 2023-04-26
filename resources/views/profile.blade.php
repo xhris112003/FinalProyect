@@ -1,57 +1,83 @@
-@extends('layouts.profile')
-  <body>
-    <div class="perfil">
-      <div class="rectangle-parent">
-        <div class="rectangle-parent"></div>
-      </div>
-      <div class="nav-parent">
-
-        <div class="pelculas-parent">
-          <a class="pelculas">Películas</a>
-          <a class="acerca-de">Acerca de </a>
-          <a class="series">Series</a>
+@extends('layouts.profileTpl')
+<body>
+    <div class="desktop-1">
+      <div class="desktop-1-inner">
+        <div class="frame-wrapper">
+          <div class="mm-parent">
+            <a href="{{ route('dashboard') }}" class="mm">mm</a>
+            <div class="pelculas-parent">
+              <a class="pelculas">Películas</a>
+              <a class="acerca-de">Acerca de </a>
+              <a class="series">Series</a>
+            </div>
+            <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="group-wrapper">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                    @csrf
+                </form>
+                <div class="rectangle-parent">
+                <div class="rectangle"></div>
+                <div class="logout-wrapper">
+                  <div class="logout">LOGOUT</div>
+                </div>
+              </div>
+            </button>
+            <button class="image-3-wrapper">
+              <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+            </button>
+          </div>
         </div>
-        <a class="mm1" href="/dashboard">mm</a>
-        <div class="rectangle-group">
-          <button class="rectangle1"></button>
-          <form id="logout-form" action="{{ route('logout') }}" method="POST">
-              @csrf
-          </form>
-          <button class="perfil1" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">LOGOUT</button>
+      </div>
+      <div class="frame-parent">
+        <div class="profile-parent">
+          <img class="profile-icon" alt="" src="https://i.postimg.cc/sDTGqgJt/823f515c-8143-4044-8f13-85ea1ef58f3a-16-9-discover-aspect-ratio-default-0.jpg" />
+
+          <div class="natalie-gmez">NATALIE GÓMEZ</div>
+        </div>
+        <div class="datos-personales-parent">
+          <div class="datos-personales">Datos Personales:</div>
+          <div class="correo-electrnico-ngomezcep-container">
+            <p class="correo-electrnico-ngomezcep">
+              <span class="correo-electrnico">Correo electrónico: </span>
+              <span>ngomez.cep@gmail.com</span>
+            </p>
+            <p class="correo-electrnico-ngomezcep">
+              <span class="correo-electrnico">Sexo: </span>
+              <span>Femenino </span>
+            </p>
+            <p class="ubicacin-barcelona">Ubicación: Barcelona</p>
+          </div>
+          <button class="edit-profile">
+            <div class="edit-profile-child"></div>
+            <b class="edit-profile1">Edit profile</b>
+          </button>
+        </div>
+        <div class="estresado-parent">
+          <button class="estresado">
+            <div class="estresado-inner">
+              <div class="instance-child"></div>
+            </div>
+            <div class="boton">PREFERENCIAS</div>
+          </button>
+          <button class="estresado1">
+            <div class="estresado-inner">
+              <div class="instance-child"></div>
+            </div>
+            <div class="boton">CUESTIONARIOS REALIZADOS</div>
+          </button>
         </div>
       </div>
-      <div class="description">Tus Favoritos</div>
-      <div class="description1">
-        <p class="correo-electrnico-ngomezcep">
-          <span class="correo-electrnico">Correo electrónico: </span>
-          <span>ngomez.cep@gmail.com</span>
-        </p>
-        <p class="correo-electrnico-ngomezcep">
-          <span class="correo-electrnico">Sexo: </span>
-          <span>Femenino </span>
-        </p>
-        <p class="ubicacin-barcelona">Ubicación: Barcelona</p>
+      <div class="desktop-1-child">
+        <div class="frame-group">
+          <div class="description-wrapper">
+            <div class="datos-personales">Tus Favoritos</div>
+          </div>
+          <div class="image-parent">
+            <a class="image"> </a>
+            <a class="image1"> </a>
+            <a class="image2"> </a>
+          </div>
+        </div>
       </div>
-      <img class="image-icon" alt="" src="https://i.postimg.cc/DZSCY4JZ/4165ceef91b1fd536ed92178e3e284d9.jpg" />
-
-      <img class="image-icon1" alt="" src="https://i.postimg.cc/8PxrhJD4/abf3fb5d88365be6739bb569d8259b76.jpg" />
-
-      <img class="image-icon2" alt="" src="https://i.postimg.cc/kX2TJbfv/452420e41bb5b2f260139b9ccf3f8478.jpg" />
-
-      <div class="description2">Datos personales</div>
-      <div class="estresado">
-        <button class="estresado-inner">
-          <div class="instance-child"></div>
-        </button>
-        <div class="boton">CUESTIONARIOS REALIZADOS</div>
-      </div>
-      <div class="estresado1">
-        <button class="estresado-inner">
-          <button class="instance-item"></button>
-        </button>
-        <div class="boton">PREFERENCIAS</div>
-      </div>
-      <img class="profile-icon" alt="" src="https://i.postimg.cc/ZRXNYCfC/bae0f2fe0bf2f24074022fd8fc52d500.jpg" />
     </div>
   </body>
 </html>
