@@ -1,38 +1,35 @@
-@extends('layouts.cssLogin')
+@extends('layouts.LoginTpl')
 <body>
-    <div class="login">
-      <div class="rectangle2"></div>
-      <img class="bb-icon" alt="" src="https://i.postimg.cc/KcddrZRx/c2f25cea1748625a20598aac1f20ac39.jpg" />
-
-      <form class="group-parent" action="{{ route('login') }}" method="POST">
-        @csrf
-        <div class="vector-parent">
-
-          <div class="iniciar-sesin">INICIAR SESIÓN</div>
-          <input id="email" type="email" class="group-inner" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-          <input id="password" type="password" class="rectangle-input" name="password" required autocomplete="current-password">
-
-
-        </div>
-        <a class="con-nosotros-parent">
-          <div class="con-nosotros">con nosotros</div>
-          <div class="registrate">Registrate</div>
-          <div class="no-tienes-cuenta">¿No tienes cuenta aún?</div>
-        </a>
-        <button type="submit" class="rectangle-container">
-          <div class="rectangle3"></div>
-          <div class="iniciar-sesin-wrapper">
-            <div class="iniciar-sesin1">INICIAR SESIÓN</div>
-          </div>
-        </button>
-      </form>
-      <div class="rectangle2"></div>
-
-      <div class="copyright-1998-2021">
-        Copyright © 1998-2021 MovieMatch Todos los derechos reservados
+    <div class="frame-parent">
+      <div class="mm-wrapper">
+        <a class="mm">mm</a>
       </div>
-      <a class="mm2">mm</a>
+      <div class="group-wrapper">
+        <form class="vector-parent" method="POST" action="{{ route('login') }}">
+          @csrf
+          <img class="group-child" alt="" src="https://i.postimg.cc/8PTD3Ng0/0fa983f7-3a5e-4b1b-afb3-43b9f0f1a328-1682458505348866027.png" />
+
+          <div class="iniciar-sesin1">INICIAR SESIÓN</div>
+          
+          <a class="no-tienes-cuenta-an-parent">
+            <div class="no-tienes-cuenta">¿No tienes cuenta aún?</div>
+            <div class="registrate">Registrate</div>
+            <div class="con-nosotros">con nosotros</div>
+          </a>
+          <input id="email" name="email" class="group-inner" type="email" placeholder="Correo electronico" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+
+          <input id="password" class="group-item" type="password" placeholder="Constraseña" name="password" required autocomplete="current-password"/>
+
+          <button type="submit" class="rectangle-parent">
+            <div class="rectangle"></div>
+            <div class="iniciar-sesin-wrapper">
+              <div class="iniciar-sesin">INICIAR SESIÓN</div>
+            </div>
+          </button>
+
+          
+        </form>
+      </div>
     </div>
   </body>
 </html>
