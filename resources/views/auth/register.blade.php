@@ -1,38 +1,62 @@
-@extends('layouts.cssRegister')
-<header>
-    <nav>
-        <b><a href="{{route('home')}}">MM</a></b>
-    </nav>
-</header>
+@extends('layouts.RegisterTpl')
+  <body>
+    <div class="desktop-2">
+      <div class="mm-wrapper">
+        <a href="{{ route('dashboard') }}" class="mm">mm</a>
+      </div>
+      <div class="desktop-2-inner">
+        <form class="group-wrapper">
+          <div class="rectangle-parent">
+            <div class="group-child"></div>
+            <div class="regstrate">REGÍSTRATE</div>
 
-<body>
-    <div id="login">
-        <form action="{{ route('register') }}" method="POST" id="form">
-            @csrf
-            <b>
-                <p>REGÍSTRATE</p>
-            </b>
-            <input id="email" type="email" placeholder="Correo electronico" name="email" value="{{ old('email') }}" required autocomplete="email">
-            <input id="name" type="text" placeholder="Nombre" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            <input id="password" type="password" placeholder="Contraseña"  name="password" required autocomplete="new-password">
-            <input id="password-confirm" type="password" placeholder="Repite contraseña"  name="password_confirmation" required autocomplete="new-password">
-            <div class="checkbox-wrapper">
-                <div>
-                    <input type="checkbox" id="checkbox" required>
-                    <label for="checkbox">Tengo al menos 16 años y acepto los <b>Términos de
-                            Usar.</b></label>
-                </div>
-                <div>
-                    <input type="checkbox" id="checkbox" required>
-                    <label for="checkbox">Acepto la <b>Política de Privacidad</b> y consiento la
-                        tratamiento de mis datos personales en
-                        de acuerdo con ello.</label>
-                </div>
-
+            <div class="acepto-la-poltica-container">
+              <p class="acepto-la-poltica-de-privacid">
+                <span class="acepto-la">Acepto la</span>
+                <span class="poltica-de-privacidad">
+                  Política de Privacidad</span
+                >
+                <span class="acepto-la"> y consiento la </span>
+              </p>
+              <p class="tratamiento-de-mis">
+                tratamiento de mis datos personales en
+              </p>
+              <p class="tratamiento-de-mis">de acuerdo con ello.</p>
             </div>
-            <button>REGISTRARSE</button>
-        </form>
-    </div>
-</body>
+            <input class="opciones" type="checkbox" required>
+            <div class="tengo-al-menos-container">
+              <p class="acepto-la-poltica-de-privacid">
+                <span class="acepto-la"
+                  >Tengo al menos 16 años y acepto los
+                </span>
+                <span class="poltica-de-privacidad">Términos de </span>
+              </p>
+              <p class="acepto-la-poltica-de-privacid">
+                <span class="poltica-de-privacidad">Usar</span>
+                <span class="acepto-la">.</span>
+              </p>
+            </div>
+            <input class="group-item" placeholder="Correo electrónico" id="email" type="email"  name="email" value="{{ old('email') }}" required autocomplete="email">
 
+            <input id="name" class="group-inner" type="text" placeholder="Nombre de usuario"  name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+            <input id="password" type="password" class="rectangle-input" placeholder="Contraseña" name="password" required autocomplete="new-password">
+
+            <input id="password-confirm" class="group-child1" type="password" placeholder="Repite la contraseña" class="form-control" name="password_confirmation" required autocomplete="new-password">
+
+            <input class="opciones1" type="checkbox" required>
+            <button type="submit" class="rectangle-group">
+              <div class="rectangle"></div>
+              <div class="registrarse-wrapper">
+                <div class="registrarse">registrarse</div>
+              </div>
+            </button>
+
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
+

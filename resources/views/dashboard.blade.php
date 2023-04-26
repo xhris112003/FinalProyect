@@ -10,16 +10,19 @@
               <a class="acerca-de">Acerca de </a>
               <a class="series">Series</a>
             </div>
-            <div class="group-parent">
-              <button class="rectangle-parent">
+            <div  class="group-parent">
+              <button onclick="window.location.href='/profile'" class="rectangle-parent">
                 <div class="rectangle"></div>
                 <div class="logout-wrapper">
                   <div class="logout">PERFIL</div>
                 </div>
               </button>
-              <button class="rectangle-group">
+              <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
                 <div class="rectangle1"></div>
                 <div class="logout-container">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                   <div class="logout1">LOGOUT</div>
                 </div>
               </button>

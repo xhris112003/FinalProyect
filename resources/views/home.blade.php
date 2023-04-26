@@ -10,14 +10,14 @@
               <a class="acerca-de">Acerca de </a>
               <a class="series">Series</a>
             </div>
-            <div onclick="window.location.href='/login'" class="group-parent">
-              <button class="rectangle-parent">
+            <div 1 class="group-parent">
+              <button onclick="window.location.href='/login'" class="rectangle-parent">
                 <div class="rectangle"></div>
                 <div class="iniciar-sesin-wrapper">
                   <div class="iniciar-sesin">INICIAR SESIÓN</div>
                 </div>
               </button>
-              <button class="rectangle-group">
+              <button onclick="window.location.href='/register'" class="rectangle-group">
                 <div class="rectangle1"></div>
                 <div class="registrarse-wrapper">
                   <div class="registrarse">registrarse</div>
