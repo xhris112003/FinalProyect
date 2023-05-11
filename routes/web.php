@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +27,13 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/cuestionario', function () {
+    return view('cuestionario');
+})->name('cuestionario');
 
-Route::get('/profile', function () {
-    return view('profile');
-})->name('profile');
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
 
 Auth::routes();
