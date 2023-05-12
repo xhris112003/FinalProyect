@@ -221,21 +221,21 @@ document.getElementById("movie-form").addEventListener("submit", function (event
   console.log(selectedOptions);
 });
 
-document.getElementById("movie-form").addEventListener("submit", function (event) {
-  var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']");
-  var isChecked = false;
+document.getElementById("search-button").addEventListener("click", function(event) {
+  var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']:checked");
+  var selectedCount = checkboxes.length;
 
-  for (var i = 0; i < checkboxes.length; i++) {
-    if (checkboxes[i].checked) {
-      isChecked = true;
-      break;
-    }
-  }
+  if (selectedCount > 3) {
+    // Mostrar alerta utilizando SweetAlert
+    Swal.fire({
+      title: "¡Alerta!",
+      text: "Solo puedes seleccionar un máximo de 3 emociones",
+      icon: "warning",
+      confirmButtonText: "Aceptar"
+    });
 
-  if (!isChecked) {
-    // Muestra la alerta si no se ha seleccionado ninguna opción
-    alert("Debes seleccionar al menos una opción");
-    
+    event.preventDefault(); // Cancelar el envío del formulario
   }
 });
+
 
