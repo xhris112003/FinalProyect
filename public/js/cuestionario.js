@@ -130,6 +130,7 @@ form.addEventListener("submit", (event) => {
             
               // Agregar el contenedor de detalles al contenedor principal
               detalles.appendChild(cajaDetalles);
+              const modal = document.createElement("div");
                                 // Agregar evento de clic al botón "Ver trailer"
                                 verTrailerBtn.addEventListener("click", function () {
                                     // Realizar la solicitud a la API de TMDb para obtener los videos de la película
@@ -140,7 +141,7 @@ form.addEventListener("submit", (event) => {
                                         const video = data.results[0];
 
                                         if (video) {
-                                          const modal = document.createElement("div");
+                                         
                                           modal.classList.add("modal");
 
                                           // Generar el código del iframe del video de YouTube
