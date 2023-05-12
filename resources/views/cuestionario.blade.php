@@ -53,8 +53,8 @@
 
             <label for="duracion">¿Tienes preferencia por la duración de una película?</label>
             <select id="duracion" name="duracion">
-                <option value="corta">Corta (menos de 90 minutos)</option>
-                <option value="larga">Larga (más de 120 minutos)</option>
+                <option value="corta">Entre 90 y 120 minutos</option>
+                <option value="larga">mas de 120 minutos</option>
                 <option value="indiferente">Indiferente</option>
             </select>
 
@@ -62,8 +62,8 @@
 
             <label for="maraton">¿Te gustaría hacer un maratón de películas?</label>
             <select id="maraton" name="maraton">
-                <option value="si">Sí</option>
                 <option value="no">No</option>
+                <option value="si">Sí</option>
             </select>
         </div>
 
