@@ -6,7 +6,7 @@
           <div class="mm-parent">
           <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
             <div class="pelculas-parent">
-              <a class="pelculas">Películas</a>
+              <a class="pelculas" href="{{route('peliculas')}}">Películas</a>
               <a class="acerca-de">Acerca de </a>
               <a class="series">Series</a>
             </div>
@@ -37,7 +37,7 @@
             ¡Completa nuestro cuestionario y descubre tu próxima película
             favorita!
           </div>
-        
+
           <div class="rectangle-container">
             <div class="rectangle2"></div>
             <div class="iniciar-cuestionario-wrapper">
