@@ -13,6 +13,7 @@
                 </div>
             </div>
         </div>
+        <div class="container">
     <form id="movie-form">
         <label for="sentimiento">¿Cómo te sientes hoy?</label>
         <div class="multiselect">
@@ -72,54 +73,7 @@
         <button type="submit" id="search-button">Buscar películas</button>
     </form>
 </div>
-    <style>
-        body {
-            background-image: url("https://i.postimg.cc/y8CsC6dx/1366-2000.jpg");
-            background-repeat: no-repeat;
-
-        }
-
-        .multiselect {
-            width: 200px;
-        }
-
-        .selectBox {
-            position: relative;
-        }
-
-        .selectBox select {
-            width: 100%;
-            font-weight: bold;
-        }
-
-        .overSelect {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-        }
-
-        #checkboxes {
-            display: none;
-            border: 1px #dadada solid;
-            max-height: 150px;
-            overflow-y: scroll;
-        }
-
-        #checkboxes label {
-            display: block;
-        }
-
-        #checkboxes label:hover {
-            background-color: #1e90ff;
-        }
-
-        .detalles{
-            background-color: white;
-        }
-    </style>
-
+</div>
     <div id="cargando" class="oculto" style="display: none;">
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>
