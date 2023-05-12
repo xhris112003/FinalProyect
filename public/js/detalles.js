@@ -1,14 +1,19 @@
-const apiKey = "7b1aed5e60fd4f6da976d1f8df1e8e7b";
-let urlParams = new URLSearchParams(window.location.search);
+const apiKey = "0202074c6fd19918f230acfa46a461d5";
+
+const urlParams = new URLSearchParams(window.location.search);
 let id = urlParams.get("id");
 
+
+
+
 const url_detalles = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=es`;
-//https://api.themoviedb.org/3/movie/315837?api_key=7b1aed5e60fd4f6da976d1f8df1e8e7b&language=es
+
 window.onload = function () {
   getPelis(url_detalles);
   getRecomendaciones(url_recomendaciones);
 };
 
+console.log(url_detalles)
 function getPelis(url_detalles) {
   fetch(url_detalles)
     .then((res) => res.json())

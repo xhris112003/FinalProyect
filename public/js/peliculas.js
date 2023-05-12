@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
     var currentUrl = window.location.href;
+    
     let url_seleccionada = "";
 
    if (currentUrl.indexOf("estrenos") !== -1) {
@@ -30,13 +31,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
       getPelis(url_seleccionada);
     };
 
-  //  function getPelis(url_seleccionada) {
+   function getPelis(url_seleccionada) {
       fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es`)
         .then((res) => res.json())
         .then((data) => {
           buildHTML(data);
         });
-   // }
+   }
 
     function buildHTML(data) {
 
@@ -102,10 +103,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
         function verDetalles(event) {
             let id = data.results[i].id;
-            window.location.href = "{{ url('/detalles/') }}/" + id;
+
+            window.location.href = '/detalles?id=/' + id;
+
         }
 
-      
+
       }
 
       contenedorCards.appendChild(row);

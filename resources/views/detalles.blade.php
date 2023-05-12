@@ -1,3 +1,4 @@
+@extends('layouts.detallesTpl')
 <body>
     <nav class="navbar sticky-top navbar-expand-lg bg-transparent">
         <div class="container-fluid">
@@ -37,7 +38,8 @@
     <div id="contenedorPerfil"></div>
     <div id="contenedorRecomendacion"></div>
     <footer class="footer">
-        <img src="../src/logo.png">
+        <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+
         <br>
         <p>Copyright 2023 ©</p>
         <div>

@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+
 }
 
 #logo{
@@ -9,8 +10,9 @@ html {
 }
 
 body {
-  background-image: url("../src/fondo.png");
-  background-attachment: fixed;
+    background-image: url("https://i.postimg.cc/mZdC3dLB/fondo.png");
+    background-size: cover;
+    height: 100vh;
 }
 
 .navbar {

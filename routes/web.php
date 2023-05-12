@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,10 @@ Route::get('/peliculas', function () {
     return view('peliculas');
 })->name('peliculas');
 
+Route::get('/detalles', function () {
+    return view('detalles');
+})->name('detalles');
+
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
@@ -35,4 +40,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-Route::get('/detalles/{id}', 'DetallesController@verDetalles');
