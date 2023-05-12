@@ -1,6 +1,7 @@
 const form = document.querySelector('form');
 const listaResultados = document.getElementById('lista-resultados');
 const cargando = document.getElementById('cargando');
+const detalles = document.getElementById('detalles');
 
 const duracionMinima = {
   corta: 0,
@@ -61,6 +62,7 @@ form.addEventListener('submit', (event) => {
       .then(data => {
         totalResults = data.total_results;
         totalPages = data.total_pages;
+        
 
         // Agregar las películas de esta página al array de resultados
         peliculas.push(...data.results);
@@ -76,6 +78,7 @@ form.addEventListener('submit', (event) => {
             peliculasAleatorias.push(peliculas[indiceAleatorio]);
             peliculas.splice(indiceAleatorio, 1);
           }
+         
 
           setTimeout(() => {
             cargando.style.display = 'none';
@@ -90,7 +93,64 @@ form.addEventListener('submit', (event) => {
               const peliculaImagen = document.createElement('img');
               peliculaImagen.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`;
               peliculaImagen.alt = pelicula.title;
+              console.log(pelicula.id)
               peliculaItem.appendChild(peliculaImagen);
+              
+                peliculaItem.addEventListener("click", function(){
+
+                  console.log(pelicula.trailer)
+                  
+                 // Crear elementos para la información de la película
+  const cajaDetalles = document.createElement("div");
+  const peliculaTitulo = document.createElement("h2");
+  const p = document.createElement("p");
+  const votoTexto = document.createElement("p");
+  const verTrailerBtn = document.createElement("button");
+
+  // Agregar texto y clases a los elementos
+  cajaDetalles.classList.add("detalles");
+  peliculaTitulo.textContent = pelicula.title;
+  p.textContent = pelicula.overview;
+  votoTexto.textContent = "Vote average: " + pelicula.vote_average;
+  verTrailerBtn.textContent = "Ver trailer";
+  verTrailerBtn.classList.add("ver-trailer-btn");
+
+  // Agregar elementos al contenedor de detalles
+  cajaDetalles.appendChild(peliculaTitulo);
+  cajaDetalles.appendChild(p);
+  cajaDetalles.appendChild(votoTexto);
+  cajaDetalles.appendChild(verTrailerBtn);
+
+  // Agregar el contenedor de detalles al contenedor principal
+  detalles.appendChild(cajaDetalles);
+
+  // Agregar evento de clic al botón "Ver trailer"
+  verTrailerBtn.addEventListener("click", function() {
+    // Crear el modal y agregar el video del trailer
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe src="https://www.youtube.com/embed/${pelicula.trailer}" frameborder="0" allowfullscreen></iframe>
+      </div>
+    `
+    ;
+
+    // Agregar el modal al DOM
+    document.body.appendChild(modal);
+
+    // Agregar evento de clic al botón de cerrar el modal
+    const closeBtn = modal.querySelector(".close");
+    closeBtn.addEventListener("click", function() {
+      modal.remove();
+
+      
+    });
+  });
+});
+
+              
 
               // Crear elemento de título de película
               const peliculaTitulo = document.createElement('h2');

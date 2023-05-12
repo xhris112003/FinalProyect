@@ -1,13 +1,24 @@
 @extends('layouts.cuestionarioTpl')
 
 <body>
-
-
+<div class="home">
+    <div class="home-inner">
+        <div class="frame-wrapper">
+            <div class="mm-parent">
+                <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+                
+                </div>
+                <button class="image-3-wrapper">
+                    <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+                </button>
+            </div>
+        </div>
+    </div>
     <form id="movie-form">
         <label for="sentimiento">¿Cómo te sientes hoy?</label>
         <div class="multiselect">
             <div class="selectBox" onclick="showCheckboxes()">
-                <select id="sentimiento" >
+                <select id="sentimiento">
                     <option>Seleccionar emociones</option>
                 </select>
                 <div class="overSelect"></div>
@@ -61,8 +72,14 @@
 
         <button type="submit" id="search-button">Buscar películas</button>
     </form>
-
+</div>
     <style>
+        body {
+            background-image: url("https://i.postimg.cc/y8CsC6dx/1366-2000.jpg");
+            background-repeat: no-repeat;
+
+        }
+
         .multiselect {
             width: 200px;
         }
@@ -98,12 +115,17 @@
         #checkboxes label:hover {
             background-color: #1e90ff;
         }
+
+        .detalles{
+            background-color: white;
+        }
     </style>
 
     <div id="cargando" class="oculto" style="display: none;">
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>
     <ul id="lista-resultados"></ul>
+    <div id="detalles"> </div>
 
 </body>
 <script src="{{ asset('js/cuestionario.js') }}"></script>

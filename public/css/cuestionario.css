@@ -11,6 +11,18 @@
   align-items: center;
 }
 
+body {
+  background-image: url("https://i.postimg.cc/y8CsC6dx/1366-2000.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; 
+}
+
+
+
+#logo {
+    width: 55px;
+}
 .mm {
   position: relative;
   font-weight: 800;
