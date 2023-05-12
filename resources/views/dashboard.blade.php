@@ -5,6 +5,7 @@
         <div class="frame-wrapper">
           <div class="mm-parent">
             <div class="mm">mm</div>
+            <div class="mm"><a href="{{route('dashboard')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"></a></div>
             <div class="pelculas-parent">
               <a class="pelculas">Películas</a>
               <a class="acerca-de">Acerca de </a>

@@ -3,6 +3,11 @@ body {
   line-height: normal;
 }
 
+#logo {
+  width: 55px;
+}
+
+
 :root {
   /* fonts */
   --font-inter: Inter;

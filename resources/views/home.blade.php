@@ -4,7 +4,7 @@
       <div class="home-inner">
         <div class="frame-wrapper">
           <div class="mm-parent">
-            <div class="mm">mm</div>
+          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
             <div class="pelculas-parent">
               <a class="pelculas">Películas</a>
               <a class="acerca-de">Acerca de </a>
@@ -20,7 +20,7 @@
               <button onclick="window.location.href='/register'" class="rectangle-group">
                 <div class="rectangle1"></div>
                 <div class="registrarse-wrapper">
-                  <div class="registrarse">registrarse</div>
+                  <div class="registrarse">Registrarse</div>
                 </div>
               </button>
             </div>
