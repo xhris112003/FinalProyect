@@ -1,8 +1,5 @@
 @extends('layouts.cuestionarioTpl')
-
 <body>
-
-
     <form id="movie-form">
         <label for="sentimiento">¿Cómo te sientes hoy?</label>
         <div class="multiselect">
