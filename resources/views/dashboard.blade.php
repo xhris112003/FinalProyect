@@ -44,7 +44,7 @@
           <div class="rectangle-container">
             <div class="rectangle2"></div>
             <div class="iniciar-cuestionario-wrapper">
-              <div class="iniciar-cuestionario">INICIAR CUESTIONARIO</div>
+            <a href="{{route('cuestionario')}}" class="iniciar-cuestionario">INICIAR CUESTIONARIO</a>
             </div>
           </div>
         </div>

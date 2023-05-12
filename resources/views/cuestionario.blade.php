@@ -1,19 +1,19 @@
 @extends('layouts.cuestionarioTpl')
-
 <body>
-<div class="home">
-    <div class="home-inner">
-        <div class="frame-wrapper">
-            <div class="mm-parent">
-                <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
-                
+    <div class="home">
+        <div class="home-inner">
+            <div class="frame-wrapper">
+                <div class="mm-parent">
+                    <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+
+                    </div>
+                    <button class="image-3-wrapper">
+                        <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+                    </button>
                 </div>
-                <button class="image-3-wrapper">
-                    <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
-                </button>
             </div>
         </div>
-    </div>
+        <div class="container">
     <form id="movie-form">
         <label for="sentimiento">¿Cómo te sientes hoy?</label>
         <div class="multiselect">
@@ -54,8 +54,8 @@
 
             <label for="duracion">¿Tienes preferencia por la duración de una película?</label>
             <select id="duracion" name="duracion">
-                <option value="corta">Corta (menos de 90 minutos)</option>
-                <option value="larga">Larga (más de 120 minutos)</option>
+                <option value="corta">Entre 90 y 120 minutos</option>
+                <option value="larga">mas de 120 minutos</option>
                 <option value="indiferente">Indiferente</option>
             </select>
 
@@ -63,8 +63,8 @@
 
             <label for="maraton">¿Te gustaría hacer un maratón de películas?</label>
             <select id="maraton" name="maraton">
-                <option value="si">Sí</option>
                 <option value="no">No</option>
+                <option value="si">Sí</option>
             </select>
         </div>
 
@@ -73,54 +73,7 @@
         <button type="submit" id="search-button">Buscar películas</button>
     </form>
 </div>
-    <style>
-        body {
-            background-image: url("https://i.postimg.cc/y8CsC6dx/1366-2000.jpg");
-            background-repeat: no-repeat;
-
-        }
-
-        .multiselect {
-            width: 200px;
-        }
-
-        .selectBox {
-            position: relative;
-        }
-
-        .selectBox select {
-            width: 100%;
-            font-weight: bold;
-        }
-
-        .overSelect {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-        }
-
-        #checkboxes {
-            display: none;
-            border: 1px #dadada solid;
-            max-height: 150px;
-            overflow-y: scroll;
-        }
-
-        #checkboxes label {
-            display: block;
-        }
-
-        #checkboxes label:hover {
-            background-color: #1e90ff;
-        }
-
-        .detalles{
-            background-color: white;
-        }
-    </style>
-
+</div>
     <div id="cargando" class="oculto" style="display: none;">
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>

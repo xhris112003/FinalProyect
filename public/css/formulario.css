@@ -1,7 +1,8 @@
 #movie-form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
+    padding-top: 5em;
 }
 
 label {
@@ -92,4 +93,56 @@ button:hover {
 
 .formulario-oculto {
     display: none;
-  }
+}
+
+.detalles {
+    background-color: white;
+}
+
+.multiselect {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+    display: none;
+    position: absolute;
+    border: 1px solid #dadada;
+    max-height: 150px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+#checkboxes label {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#checkboxes label:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}

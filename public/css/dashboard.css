@@ -209,6 +209,8 @@
   text-transform: uppercase;
   display: inline-block;
   width: 12.13rem;
+  text-decoration: none;
+  color: white;
 }
 .iniciar-cuestionario-wrapper {
   position: absolute;

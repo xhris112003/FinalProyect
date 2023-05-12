@@ -184,7 +184,7 @@ function buildRecomendaciones(data) {
 
     function verDetalles(event) {
       let id = data.results[i].id;
-      window.location.href = "detalles.html?id=" + id;
+      window.location.href = "/detalles?id=/" + id;
     }
 
     contenedorRecomendacion.appendChild(row1);
