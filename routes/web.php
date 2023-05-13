@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+<<<<<<< HEAD
 use Illuminate\Http\Request;
 use App\Models\UserForm;
+=======
+>>>>>>> 2937e6999d5d2d1df8185a78a52398fd55af84c1
 
 
 /*
