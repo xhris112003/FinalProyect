@@ -44,8 +44,7 @@ form.addEventListener("submit", (event) => {
     const url =
         `https://api.themoviedb.org/3/discover/movie?api_key=0202074c6fd19918f230acfa46a461d5&language=es-ES&include_adult=false&include_video=false` +
         `&certification_country=US&certification=${clasificacion}` +
-        `&sort_by=popularity.desc&with_runtime.gte=${
-            duracionMinima[opciones.duracion]
+        `&sort_by=popularity.desc&with_runtime.gte=${duracionMinima[opciones.duracion]
         }` +
         `&with_genres=${generos[opciones.sentimiento]}` +
         `&vote_count.gte=1000`;
@@ -105,6 +104,8 @@ form.addEventListener("submit", (event) => {
 
                             const p = document.createElement("p");
                             const votoTexto = document.createElement("p");
+                            const detalles = document.getElementById("detalles");
+
                             const verTrailerBtn =
                                 document.createElement("button");
                             const modal = document.createElement("div");
@@ -123,7 +124,7 @@ form.addEventListener("submit", (event) => {
                                     "Vote average: " + pelicula.vote_average;
                                 verTrailerBtn.textContent = "Ver trailer";
                                 verTrailerBtn.classList.add("ver-trailer-btn");
-
+                                detalles.classList.add("detalles");
                                 // Agregar elementos al contenedor de detalles
                                 detalles.appendChild(peliculaTitulo);
                                 detalles.appendChild(p);
@@ -132,56 +133,25 @@ form.addEventListener("submit", (event) => {
 
                                 // Agregar el contenedor de detalles al contenedor principal
 
-                                // Agregar evento de clic al botón "Ver trailer"
-                                verTrailerBtn.addEventListener( "click", function () {
-                                        modalContent.innerHTML = "";
-                                        // Realizar la solicitud a la API de TMDb para obtener los videos de la película
-                                        fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`)
-                                            .then((response) => response.json())
-                                            .then((data) => {
-                                                // Obtener el primer video de la lista de resultados
-                                                iframe.innerHTML = "";
-                                                const video = data.results[0];
+                                verTrailerBtn.addEventListener("click", function () {
+                                    fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`)
+                                        .then((response) => response.json())
+                                        .then((data) => {
+                                            const video = data.results[0];
 
-                                                if (video) {
-                                                    modal.classList.add("modal");
+                                            if (video) {
+                                                const trailerURL = `https://www.youtube.com/watch?v=${video.key}`;
 
-                                                    // Generar el código del iframe del video de YouTube
-                                                    const iframeSrc = `https://www.youtube.com/embed/${video.key}`;
-                                                    
-                                                    iframe.src = iframeSrc;
-                                                    iframe.frameBorder = "0";
-                                                    iframe.allowFullscreen = true;
-
-                                                    const modalContent =document.createElement( "div");
-                                                    modalContent.classList.add("modal-content");
-                                                    modalContent.appendChild(iframe);
-                                                    modal.appendChild(modalContent);
-
-                                                    // Agregar el modal al DOM
-                                                    document.body.appendChild(modal);
-
-                                                    // Agregar evento de clic al botón de cerrar el modal
-                                                    const closeBtn =
-                                                        modal.querySelector(".close");
-                                                    closeBtn.addEventListener("click", function () {
-                                                            modal.remove();
-                                                        }
-                                                    );
-                                                } else {
-                                                    console.log(
-                                                        "No se encontraron videos para la película"
-                                                    );
-                                                }
-                                            })
-                                            .catch((error) => {
-                                                console.log(
-                                                    "Error al obtener los videos de la película",
-                                                    error
-                                                );
-                                            });
-                                    }
-                                );
+                                                // Abrir una nueva ventana o pestaña con la URL del trailer
+                                                window.open(trailerURL, "_blank");
+                                            } else {
+                                                console.log("No se encontraron videos para la película");
+                                            }
+                                        })
+                                        .catch((error) => {
+                                            console.log("Error al obtener los videos de la película", error);
+                                        });
+                                });
                             });
 
                             // Crear elemento de título de película
@@ -254,23 +224,36 @@ document
         console.log(selectedOptions);
     });
 
-document
-    .getElementById("movie-form")
-    .addEventListener("submit", function (event) {
-        var checkboxes = document.querySelectorAll(
-            "#checkboxes input[type='checkbox']"
-        );
-        var isChecked = false;
+document.getElementById("search-button").addEventListener("click", function (event) {
+    var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']:checked");
+    var selectedCount = checkboxes.length;
 
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                isChecked = true;
-                break;
-            }
-        }
+    if (selectedCount > 3) {
+        // Mostrar alerta utilizando SweetAlert
+        Swal.fire({
+            title: "¡Alerta!",
+            text: "Solo puedes seleccionar un máximo de 3 emociones",
+            icon: "warning",
+            confirmButtonText: "Aceptar"
+        });
 
-        if (!isChecked) {
-            // Muestra la alerta si no se ha seleccionado ninguna opción
-            alert("Debes seleccionar al menos una opción");
-        }
-    });
+        event.preventDefault(); // Cancelar el envío del formulario
+    }
+});
+
+document.getElementById("search-button").addEventListener("click", function (event) {
+    var checkboxes = document.querySelectorAll("#checkboxes input[type='checkbox']:checked");
+    var selectedCount = checkboxes.length;
+
+    if (selectedCount == 0) {
+        // Mostrar alerta utilizando SweetAlert
+        Swal.fire({
+            title: "¡Alerta!",
+            text: "Debes seleccionar minimo una!",
+            icon: "warning",
+            confirmButtonText: "Aceptar"
+        });
+
+        event.preventDefault(); // Cancelar el envío del formulario
+    }
+});
