@@ -1,0 +1,148 @@
+#movie-form {
+    max-width: 500px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    padding-top: 5em;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+select,
+button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    width: 50%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilos generales */
+#lista-resultados {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista-resultados li {
+    width: 200px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#lista-resultados li img {
+    width: 150px;
+    height: 225px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+#lista-resultados li h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+/* Estilos de enlaces */
+#lista-resultados li a {
+    text-decoration: none;
+    color: #333;
+}
+
+#lista-resultados li a:hover {
+    text-decoration: underline;
+}
+
+#cargando {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#cargando img {
+    width: 50px;
+    height: 50px;
+}
+
+.lista-animada {
+    opacity: 1 !important;
+}
+
+.formulario-oculto {
+    display: none;
+}
+
+.detalles {
+    background-color: white;
+}
+
+.multiselect {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.overSelect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+#checkboxes {
+    display: none;
+    position: absolute;
+    border: 1px solid #dadada;
+    max-height: 150px;
+    overflow-y: scroll;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+#checkboxes label {
+    display: block;
+    padding: 8px;
+    cursor: pointer;
+}
+
+#checkboxes label:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}

@@ -1,0 +1,198 @@
+.mm {
+  text-decoration: none;
+  position: relative;
+  letter-spacing: 1px;
+  line-height: 1.06rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  width: 5.75rem;
+  height: 3.19rem;
+  flex-shrink: 0;
+}
+.mm-wrapper {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-xl);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.group-child {
+  width: 33.38rem;
+  height: 28rem;
+}
+.group-child,
+.iniciar-sesin,
+.rectangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rectangle {
+  border-radius: var(--br-10xs);
+  background-color: var(--primario);
+  width: 9.56rem;
+  height: 2.25rem;
+}
+.iniciar-sesin {
+  font-size: var(--font-size-base);
+  letter-spacing: 1.2px;
+  line-height: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font-anek-gurmukhi);
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+  width: 8.8rem;
+}
+.iniciar-sesin-wrapper {
+  position: absolute;
+  top: 0.81rem;
+  left: 0.38rem;
+  width: 8.8rem;
+  height: 1rem;
+}
+.rectangle-parent {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: absolute;
+  top: 22.94rem;
+  left: 11.91rem;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  width: 9.56rem;
+  height: 2.25rem;
+}
+.con-nosotros,
+.no-tienes-cuenta,
+.registrate {
+  position: relative;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  font-family: var(--font-anek-gurmukhi);
+  color: var(--color-lightslategray);
+  text-align: left;
+  display: inline-block;
+  width: 10.38rem;
+  height: 1.06rem;
+  flex-shrink: 0;
+}
+.con-nosotros,
+.registrate {
+  color: var(--color-white);
+  width: 4.56rem;
+}
+.con-nosotros {
+  color: var(--color-lightslategray);
+  width: 6.38rem;
+}
+.no-tienes-cuenta-an-parent {
+  text-decoration: none;
+  position: absolute;
+  top: 20.44rem;
+  left: 5.97rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.group-item {
+  border: 0;
+  background-color: var(--color-lavender);
+  position: absolute;
+  top: 14.38rem;
+  left: 3.03rem;
+  border-radius: var(--br-8xs);
+  width: 27.25rem;
+  height: 2.63rem;
+
+}
+.group-item::placeholder{
+  font-family: var(--font-anek-gurmukhi);
+  font-size: var(--font-size-xl);
+
+}
+.contrasea {
+  position: absolute;
+  top: 15.13rem;
+  left: 3.78rem;
+  color: var(--color-gray-200);
+  text-align: left;
+}
+.group-inner {
+  border: 0;
+  background-color: var(--color-lavender);
+  position: absolute;
+  top: 8.44rem;
+  left: 3.03rem;
+  border-radius: var(--br-8xs);
+  width: 27.25rem;
+  height: 2.5rem;
+}
+.group-inner{
+  font-family: var(--font-anek-gurmukhi);
+  font-size: var(--font-size-xl);
+}
+.correo-electrnico,
+.iniciar-sesin1 {
+  position: absolute;
+  top: 9.19rem;
+  left: 3.53rem;
+  font-size: var(--font-size-xl);
+  font-family: var(--font-anek-gurmukhi);
+  color: var(--color-gray-200);
+  text-align: left;
+}
+.iniciar-sesin1 {
+  top: 1.81rem;
+  left: 4.97rem;
+  font-size: var(--font-size-31xl);
+  font-weight: 800;
+  font-family: var(--font-inter);
+  color: var(--color-white);
+  display: inline-block;
+  width: 24.31rem;
+  height: 3.13rem;
+}
+.vector-parent {
+  position: relative;
+  width: 33.38rem;
+  height: 28rem;
+  flex-shrink: 0;
+}
+.frame-parent,
+.group-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.group-wrapper {
+  align-self: stretch;
+  height: 51rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.frame-parent {
+  position: relative;
+  width: 100%;
+  height: 64rem;
+  overflow: hidden;
+  padding: var(--padding-3xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: var(--gap-3xs);
+  background-image: url(https://i.postimg.cc/KcddrZRx/c2f25cea1748625a20598aac1f20ac39.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: left;
+  font-size: var(--font-size-31xl);
+  color: var(--color-gainsboro);
+  font-family: var(--font-anek-gurmukhi);
+}
+

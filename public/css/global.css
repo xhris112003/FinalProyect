@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  line-height: normal;
+}
+
+#logo {
+  width: 55px;
+}
+
+
+:root {
+  /* fonts */
+  --font-inter: Inter;
+  --font-anek-gurmukhi: "Anek Gurmukhi";
+  --font-roboto: Roboto;
+
+  /* font sizes */
+  --font-size-31xl: 3.13rem;
+  --font-size-xl: 1.25rem;
+  --font-size-base: 1rem;
+  --font-size-21xl: 2.5rem;
+  --font-size-28xl: 2.94rem;
+
+  /* Colors */
+  --color-white: #fff;
+  --color-gray-100: #14181c;
+  --color-gray-200: rgba(0, 0, 0, 0.5);
+  --color-lavender: #ccddee;
+  --color-lightslategray: #899aab;
+  --primario: #00c030;
+  --color-gainsboro: #d8e0e8;
+
+  /* Gaps */
+  --gap-3xs: 0.63rem;
+
+  /* Paddings */
+  --padding-3xs: 0.63rem;
+  --padding-xl: 1.25rem;
+  --padding-31xl: 3.13rem;
+
+  /* border radiuses */
+  --br-8xs: 5px;
+  --br-10xs: 3px;
+}
