@@ -1,7 +1,6 @@
 const form = document.querySelector("form");
 const listaResultados = document.getElementById("lista-resultados");
 const cargando = document.getElementById("cargando");
-const detalles = document.getElementById("detalles");
 
 const duracionMinima = {
     corta: 0,
@@ -102,97 +101,104 @@ form.addEventListener("submit", (event) => {
                             peliculaImagen.alt = pelicula.title;
                             peliculaItem.appendChild(peliculaImagen);
 
+                            // Crear elementos para la información de la película
+
+                            const p = document.createElement("p");
+                            const votoTexto = document.createElement("p");
+                            const verTrailerBtn =
+                                document.createElement("button");
+                            const modal = document.createElement("div");
+                            const modalContent = document.createElement("div");
+                            const iframe = document.createElement("iframe");
                             //Función seleccionar la película y abrir detalles
                             peliculaItem.addEventListener("click", function () {
-                             console.log("hool")
-                             console.log(pelicula.trailer)
+                                const detalles =
+                                    document.getElementById("detalles");
+                                detalles.innerHTML = "";
+                                // Agregar texto y clases a los elementos
 
-                             // Crear elementos para la información de la película
-              const cajaDetalles = document.createElement("div");
-              const peliculaTitulo = document.createElement("h2");
-              const p = document.createElement("p");
-              const votoTexto = document.createElement("p");
-              const verTrailerBtn = document.createElement("button");
-            
-              // Agregar texto y clases a los elementos
-              cajaDetalles.classList.add("detalles");
-              peliculaTitulo.textContent = pelicula.title;
-              p.textContent = pelicula.overview;
-              votoTexto.textContent = "Vote average: " + pelicula.vote_average;
-              verTrailerBtn.textContent = "Ver trailer";
-              verTrailerBtn.classList.add("ver-trailer-btn");
-            
-              // Agregar elementos al contenedor de detalles
-              cajaDetalles.appendChild(peliculaTitulo);
-              cajaDetalles.appendChild(p);
-              cajaDetalles.appendChild(votoTexto);
-              cajaDetalles.appendChild(verTrailerBtn);
-            
-              // Agregar el contenedor de detalles al contenedor principal
-              detalles.appendChild(cajaDetalles);
-              const modal = document.createElement("div");
+                                peliculaTitulo.textContent = pelicula.title;
+                                p.textContent = pelicula.overview;
+                                votoTexto.textContent =
+                                    "Vote average: " + pelicula.vote_average;
+                                verTrailerBtn.textContent = "Ver trailer";
+                                verTrailerBtn.classList.add("ver-trailer-btn");
+
+                                // Agregar elementos al contenedor de detalles
+                                detalles.appendChild(peliculaTitulo);
+                                detalles.appendChild(p);
+                                detalles.appendChild(votoTexto);
+                                detalles.appendChild(verTrailerBtn);
+
+                                // Agregar el contenedor de detalles al contenedor principal
+
                                 // Agregar evento de clic al botón "Ver trailer"
-                                verTrailerBtn.addEventListener("click", function () {
-                                    // Realizar la solicitud a la API de TMDb para obtener los videos de la película
-                                    fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`)
-                                      .then(response => response.json())
-                                      .then(data => {
-                                        // Obtener el primer video de la lista de resultados
-                                        const video = data.results[0];
+                                verTrailerBtn.addEventListener( "click", function () {
+                                        modalContent.innerHTML = "";
+                                        // Realizar la solicitud a la API de TMDb para obtener los videos de la película
+                                        fetch(
+                                            `https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`
+                                        )
+                                            .then((response) => response.json())
+                                            .then((data) => {
+                                                // Obtener el primer video de la lista de resultados
+                                                iframe.innerHTML = "";
+                                                const video = data.results[0];
 
-                                        if (video) {
-                                         
-                                          modal.classList.add("modal");
+                                                if (video) {
+                                                    modal.classList.add("modal");
 
-                                          // Generar el código del iframe del video de YouTube
-                                          const iframeSrc = `https://www.youtube.com/embed/${video.key}`;
-                                          const iframe = document.createElement("iframe");
-                                          iframe.src = iframeSrc;
-                                          iframe.frameBorder = "0";
-                                          iframe.allowFullscreen = true;
+                                                    // Generar el código del iframe del video de YouTube
+                                                    const iframeSrc = `https://www.youtube.com/embed/${video.key}`;
+                                                    
+                                                    iframe.src = iframeSrc;
+                                                    iframe.frameBorder = "0";
+                                                    iframe.allowFullscreen = true;
 
-                                          const modalContent = document.createElement("div");
-                                          modalContent.classList.add("modal-content");
-                                          modalContent.appendChild(iframe);
+                                                    const modalContent =document.createElement( "div");
+                                                    modalContent.classList.add("modal-content");
+                                                    modalContent.appendChild(iframe);
+                                                    modal.appendChild(modalContent);
 
-                                          modal.appendChild(modalContent);
+                                                    // Agregar el modal al DOM
+                                                    document.body.appendChild(modal);
 
-                                          // Agregar el modal al DOM
-                                          document.body.appendChild(modal);
-
-                                          // Agregar evento de clic al botón de cerrar el modal
-                                          const closeBtn = modal.querySelector(".close");
-                                          closeBtn.addEventListener("click", function () {
-                                            modal.remove();
-                                          });
-                                        } else {
-                                          console.log("No se encontraron videos para la película");
-                                        }
-                                      })
-                                      .catch(error => {
-                                        console.log("Error al obtener los videos de la película", error);
-                                      });
-                                  });
+                                                    // Agregar evento de clic al botón de cerrar el modal
+                                                    const closeBtn =
+                                                        modal.querySelector(".close");
+                                                    closeBtn.addEventListener("click", function () {
+                                                            modal.remove();
+                                                        }
+                                                    );
+                                                } else {
+                                                    console.log(
+                                                        "No se encontraron videos para la película"
+                                                    );
+                                                }
+                                            })
+                                            .catch((error) => {
+                                                console.log(
+                                                    "Error al obtener los videos de la película",
+                                                    error
+                                                );
+                                            });
+                                    }
+                                );
                             });
 
-
-
                             // Crear elemento de título de película
-                            const peliculaTitulo = document.createElement('h2');
+                            const peliculaTitulo = document.createElement("h2");
                             peliculaTitulo.textContent = pelicula.title;
                             peliculaItem.appendChild(peliculaTitulo);
 
                             // Agregar película a la lista de resultados
 
                             listaResultados.appendChild(peliculaItem);
-
                         });
                     }, 5000);
-                    
-
                 }
             })
-            .catch(error => console.log(error));
+            .catch((error) => console.log(error));
     };
 
     // Iniciar la búsqueda en la página 1
