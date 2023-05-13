@@ -75,7 +75,7 @@
         <button type="submit" id="search-button">Buscar películas</button>
     </form>
     @else
-    <div id="login-message">Debes iniciar sesión para hacer el formulario!</div>
+    <div id="login-message">Debes <a href="{{ route('login') }}" id="iniciar-sesion-a">iniciar sesión</a> o <a href="{{ route('register') }}" id="iniciar-sesion-a">registrate</a> para hacer el formulario!</div>
     <div id="img-message">
         <img src="https://img.icons8.com/?size=512&id=5342&format=png" alt="MDN" id="logo">
     </div>

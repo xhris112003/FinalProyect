@@ -32,7 +32,7 @@
       <div class="profile-parent">
         <img class="profile-icon" alt="" src="./public/profile@2x.png" />
 
-        <div class="natalie-gmez">{{ $name }}</div>
+        <div class="name">{{ $name }}</div>
       </div>
       <div class="datos-personales-parent">
         <div class="datos-personales">Datos Personales:</div>
