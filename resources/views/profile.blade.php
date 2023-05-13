@@ -7,7 +7,7 @@
         <div class="mm-parent">
           <div class="mm"><a href="{{route('dashboard')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"></a></div>
           <div class="pelculas-parent">
-            <a class="pelculas">Películas</a>
+            <a class="pelculas"  action="{{ route('peliculas') }}">Películas</a>
             <a class="acerca-de">Acerca de </a>
             <a class="series">Series</a>
           </div>

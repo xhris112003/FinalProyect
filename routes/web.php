@@ -1,19 +1,10 @@
 <?php
 
+use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('home');
@@ -31,10 +22,17 @@ Route::get('/cuestionario', function () {
     return view('cuestionario');
 })->name('cuestionario');
 
+Route::get('/peliculas', function () {
+    return view('peliculas');
+})->name('peliculas');
+
+Route::get('/detalles', function () {
+    return view('detalles');
+})->name('detalles');
+
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
-
 
 Auth::routes();
 
