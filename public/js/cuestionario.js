@@ -136,9 +136,7 @@ form.addEventListener("submit", (event) => {
                                 verTrailerBtn.addEventListener( "click", function () {
                                         modalContent.innerHTML = "";
                                         // Realizar la solicitud a la API de TMDb para obtener los videos de la película
-                                        fetch(
-                                            `https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`
-                                        )
+                                        fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`)
                                             .then((response) => response.json())
                                             .then((data) => {
                                                 // Obtener el primer video de la lista de resultados

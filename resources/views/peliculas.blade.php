@@ -1,10 +1,24 @@
 @extends('layouts.peliculasTpl')
 
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg bg-transparent">
+   <!-- <nav class="navbar sticky-top navbar-expand-lg bg-transparent">
       <div class="container-fluid">
         <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
-        <button
+        
+      </div>
+    </nav>-->
+    
+
+     <nav class="home-inner">
+      <div class="frame-wrapper">
+        <div class="mm-parent">
+          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="pelculas-parent">
+            
+            <a class="acerca-de">Acerca de </a>
+            <a class="series">Series</a>
+          </div>
+          <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -17,9 +31,6 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item home">
-              <a class="nav-link home" href="pelisPopulares.html">Home</a>
-            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -65,7 +76,29 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" role="search" id="form">
+         
+        </div>
+          <div 1 class="group-parent">
+            <button onclick="window.location.href='/login'" class="rectangle-parent">
+              <div class="rectangle"></div>
+              <div class="iniciar-sesin-wrapper">
+                <div class="iniciar-sesin">INICIAR SESIÓN</div>
+              </div>
+            </button>
+            <button onclick="window.location.href='/register'" class="rectangle-group">
+              <div class="rectangle1"></div>
+              <div class="registrarse-wrapper">
+                <div class="registrarse">Registrarse</div>
+              </div>
+            </button>
+          </div>
+          <button class="image-3-wrapper">
+            <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+          </button>
+        </div>
+      </div>
+    </nav>
+    <form class="d-flex" role="search" id="form">
             <input
               class="form-control me-2"
               id="buscador"
@@ -77,9 +110,6 @@
               Enviar
             </button>
           </form>
-        </div>
-      </div>
-    </nav>
     <h1 class="section">Películas populares</h1>
     <div id="contenedorCards"> </div>
 

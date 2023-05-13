@@ -16,7 +16,7 @@
 
         <a class="no-tienes-cuenta-an-parent">
           <div class="no-tienes-cuenta">¿No tienes cuenta aún?</div>
-          <div class="registrate">Registrate</div>
+          <div class="registrate"><a  href="{{route('register')}}"> Registrate</a></div>
           <div class="con-nosotros">con nosotros</div>
         </a>
         <input id="email" name="email" class="group-inner" type="email" placeholder="Correo electronico" value="{{ old('email') }}" required autocomplete="email" autofocus />

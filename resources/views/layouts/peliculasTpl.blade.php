@@ -18,5 +18,6 @@
     ></script>
     <title>MovieMatch | Películas</title>
     <link rel="stylesheet" href="{{ asset('css/peliculas.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <script  defer></script>
   </head>
