@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -12,23 +13,31 @@ body {
     height: 100vh;
   }
 
-  .mm {
-    position: relative;
-    font-weight: 800;
-    width: 5.63rem;
-    height: 3.19rem;
-    flex-shrink: 0;
-  }
-  
 .navbar {
   background-color: #050717 !important;
 }
+.logout1 {
+  top: 0;
+  left: 0;
+  font-size: var(--font-size-base);
+  letter-spacing: 1.2px;
+  line-height: 1rem;
+  text-transform: uppercase;
+  font-family: var(--font-anek-gurmukhi);
+  color: var(--color-white);
+  text-align: center;
+  display: inline-block;
+}
 
+.logout-container, .logout1 {
+  position: absolute;
+  width: 8.26rem;
+}
 .section {
   margin-top: 50px;
   margin-left: 50px;
-  font-size: 50pt;
-  font-family: "Antonio", sans-serif;
+  font-size: 40pt;
+
   color: white;
 }
 
@@ -36,46 +45,84 @@ body {
   color: white !important;
 }
 
-.home {
-  color: white;
-  text-decoration: none;
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
 }
 
-.acerca-de,
-.mm,
-.pelculas,
-.series {
-  letter-spacing: 1px;
-  line-height: 1.06rem;
-  text-transform: uppercase;
+.col-lg-3, .col-md-4, .col-sm-6 {
+  padding: 15px;
+  box-sizing: border-box;
+  flex: 0 0 22.3%;
+    max-width: 291px;
+}
+
+.d-flex{
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10%;
+
 }
-.mm {
-  position: relative;
-  font-weight: 800;
-  width: 5.63rem;
-  height: 3.19rem;
-  flex-shrink: 0;
+
+@media (min-width: 992px) {
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
 }
-.acerca-de,
-.pelculas,
-.series {
-  text-decoration: none;
-  position: absolute;
-  top: 0;
-  color: inherit;
-  height: 0.75rem;
+
+@media (min-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
 }
+
+@media (min-width: 576px) {
+  .col-sm-6 {
+    max-width: 16%;
+  }
+}
+
+.card {
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-img-top {
+  width: 250;
+  height: auto;
+  object-fit: cover;
+}
+
+.card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #444;
+}
+
+.card-hover-text:hover {
+  color: #000;
+}
+
+
 .pelculas {
   left: 0;
   width: 8.38rem;
 }
-.acerca-de,
-.series {
-  left: 16.38rem;
-  width: 9.19rem;
-}
+
 .series {
   left: 9.56rem;
   width: 5.94rem;
@@ -117,7 +164,9 @@ body {
 
 .card-title,
 .card-text {
-  font-family: "Antonio", sans-serif;
+
+
+
   margin-top: 20px;
 }
 
@@ -132,7 +181,7 @@ body {
 
 .btn{
 
-  background-color:  #48b6a2 ;
+  background-color:  var(--primario);
   color: white;
 }
 
@@ -245,14 +294,7 @@ background-color: green;
   left: 9.56rem;
   width: 5.94rem;
 }
-.pelculas-parent {
-  position: relative;
-  width: 25.56rem;
-  height: 0.75rem;
-  flex-shrink: 0;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-roboto);
-}
+
 .iniciar-sesin,
 .rectangle {
   position: absolute;
@@ -463,6 +505,7 @@ background-color: green;
   font-size: var(--font-size-21xl);
   color: var(--color-white);
 }
+
 .home {
   position: relative;
   background-color: var(--color-white);
@@ -473,6 +516,8 @@ background-color: green;
   color: var(--color-gainsboro);
   font-family: var(--font-anek-gurmukhi);
 }
+
+
 @media screen and (max-width: 960px) {
   .acerca-de,
   .group-parent,
