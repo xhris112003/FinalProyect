@@ -18,9 +18,7 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
-Route::get('/cuestionario', function () {
-    return view('cuestionario');
-})->name('cuestionario');
+Route::get('/cuestionario', [App\Http\Controllers\CuestionarioController::class, 'index'])->name('cuestionario');
 
 Route::get('/peliculas', function () {
     return view('peliculas');
@@ -36,7 +34,7 @@ Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('guest');
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 

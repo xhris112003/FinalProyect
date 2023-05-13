@@ -31,6 +31,24 @@ body {
   
 }
 
+#login-message {
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-21xl);
+}
+
+#img-message{
+  padding-top: 4.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 
 #logo {
