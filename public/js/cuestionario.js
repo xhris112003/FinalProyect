@@ -182,7 +182,6 @@ form.addEventListener('submit', (event) => {
                         });
                     }, 5000);
 
-
                 }
             })
             .catch(error => console.log(error));
