@@ -1,6 +1,6 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 .acerca-de,
@@ -18,13 +18,43 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
+  font-family: var(--font-anek-gurmukhi);
 }
 
+#detalles {
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+#login-message {
+  padding-top: 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-21xl);
+}
+
+#img-message {
+  padding-top: 4.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 
 #logo {
-    width: 55px;
+  width: 55px;
 }
+
 .mm {
   position: relative;
   font-weight: 800;
@@ -287,4 +317,13 @@ body {
     display: flex;
     flex-direction: row;
   }
+}
+
+#iniciar-sesion-a {
+  text-decoration: none;
+  color: var(--primario);
+}
+
+#iniciar-sesion-a:hover {
+  text-decoration: underline;
 }

@@ -1,17 +1,7 @@
-.mm {
-  text-decoration: none;
-  position: relative;
-  letter-spacing: 1px;
-  line-height: 1.06rem;
-  text-transform: uppercase;
-  font-weight: 800;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  width: 5.75rem;
-  height: 3.19rem;
-  flex-shrink: 0;
+#logo {
+  width: 55px;
 }
+
 .mm-wrapper {
   width: 89.25rem;
   overflow: hidden;
@@ -22,6 +12,7 @@
   align-items: flex-start;
   justify-content: flex-start;
 }
+
 .group-child {
   position: absolute;
   top: 0;
@@ -30,6 +21,7 @@
   width: 33.38rem;
   height: 39.5rem;
 }
+
 .regstrate {
   position: absolute;
   top: 1.68rem;
@@ -43,6 +35,7 @@
   width: 21rem;
   height: 2.79rem;
 }
+
 .group-item {
   border: 0;
   background-color: var(--fondo-formulario);
@@ -53,6 +46,7 @@
   width: 27.25rem;
   height: 2.24rem;
 }
+
 .correo-electrnico {
   position: absolute;
   top: 6.93rem;
@@ -65,19 +59,24 @@
   width: 9.63rem;
   height: 1.34rem;
 }
+
 .acepto-la {
   color: var(--color-lightslategray);
 }
+
 .poltica-de-privacidad {
   color: var(--color-white);
 }
+
 .acepto-la-poltica-de-privacid {
   margin: 0;
 }
+
 .tratamiento-de-mis {
   margin: 0;
   color: var(--color-lightslategray);
 }
+
 .acepto-la-poltica-container {
   position: absolute;
   top: 26.38rem;
@@ -90,6 +89,7 @@
   width: 21.25rem;
   height: 3.18rem;
 }
+
 .opciones {
   position: absolute;
   top: 27.25rem;
@@ -100,6 +100,7 @@
   height: 1.34rem;
   overflow: hidden;
 }
+
 .tengo-al-menos-container {
   position: absolute;
   top: 23.19rem;
@@ -112,6 +113,7 @@
   width: 22.75rem;
   height: 2.12rem;
 }
+
 .opciones1 {
   position: absolute;
   top: 23.19rem;
@@ -122,18 +124,21 @@
   height: 1.34rem;
   overflow: hidden;
 }
+
 .rectangle,
 .registrarse {
   position: absolute;
   top: 0;
   left: 0;
 }
+
 .rectangle {
   border-radius: var(--br-10xs);
   background-color: var(--primario);
   width: 9.56rem;
   height: 2.01rem;
 }
+
 .registrarse {
   font-size: var(--font-size-base);
   letter-spacing: 1.2px;
@@ -146,6 +151,7 @@
   width: 8.8rem;
   height: 0.89rem;
 }
+
 .rectangle-group,
 .registrarse-wrapper {
   position: absolute;
@@ -154,6 +160,7 @@
   width: 8.8rem;
   height: 0.89rem;
 }
+
 .rectangle-group {
   cursor: pointer;
   border: 0;
@@ -165,6 +172,7 @@
   width: 9.56rem;
   height: 2.01rem;
 }
+
 .group-inner {
   border: 0;
   background-color: var(--fondo-formulario);
@@ -175,6 +183,7 @@
   width: 27.25rem;
   height: 2.35rem;
 }
+
 .nombre-de-usuario {
   position: absolute;
   top: 10.17rem;
@@ -187,6 +196,7 @@
   width: 10.13rem;
   height: 1.34rem;
 }
+
 .rectangle-input {
   border: 0;
   background-color: var(--fondo-formulario);
@@ -197,6 +207,7 @@
   width: 27.25rem;
   height: 2.35rem;
 }
+
 .contrasea {
   position: absolute;
   top: 13.52rem;
@@ -209,6 +220,7 @@
   width: 6rem;
   height: 1.34rem;
 }
+
 .group-child1,
 .group-child2 {
   border: 0;
@@ -220,9 +232,11 @@
   width: 27.25rem;
   height: 2.35rem;
 }
+
 .group-child2 {
   top: 19.44rem;
 }
+
 .repite-la-contrasea,
 .select {
   position: absolute;
@@ -236,10 +250,12 @@
   width: 10.88rem;
   height: 1.34rem;
 }
+
 .select {
   top: 19.94rem;
   left: 3.56rem;
 }
+
 .rectangle-parent {
   position: absolute;
   top: 0;
@@ -247,11 +263,13 @@
   width: 33.38rem;
   height: 39.5rem;
 }
+
 .group-wrapper {
   position: relative;
   width: 33.38rem;
   height: 39.5rem;
 }
+
 .desktop-2-inner {
   align-self: stretch;
   overflow: hidden;
@@ -261,6 +279,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .desktop-2 {
   position: relative;
   width: 100%;
