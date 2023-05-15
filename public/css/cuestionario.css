@@ -274,7 +274,20 @@ body {
   width: 12.13rem;
 }
 
+.imagen-resultados {
+  max-width: 29%;
+  height: auto;
+}
 
+#fotos-container{
+  width: 50%;
+  margin: 0 auto;
+  padding-top: 10%;
+}
+
+#fotos-container img{
+  padding: 10px;
+}
 
 .dashboard,
 .dashboard-child {
