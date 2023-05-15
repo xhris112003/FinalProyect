@@ -11,7 +11,6 @@ html {
   display: flex;
   gap: 50px;
   margin: 5px;
-
 }
 
 .menu-item {
@@ -83,8 +82,8 @@ body {
   background-color: #050717 !important;
 }
 .logout1 {
-  top: 0;
-  left: 0;
+    top: -5px;
+    left: 6px;
   font-size: var(--font-size-base);
   letter-spacing: 1.2px;
   line-height: 1rem;
@@ -94,9 +93,6 @@ body {
   text-align: center;
   display: inline-block;
 }
-
-
-
 
 
 nav ul li:hover ul {
@@ -122,10 +118,9 @@ nav ul li ul li {
   color: white !important;
 }
 
-
 .row {
-  display: flex;
-  flex-wrap: wrap;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(243px, 1fr));
   justify-content: center;
   gap: 16px;
 }
@@ -146,23 +141,6 @@ nav ul li ul li {
 
 }
 
-@media (min-width: 992px) {
-  .col-lg-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-  }
-}
-
-@media (min-width: 768px) {
-  .col-md-4 {
-    
-    max-width: 32.3333%;
-  }
-}
-
-@media (min-width: 576px) {
- 
-}
 
 .card {
   border-radius: 5px;
@@ -174,7 +152,7 @@ nav ul li ul li {
     width: 250px;
     height: auto;
     object-fit: cover;
-    min-width: 250px;  
+    min-width: 250px;
 }
 
 .card-title {
@@ -209,7 +187,6 @@ nav ul li ul li {
   height: 0.75rem;
   flex-shrink: 0;
   font-size: var(--font-size-xl);
-
 }
 
 
@@ -219,7 +196,6 @@ nav ul li ul li {
 }
 
 #contenedorCards {
-  display: flex;
   justify-content: space-around;
   margin: 50px;
 }
@@ -343,12 +319,16 @@ background-color: green;
 .acerca-de,
 .mm,
 .pelculas,
-.series {
+.series, .cuestionario {
   letter-spacing: 1px;
   line-height: 1.06rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
+}
+
+.cuestionario{
+    left: -1.44rem;
 }
 .mm {
   position: relative;
@@ -357,12 +337,36 @@ background-color: green;
 }
 .acerca-de,
 .pelculas,
-.series {
+.series, .cuestionario {
   text-decoration: none;
   position: absolute;
   top: 0;
   color: inherit;
   height: 0.75rem;
+}
+
+.logout {
+    top: -5px;
+    left: 6px;
+    font-size: var(--font-size-base);
+    letter-spacing: 1.2px;
+    line-height: 1rem;
+    text-transform: uppercase;
+    font-family: var(--font-anek-gurmukhi);
+    color: var(--color-white);
+    text-align: center;
+    display: inline-block;
+}
+.logout, .logout-wrapper {
+    position: absolute;
+    width: 8.93rem;
+}
+.logout-wrapper {
+    top: 0.81rem
+rem
+;
+    left: 0.39rem;
+    height: 1rem;
 }
 .pelculas {
   left: 0;
@@ -600,11 +604,7 @@ background-color: green;
   font-family: var(--font-anek-gurmukhi);
 }
 
-/*#contenedorCards{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20;
-}*/
+
 
 @media screen and (max-width: 960px) {
   .acerca-de,
