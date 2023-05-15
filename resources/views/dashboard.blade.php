@@ -33,6 +33,16 @@
           </div>
         </div>
       </div>
+
+      <!--TEST ROLES-->
+    @if(@Auth::user()->hasRole('admin'))
+    <script>alert('admin')</script>
+    @endif
+    @if(@Auth::user()->hasRole('test'))
+    <script>alert('user')</script>
+    @endif
+    <!--END TEST ROLES-->
+
       <div class="dashboard-child">
         <div class="no-sabes-qu-pelcula-ver-parent">
           <div class="no-sabes-qu">¿No sabes qué película ver?</div>
