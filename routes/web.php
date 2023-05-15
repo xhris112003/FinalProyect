@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('peliculas');
+})->name('/');
+
+Route::get('/quiz', function () {
+    return view('quiz');
+})->name('quiz');
 
 Route::get('/login', function () {
     return view('login');
@@ -32,15 +36,11 @@ Route::get('/register', function () {
 
 Route::get('/cuestionario', [App\Http\Controllers\CuestionarioController::class, 'index'])->name('cuestionario');
 
-Route::get('/peliculas', function () {
-    return view('peliculas');
-})->name('peliculas');
 
 Route::get('/detalles', function () {
     return view('detalles');
 })->name('detalles');
 
-Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
