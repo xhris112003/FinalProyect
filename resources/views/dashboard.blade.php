@@ -37,6 +37,9 @@
       <!--TEST ROLES-->
     @if(@Auth::user()->hasRole('admin'))
     <script>alert('admin')</script>
+    <a href="{{ route('admin.index') }}">
+        <div id="btadmin"><button>ADMINISTRADORES</button></div>
+      </a>
     @endif
     @if(@Auth::user()->hasRole('test'))
     <script>alert('user')</script>

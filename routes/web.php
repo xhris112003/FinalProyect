@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PeliculaController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -61,7 +62,14 @@ Route::post('/saveForm', function (Request $request) {
   });
 
 
+//Admin->pasarle middleware de que solo administradores pueden entrar aqui
 
-
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/{tabla}', [AdminController::class, 'show'])->name('admin.show');
+Route::get('/admin/{tabla}/create', [AdminController::class, 'create'])->name('admin.create');
+Route::post('/admin/{tabla}', [AdminController::class, 'store'])->name('admin.store');
+Route::get('/admin/{tabla}/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
+Route::put('/admin/{tabla}/{id}', [AdminController::class, 'update'])->name('admin.update');
+Route::delete('/admin/{tabla}/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
 
