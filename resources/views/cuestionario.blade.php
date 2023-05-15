@@ -79,8 +79,8 @@
     <div id="img-message">
         <img src="https://img.icons8.com/?size=512&id=5342&format=png" alt="MDN" id="logo">
     </div>
-    
-    
+
+
     @endif
 </div>
 </div>
@@ -91,6 +91,8 @@
     <ul id="lista-resultados"></ul>
     </div>
     <div id="detalles"> </div>
+    <button style="display: none;" id="guardarFormulario">Guardar formulario</button>
+
 
 </body>
 <script src="{{ asset('js/cuestionario.js') }}"></script>
