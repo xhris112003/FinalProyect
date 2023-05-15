@@ -4,7 +4,7 @@
   <div class="frame-parent">
     <div class="mm-wrapper">
 
-      <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+      <div class="mm"><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
     </div>
     <div class="group-wrapper">
 
@@ -41,8 +41,6 @@
             <div class="iniciar-sesin">INICIAR SESIÓN</div>
           </div>
         </button>
-
-
       </form>
     </div>
   </div>

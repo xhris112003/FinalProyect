@@ -7,8 +7,12 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', function () {
-    return view('home');
-})->name('home');
+    return view('peliculas');
+})->name('peliculas');
+
+Route::get('/quiz', function () {
+    return view('quiz');
+})->name('quiz');
 
 Route::get('/login', function () {
     return view('login');

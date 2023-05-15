@@ -1,5 +1,6 @@
 @extends('layouts.peliculasTpl')
 
+
 <body>
   <div class="home">
     <nav class="home-inner">
@@ -16,7 +17,7 @@
 
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
 
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
@@ -88,6 +89,7 @@
 
         </div>
           <div 1 class="group-parent">
+          
             <button onclick="window.location.href='/login'" class="rectangle-parent">
               <div class="rectangle"></div>
               <div class="iniciar-sesin-wrapper">
@@ -100,6 +102,7 @@
                 <div class="registrarse">Registrarse</div>
               </div>
             </button>
+            @endif
           </div>
           <button class="image-3-wrapper">
             <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
@@ -150,29 +153,7 @@
       <a href="https://www.instagram.com/movie.match/"><i class="bi bi-instagram" alt="Icono de Instagram"></i></a>
     </div>
   </footer>
-  <script>
-    const menuItems = document.querySelectorAll('.menu-item');
 
-    menuItems.forEach(item => {
-      const submenu = item.querySelector('.submenu');
-      const link = item.querySelector('a');
-
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        menuItems.forEach(otherItem => otherItem.classList.remove('show-submenu'));
-        item.classList.toggle('show-submenu');
-      });
-
-      submenu.addEventListener('click', e => {
-        e.stopPropagation();
-      });
-
-      document.addEventListener('click', e => {
-        menuItems.forEach(otherItem => otherItem.classList.remove('show-submenu'));
-      });
-    });
-  </script>
   <script src="{{ asset('js/peliculas.js') }}"></script>
 </body>
-
 </html>
