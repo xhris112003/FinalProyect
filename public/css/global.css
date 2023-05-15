@@ -5,7 +5,9 @@ body {
 
 #logo {
   width: 55px;
+  height: auto;
 }
+
 
 
 :root {
@@ -16,8 +18,8 @@ body {
 
   /* font sizes */
   --font-size-31xl: 3.13rem;
-  --font-size-xl: 1.25rem;
-  --font-size-base: 1rem;
+  --font-size-xl: 1rem;
+  --font-size-base: 0.9rem;
   --font-size-21xl: 2.5rem;
   --font-size-28xl: 2.94rem;
 
