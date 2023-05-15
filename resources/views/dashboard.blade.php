@@ -7,8 +7,8 @@
             <div class="mm"><a href="{{route('dashboard')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"></a></div>
             <div class="pelculas-parent">
               <a href="{{route('peliculas')}}" class="pelculas">Películas</a>
-              <a class="acerca-de">Acerca de </a>
-              <a class="series">Series</a>
+              <a href="{{route('acercade')}}" class="acerca-de">Acerca de </a>
+              <a href="{{route('series')}}" class="series">Series</a>
             </div>
             <div  class="group-parent">
               <button onclick="window.location.href='/profile'" class="rectangle-parent">

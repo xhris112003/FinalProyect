@@ -8,8 +8,8 @@
           <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="pelculas" href="{{route('peliculas')}}">Películas</a>
-            <a class="acerca-de">Acerca de </a>
-            <a class="series">Series</a>
+            <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
+            <a class="series" href="{{route('series')}}">Series</a>
           </div>
           <div class="group-parent">
             <button onclick="window.location.href='/login'" class="rectangle-parent">

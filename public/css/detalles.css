@@ -59,12 +59,6 @@ h5{
 }
 
 
-.card-title,
-.card-text {
-  font-family: "Antonio", sans-serif;
-  margin: 40px 0 40px;
-}
-
 
 h1{
   color: white;
@@ -95,10 +89,6 @@ h1{
 .bi {
   color: white;
 }
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Anek+Gurmukhi&display=swap');
 
 html {
   scroll-behavior: smooth;

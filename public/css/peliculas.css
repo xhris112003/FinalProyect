@@ -600,6 +600,11 @@ background-color: green;
   font-family: var(--font-anek-gurmukhi);
 }
 
+/*#contenedorCards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20;
+}*/
 
 @media screen and (max-width: 960px) {
   .acerca-de,
