@@ -89,6 +89,13 @@
         @endif
     </div>
     </div>
+
+
+
+    @endif
+</div>
+</div>
+
     <div id="cargando" class="oculto" style="display: none;">
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>
@@ -97,6 +104,8 @@
         <ul id="lista-resultados"></ul>
     </div>
     <div id="detalles"> </div>
+    <button style="display: none;" id="guardarFormulario">Guardar formulario</button>
+
 
 </body>
 <script src="{{ asset('js/cuestionario.js') }}"></script>
