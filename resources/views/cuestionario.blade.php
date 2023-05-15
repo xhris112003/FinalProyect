@@ -97,7 +97,7 @@
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>
     <div id="caja-resultados">
-        <h1 id="h2">Tus peliculas recomendadas</h1>
+        <h1 style="display: none;" id="h2">Tus peliculas recomendadas</h1>
         <ul id="lista-resultados"></ul>
     </div>
     <div id="detalles"> </div>

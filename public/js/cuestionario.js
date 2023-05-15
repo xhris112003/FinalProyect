@@ -149,6 +149,10 @@ form.addEventListener('submit', event => {
                         const guardarFormularioBtn = document.getElementById(
                             'guardarFormulario'
                         )
+                        const h1title = document.getElementById(
+                            'h2'
+                        )
+                        h1title.style.display = 'block'
                         guardarFormularioBtn.style.display = 'block'
                         guardarFormularioBtn.addEventListener(
                             'click',
