@@ -28,7 +28,6 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-
 }
 
 #login-message {
@@ -296,6 +295,8 @@ body {
   color: var(--color-gainsboro);
   font-family: var(--font-anek-gurmukhi);
 }
+
+
 
 @media screen and (max-width: 960px) {
 

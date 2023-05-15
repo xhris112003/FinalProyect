@@ -20,6 +20,18 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
+Route::get('/acercade', function () {
+    return view('acercade');
+})->name('acercade');
+
+Route::get('/series', function () {
+    return view('series');
+})->name('series');
+
+Route::get('/register', function () {
+    return view('register');
+})->name('register');
+
 Route::get('/cuestionario', [App\Http\Controllers\CuestionarioController::class, 'index'])->name('cuestionario');
 
 Route::get('/peliculas', function () {
