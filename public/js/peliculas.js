@@ -1,4 +1,24 @@
-console.log("hola");
+const menuItems = document.querySelectorAll('.menu-item');
+
+menuItems.forEach(item => {
+  const submenu = item.querySelector('.submenu');
+  const link = item.querySelector('a');
+
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    menuItems.forEach(otherItem => otherItem.classList.remove('show-submenu'));
+    item.classList.toggle('show-submenu');
+  });
+
+  submenu.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+
+  document.addEventListener('click', e => {
+    menuItems.forEach(otherItem => otherItem.classList.remove('show-submenu'));
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", function (event) {
     const apiKey = "0202074c6fd19918f230acfa46a461d5";
@@ -70,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             imagen.alt = "Cartel de la película";
             imagen.classList.add("card-img-top");
 
-        
+
             let timeoutId;
             //AÑADIR EL EVENTO PARA MOSTRAR LA SINOPSIS AL PASAR EL RATÓN POR ENCIMA DE LA IMAGEN
 
