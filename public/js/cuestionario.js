@@ -1,6 +1,8 @@
 const form = document.querySelector("form");
 const listaResultados = document.getElementById("lista-resultados");
 const cargando = document.getElementById("cargando");
+const h2 = document.getElementById("h2")
+h2.style.display="none";
 
 const duracionMinima = {
     corta: 0,
@@ -28,6 +30,7 @@ form.addEventListener("submit", (event) => {
     form.classList.add("formulario-oculto");
 
     cargando.style.display = "block";
+
 
     const formData = new FormData(form);
     const opciones = {
@@ -64,6 +67,7 @@ form.addEventListener("submit", (event) => {
                 totalResults = data.total_results;
                 totalPages = data.total_pages;
 
+
                 // Agregar las películas de esta página al array de resultados
                 peliculas.push(...data.results);
 
@@ -86,13 +90,15 @@ form.addEventListener("submit", (event) => {
 
                     setTimeout(() => {
                         cargando.style.display = "none";
+                        h2.style.display="block";
                         // Limpiar lista de resultados
                         listaResultados.innerHTML = "";
+
+
 
                         // Mostrar cada película seleccionada aleatoriamente en la lista de resultados
                         peliculasAleatorias.forEach((pelicula) => {
                             const peliculaItem = document.createElement("li");
-
                             // Crear elemento de imagen de película
                             const peliculaImagen =
                                 document.createElement("img");
@@ -106,11 +112,14 @@ form.addEventListener("submit", (event) => {
                             const votoTexto = document.createElement("p");
                             const detalles = document.getElementById("detalles");
 
+
+
                             const verTrailerBtn =
                                 document.createElement("button");
                             const modal = document.createElement("div");
                             const modalContent = document.createElement("div");
                             const iframe = document.createElement("iframe");
+
                             //Función seleccionar la película y abrir detalles
                             peliculaItem.addEventListener("click", function () {
                                 const detalles =
@@ -132,6 +141,8 @@ form.addEventListener("submit", (event) => {
                                 detalles.appendChild(verTrailerBtn);
 
                                 // Agregar el contenedor de detalles al contenedor principal
+
+
 
                                 verTrailerBtn.addEventListener("click", function () {
                                     fetch(`https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`)
@@ -172,6 +183,7 @@ form.addEventListener("submit", (event) => {
     // Iniciar la búsqueda en la página 1
     buscarPeliculas(1);
 });
+
 
 var checkboxes = document.getElementById("checkboxes");
 var selectBox = document.getElementById("selectBox");
