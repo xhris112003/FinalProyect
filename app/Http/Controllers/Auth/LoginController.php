@@ -28,7 +28,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/dashboard";
+    protected $redirectTo = "/";
 
     /**
      * Create a new controller instance.
@@ -46,7 +46,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // El inicio de sesión fue exitoso, redirigir al usuario a la página deseada
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/');
         }
 
         // El inicio de sesión falló, devolver un mensaje de error

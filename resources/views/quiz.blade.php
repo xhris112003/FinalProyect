@@ -5,10 +5,10 @@
         <div class="dashboard-inner">
             <div class="frame-wrapper">
                 <div class="mm-parent">
-                    <div class="mm"><a href="{{ route('peliculas') }}"> <img src="img/logoMMOscuro.png" alt="MDN"
+                    <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN"
                                 id="logo"></a></div>
                     <div class="pelculas-parent">
-                        <a href="{{ route('peliculas') }}" class="pelculas">Películas</a>
+                        <a href="{{route ('/')}}" class="pelculas">Películas</a>
                         <a href="{{ route('acercade') }}" class="acerca-de">Acerca de </a>
                         <a href="{{ route('series') }}" class="series">Series</a>
                     </div>

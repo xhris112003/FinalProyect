@@ -4,7 +4,7 @@
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
             <a class="series" href="{{route('series')}}">Series</a>

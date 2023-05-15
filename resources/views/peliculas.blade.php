@@ -1,37 +1,57 @@
 @extends('layouts.peliculasTpl')
 
+
 <body>
   <div class="home">
+    @if (Auth::check())
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
-            <a class="cuestionario" href="{{route('quiz')}}">Cuestionario</a>
+            <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
             <a class="series" href="{{route('series')}}">Series</a>
           </div>
-          <div class="group-parent">
-            @if (Auth::check())
-            <div class="group-parent">
-                <button onclick="window.location.href='/profile'" class="rectangle-parent">
-                    <div class="rectangle"></div>
-                    <div class="logout-wrapper">
-                        <div class="logout">PERFIL</div>
-                    </div>
-                </button>
-                <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                    class="rectangle-group">
-                    <div class="rectangle1"></div>
-                    <div class="logout-container">
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                        <div class="logout1">LOGOUT</div>
-                    </div>
-                </button>
-            </div>
-          @else
+
+          <div 1 class="group-parent">
+          
+            <button onclick="window.location.href='/profile'" class="rectangle-parent">
+              <div class="rectangle"></div>
+              <div class="iniciar-sesin-wrapper">
+                <div class="iniciar-sesin">PERFIL</div>
+              </div>
+            </button>
+            <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
+              <div class="rectangle1"></div>
+              <div class="registrarse-wrapper">
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
+                <div class="registrarse">LOGOUT</div>
+              </div>
+            </button>
+
+          </div>
+          <button class="image-3-wrapper">
+            <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+          </button>
+        </div>
+      </div>
+    </nav>
+    @else
+    <nav class="home-inner">
+      <div class="frame-wrapper">
+        <div class="mm-parent">
+          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="pelculas-parent">
+            <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
+            <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
+            <a class="series" href="{{route('series')}}">Series</a>
+          </div>
+
+          <div 1 class="group-parent">
+          
             <button onclick="window.location.href='/login'" class="rectangle-parent">
               <div class="rectangle"></div>
               <div class="iniciar-sesin-wrapper">
@@ -44,7 +64,7 @@
                 <div class="registrarse">Registrarse</div>
               </div>
             </button>
-            @endif
+
           </div>
           <button class="image-3-wrapper">
             <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
@@ -52,6 +72,8 @@
         </div>
       </div>
     </nav>
+    @endif
+
   </div>
   <h1 class="section">Películas populares</h1>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">

@@ -5,7 +5,7 @@
         <div class="home-inner">
             <div class="frame-wrapper">
                 <div class="mm-parent">
-                    <div class="mm"><a href="{{ route('peliculas') }}"> <img src="img/logoMMOscuro.png" alt="MDN"
+                    <div class="mm"><a href="{{ route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN"
                                 id="logo"> </a></div>
 
                 </div>
@@ -89,14 +89,20 @@
         @endif
     </div>
     </div>
+
+</div>
+</div>
+
     <div id="cargando" class="oculto" style="display: none;">
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>
     <div id="caja-resultados">
-        <h1 id="h2">Tus peliculas recomendadas</h1>
+        <h1 style="display: none;" id="h2">Tus peliculas recomendadas</h1>
         <ul id="lista-resultados"></ul>
     </div>
     <div id="detalles"> </div>
+    <button style="display: none;" id="guardarFormulario">Guardar formulario</button>
+
 
 </body>
 <script src="{{ asset('js/cuestionario.js') }}"></script>

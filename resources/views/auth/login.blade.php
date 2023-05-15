@@ -4,7 +4,7 @@
   <div class="frame-parent">
     <div class="mm-wrapper">
 
-      <div class="mm"><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+      <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
     </div>
     <div class="group-wrapper">
 
