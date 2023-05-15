@@ -87,7 +87,9 @@
     <div id="cargando" class="oculto" style="display: none;">
         <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
     </div>
+    <div class="caja-resultados">
     <ul id="lista-resultados"></ul>
+    </div>
     <div id="detalles"> </div>
 
 </body>

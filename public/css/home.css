@@ -235,6 +235,8 @@
   padding: var(--padding-3xs) var(--padding-3xs) var(--padding-31xl);
   justify-content: center;
   gap: 0.63rem;
+  padding-bottom: 75px;
+
 }
 .home,
 .home-child {
@@ -242,7 +244,7 @@
 }
 .home-child {
   align-self: stretch;
-  height: 59.94rem;
+  height: 68.5rem;
   flex-shrink: 0;
   padding: var(--padding-31xl) 0 0;
   box-sizing: border-box;
@@ -265,6 +267,40 @@
   color: var(--color-gainsboro);
   font-family: var(--font-anek-gurmukhi);
 }
+
+.footer {
+  height: 6vh;
+  background-color:rgba(0, 0, 0, 0.7);
+  opacity:70%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+    gap: 20px;
+}
+
+.footer p {
+  font-size: 9px;
+    color:white;
+}
+
+.copy{
+  display: flex;
+  justify-content: center;
+}
+
+.logo-footer{
+  width: 25px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 @media screen and (max-width: 960px) {
   .acerca-de,
   .group-parent,

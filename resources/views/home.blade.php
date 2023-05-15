@@ -8,10 +8,10 @@
           <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="pelculas" href="{{route('peliculas')}}">Películas</a>
-            <a class="acerca-de">Acerca de </a>
-            <a class="series">Series</a>
+            <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
+            <a class="series" href="{{route('series')}}">Series</a>
           </div>
-          <div 1 class="group-parent">
+          <div class="group-parent">
             <button onclick="window.location.href='/login'" class="rectangle-parent">
               <div class="rectangle"></div>
               <div class="iniciar-sesin-wrapper">
@@ -47,7 +47,20 @@
         </div>
       </div>
     </div>
-  </div>
+ 
+  <footer class="footer">
+      <div><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer"> </a></div>
+      <div >
+      <p class="copy">Copyright 2023 © MovieMatch</p>
+      <p>All Rights Reserved - Todos los derechos reservados</p>
+      </div>
+        <div>
+          <a href="https://www.facebook.com/movie.match.9"><i class="bi bi-facebook" alt="Icono de Facebook"></i></a>
+          <a href="https://twitter.com/Movie_Match"><i class="bi bi-twitter" alt="Icono de Twitter"></i></a>
+          <a href="https://www.instagram.com/movie.match/"><i class="bi bi-instagram" alt="Icono de Instagram"></i></a>
+        </div>
+    </footer>
+    </div>
 </body>
 
 </html>

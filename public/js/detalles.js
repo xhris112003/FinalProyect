@@ -3,9 +3,6 @@ const apiKey = "0202074c6fd19918f230acfa46a461d5";
 const urlParams = new URLSearchParams(window.location.search);
 let id = urlParams.get("id");
 
-
-
-
 const url_detalles = `https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}&language=es`;
 
 window.onload = function () {
@@ -151,7 +148,7 @@ function buildRecomendaciones(data) {
   //CREO ROW DONDE IRAN TODAS LAS CARDS
   let row1 = document.createElement("div");
   row1.classList.add("row");
-  tituloRec = document.createElement("h1");
+  tituloRec = document.createElement("h5");
   tituloRec.innerText = "Películas Similares";
   contenedorRecomendacion.appendChild(tituloRec);
 
