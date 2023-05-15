@@ -3,7 +3,7 @@
 <body>
   <div class="desktop-2">
     <div class="mm-wrapper">
-      <a href="{{ route('dashboard') }}" class="mm">mm</a>
+      <a href="{{route ('/')}}" class="mm"><img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a>
     </div>
     <div class="desktop-2-inner">
       <form class="group-wrapper" method="POST" action="{{ route('register') }}">

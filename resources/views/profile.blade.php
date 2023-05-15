@@ -5,9 +5,9 @@
     <div class="desktop-1-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('dashboard')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"></a></div>
+          <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"></a></div>
           <div class="pelculas-parent">
-            <a class="pelculas">Películas</a>
+            <a class="pelculas"  href="{{route ('/')}}">Películas</a>
             <a class="acerca-de">Acerca de </a>
             <a class="series">Series</a>
           </div>
@@ -32,7 +32,7 @@
       <div class="profile-parent">
         <img class="profile-icon" alt="" src="./public/profile@2x.png" />
 
-        <div class="natalie-gmez">{{ $name }}</div>
+        <div class="name">{{ $name }}</div>
       </div>
       <div class="datos-personales-parent">
         <div class="datos-personales">Datos Personales:</div>

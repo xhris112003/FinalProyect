@@ -3,19 +3,21 @@
 <body>
   <div class="frame-parent">
     <div class="mm-wrapper">
-      <a href="{{route('home')}}" class="mm">mm</a>
+
+      <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
     </div>
     <div class="group-wrapper">
+
       <form class="vector-parent" method="POST" action="{{ route('login') }}">
         @csrf
         <img class="group-child" alt="" src="https://i.postimg.cc/8PTD3Ng0/0fa983f7-3a5e-4b1b-afb3-43b9f0f1a328-1682458505348866027.png" />
 
         <div class="iniciar-sesin1">INICIAR SESIÓN</div>
 
-        <a class="no-tienes-cuenta-an-parent">
+        <a href="{{route('register')}}" class="no-tienes-cuenta-an-parent">
           <div class="no-tienes-cuenta">¿No tienes cuenta aún?</div>
           <div class="registrate">Registrate</div>
-          <div class="con-nosotros">con nosotros</div>
+          <div class="registrate"></div>
         </a>
         <input id="email" name="email" class="group-inner" type="email" placeholder="Correo electronico" value="{{ old('email') }}" required autocomplete="email" autofocus />
 
@@ -39,8 +41,6 @@
             <div class="iniciar-sesin">INICIAR SESIÓN</div>
           </div>
         </button>
-
-
       </form>
     </div>
   </div>

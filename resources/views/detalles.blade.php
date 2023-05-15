@@ -1,17 +1,15 @@
-@extends('layouts.homeTpl')
-
+@extends('layouts.detallesTpl')
 <body>
-  <div class="home">
+    <div class="home">
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
-            <a class="pelculas" href="{{route('peliculas')}}">Películas</a>
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
             <a class="series" href="{{route('series')}}">Series</a>
           </div>
-          <div class="group-parent">
+          <div 1 class="group-parent">
             <button onclick="window.location.href='/login'" class="rectangle-parent">
               <div class="rectangle"></div>
               <div class="iniciar-sesin-wrapper">
@@ -31,24 +29,10 @@
         </div>
       </div>
     </nav>
-    <div class="home-child">
-      <div class="no-sabes-qu-pelcula-ver-parent">
-        <div class="no-sabes-qu">¿No sabes qué película ver?</div>
-        <div class="completa-nuestro-cuestionario">
-          ¡Completa nuestro cuestionario y descubre tu próxima película
-          favorita!
-        </div>
-
-        <div class="rectangle-container">
-          <div class="rectangle2"></div>
-          <div class="iniciar-cuestionario-wrapper">
-            <a href="{{route('cuestionario')}}" class="iniciar-cuestionario">INICIAR CUESTIONARIO</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <footer class="footer">
+    <h1 class="section" alt="Películas relacionadas"></h1>
+    <div id="contenedorPerfil"></div>
+    <div id="contenedorRecomendacion"></div>
+    <footer class="footer">
       <div><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer"> </a></div>
       <div >
       <p class="copy">Copyright 2023 © MovieMatch</p>
@@ -63,4 +47,5 @@
     </div>
 </body>
 
+<script src="{{ asset('js/detalles.js') }}" defer></script>
 </html>
