@@ -182,7 +182,14 @@ form.addEventListener('submit', event => {
                                 .then(response => response.json())
                                 .then(data => {
                                     
-                                    console.log('Peliculas guardadas exitosamente:', data);
+                                    Swal.fire({
+                                        title: '¡Exito!',
+                                        text: 'Se ha guardado correctamente!',
+                                        icon: 'success',
+                                        confirmButtonText: 'Aceptar'
+                                    })
+                                    guardarFormularioBtn.style.display = 'none';
+
                                 })
                                 .catch(error => {
                                     console.log(data)
