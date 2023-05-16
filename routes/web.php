@@ -41,6 +41,9 @@ Route::get('/detalles', function () {
     return view('detalles');
 })->name('detalles');
 
+Route::get('/edit-profile', [App\Http\Controllers\ProfileController::class, 'editPerfilview'])->name('editProfile');
+
+
 
 Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
 
@@ -55,3 +58,4 @@ Route::get('/guardar-peliculas', [App\Http\Controllers\PeliculasController::clas
 
 Route::post('/guardar-peliculas', [App\Http\Controllers\PeliculasController::class, 'guardarPeliculas'])->name('guardar.peliculas');
 
+Route::post('/profile/edit', [App\Http\Controllers\ProfileController::class, 'editarPerfil'])->name('profile.edit');
