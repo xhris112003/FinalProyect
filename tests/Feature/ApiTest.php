@@ -103,10 +103,4 @@ public function test_movie_form_submission()
     $response->assertOk();
 }
 
-
-
-
-
-
-
 };
