@@ -77,6 +77,7 @@ Route::post('/saveForm', function (Request $request) {
 //Admin->pasarle middleware de que solo administradores pueden entrar aqui
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin/empty', [AdminController::class, 'show'])->name('admin.empty');
 Route::get('/admin/{tabla}', [AdminController::class, 'show'])->name('admin.show');
 Route::get('/admin/{tabla}/create', [AdminController::class, 'create'])->name('admin.create');
 Route::post('/admin/{tabla}', [AdminController::class, 'store'])->name('admin.store');

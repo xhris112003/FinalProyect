@@ -1,4 +1,4 @@
-@extends('layouts.dashboardTpl')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -9,13 +9,13 @@
             @method('PUT')
 
             @foreach ($registro as $columna => $valor)
-                <div class="form-group">
+                <div>
                     <label for="{{ $columna }}">{{ $columna }}:</label>
-                    <input type="text" class="form-control" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}">
+                    <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}">
                 </div>
             @endforeach
 
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit">Guardar</button>
         </form>
     </div>
 @endsection
