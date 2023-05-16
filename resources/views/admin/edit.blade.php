@@ -11,9 +11,17 @@
             @foreach ($registro as $columna => $valor)
                 <div>
                     <label for="{{ $columna }}">{{ $columna }}:</label>
-                    <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}">
+                    @if ($columna === "id")
+                        <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}"
+                            readonly>
+                    @elseif($columna === "password")
+                        <input type="text" id="{{ $columna }}" name="{{ $columna }}">
+                    @else
+                        <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}">
+                    @endif
                 </div>
             @endforeach
+
 
             <button type="submit">Guardar</button>
         </form>
