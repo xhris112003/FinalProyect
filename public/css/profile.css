@@ -289,7 +289,7 @@
   flex-direction: row;
 }
 .frame-parent {
-  height: 43.44rem;
+  height: 20.44rem;
   flex-shrink: 0;
   padding: var(--padding-3xs) var(--padding-31xl);
   box-sizing: border-box;
@@ -363,8 +363,7 @@
   position: relative;
   background-color: #1e1e1e;
   width: 100%;
-  height: 78.44rem;
-  flex-direction: column;
+    flex-direction: column;
   align-items: flex-start;
   gap: var(--gap-3xs);
   text-align: left;
