@@ -47,7 +47,6 @@
         </div>
       </div>
     </div>
-
   <footer class="footer">
       <div><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer"> </a></div>
       <div >

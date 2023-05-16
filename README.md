@@ -1,66 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MOVIE MATCH: 'Descubre tu nueva película favorita'
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Nuestra aplicación utiliza la base de datos de la popular API de películas TMDB para ayudarte a encontrar la película perfecta para ti.
 
-## About Laravel
+Con solo unos pocos clics, nuestro algoritmo te recomendará películas que creemos que te gustarán. ¡Nunca más tendrás que pasar horas buscando la película perfecta para ver en una noche de cine!
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Así que, si estás cansado de pasar horas buscando la película adecuada, usa nuestra aplicación de filtrado de películas y descubre tu nueva película favorita!
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Funcionamiento de la app
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+El funcionamiento de nuestra aplicación web es el siguiente: cuando un usuario entra y se registra en nuestra web, debe rellenar un cuestionario que se enviará a nuestro servidor, y en unos segundos, obtendrá una lista de peliculas recomendadas según los datos que nos haya proporcionado.
 
-## Learning Laravel
+## Estructura de la app 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### SQL  
+Para nuestra base de datos, aparte de guardar los datos de los usuarios, la usaremos tambien para guardar datos de importancia para nosotros, como la puntuación que le da un usuario a una pelicula, los datos de sus respectivos cuestionarios o sus peliculas favoritas. Por lo tanto, la estructura que usaremos será la siguiente:
 
-## Laravel Sponsors
+![Captura de pantalla 1](public/screenshots/ER.png)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### Users
 
-### Premium Partners
+Los usuarios que se registren en nuestra página web. Tendremos 3 tipos de usuarios: 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
++Los administradores, que se encargan de gestionar internamente el correcto funcionamiento del servidor web.
 
-## Contributing
++Los propios usuarios, que podrán disfrutar del servicio que ofrecemos, la recomendación de películas mediante un filtro, además de poder calificar las peliculas que les recomendamos y la eficacia de la propia aplicación.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
++Los invitados, o Guest, que son usuarios temporales que pueden realizar una versión de prueba de nuestro servicio, antes de registrarse
 
-## Code of Conduct
+#### Movies
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Las peliculas guardadas en nuestra base de datos. Contendrá datos que ya existen dentro de la base de datos interna de la API, pero los recogeremos igualmente para usarlos en otras tablas.
 
-## Security Vulnerabilities
+#### Favorites
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Aqui guardaremos las peliculas que nuestros usuarios seleccionen 
 
-## License
+#### Ratings
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Las puntuaciones que nuestros usuarios han dado a las peliculas que nosotros recomendamos. Recogemos estos datos para comprobar la eficiencia y eficacia de nuestro filtro.
+
+#### Users-Forms
+
+Los datos de los cuestionarios rellenados por cada usuario se guardarán aquí, para facilitar el filtrado de películas para nuestros usuarios.
+
+
+### Servidor(PHP)
+
++Home
+    -Login
+    -Register
++Dashboard
+    -Perfil
+        *Ver resultado de cuestionario
+        *Editar Perfil
+    -Cuestionario
+    -Catálogo de películas
+
+### Cuestionario
+
+![Captura de pantalla 1](public/screenshots/Cuestionario.png)
