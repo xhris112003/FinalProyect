@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'genero' => $data['genero'],
 
         ]);
-        //$user->assignRole('user'); //todo usuario creado en la pagina web tendrá rol de usuario
+        $user->assignRole('user'); //todo usuario creado en la pagina web tendrá rol de usuario
 
         return $user;
     }

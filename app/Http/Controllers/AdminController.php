@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -39,16 +40,32 @@ class AdminController extends Controller
 
     public function store(Request $request, $tabla)
     {
-        // Validar los datos enviados por el usuario
+        
+        $valor = $request->input('valor'); //variable para determinar si se crean admins o usuario normal
+
+        if($valor) //valor == true --> Creamos Usuario
+        {
         $validatedData = $request->validate([
             // Aquí puedes agregar las reglas de validación para cada campo
         ]);
-
-        // Insertar los datos en la tabla especificada
         DB::table($tabla)->insert($validatedData);
+        return redirect()->route('admin.show', $tabla);
+        }
+        else //valor == false --> Creamos Administrador
+        {
+        $validatedData = $request->validate([
+            // Aquí puedes agregar las reglas de validación para cada campo
+        ]);
+        $id = DB::table($tabla)->insertGetId($validatedData);
+        $usuario = User::find($id);
+        // Asignar el rol al usuario
+        $usuario->assignRole('admin');
 
         return redirect()->route('admin.show', $tabla);
+        }
+        
     }
+
 
     public function edit($tabla, $id)
     {
