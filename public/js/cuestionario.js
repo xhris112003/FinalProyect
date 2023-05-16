@@ -188,6 +188,8 @@ form.addEventListener('submit', event => {
                                         icon: 'success',
                                         confirmButtonText: 'Aceptar'
                                     })
+                                    guardarFormularioBtn.style.display = 'none';
+
                                 })
                                 .catch(error => {
                                     console.log(data)
