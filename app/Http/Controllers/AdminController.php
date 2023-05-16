@@ -40,32 +40,31 @@ class AdminController extends Controller
 
     public function store(Request $request, $tabla)
     {
-        
-        $valor = $request->input('valor'); //variable para determinar si se crean admins o usuario normal
-
-        if($valor) //valor == true --> Creamos Usuario
-        {
-        $validatedData = $request->validate([
-            // Aquí puedes agregar las reglas de validación para cada campo
-        ]);
-        DB::table($tabla)->insert($validatedData);
-        return redirect()->route('admin.show', $tabla);
+        if ($tabla == 'users') {
+            $valor = $request->input('valor');
+            
+            $validatedData = $request->validate($request->all());
+            dd($validatedData,$valor);
+            if ($valor == 0) {
+                DB::table($tabla)->insert($validatedData);
+            } else {
+                $id = DB::table($tabla)->insertGetId($validatedData);
+                $usuario = User::find($id);
+                // Asignar el rol al usuario
+                $usuario->assignRole('admin');
+            }
+    
+            return redirect()->route('admin.show', $tabla);
+        } else {
+            $validatedData = $request->validate($request->all());
+    
+            DB::table($tabla)->insert($validatedData);
+    
+            return redirect()->route('admin.show', $tabla);
         }
-        else //valor == false --> Creamos Administrador
-        {
-        $validatedData = $request->validate([
-            // Aquí puedes agregar las reglas de validación para cada campo
-        ]);
-        $id = DB::table($tabla)->insertGetId($validatedData);
-        $usuario = User::find($id);
-        // Asignar el rol al usuario
-        $usuario->assignRole('admin');
-
-        return redirect()->route('admin.show', $tabla);
-        }
-        
     }
-
+    
+    
 
     public function edit($tabla, $id)
     {
@@ -78,10 +77,8 @@ class AdminController extends Controller
     public function update(Request $request, $tabla, $id)
     {
         // Validar los datos enviados por el usuario
-        $validatedData = $request->validate([
-            // Aquí puedes agregar las reglas de validación para cada campo
-        ]);
-
+        $validatedData = $request->validate($request->all());
+        dd($validatedData); 
         // Actualizar el registro de la tabla especificada con el ID especificado
         DB::table($tabla)->where('id', $id)->update($validatedData);
 
