@@ -146,38 +146,49 @@ form.addEventListener('submit', event => {
                             // Agregar película a la lista de resultados
                             listaResultados.appendChild(peliculaItem)
                         })
-                        const guardarFormularioBtn = document.getElementById(
-                            'guardarFormulario'
-                        )
-                        const h1title = document.getElementById(
+
+                        const h2title = document.getElementById(
                             'h2'
                         )
-                        h1title.style.display = 'block'
-                        guardarFormularioBtn.style.display = 'block'
-                        guardarFormularioBtn.addEventListener(
-                            'click',
-                            function () {
-                                const peliculasPresentadas = document.querySelectorAll(
-                                    '#lista-resultados li'
-                                )
-                                // Obtén los datos relevantes de cada película
-                                const peliculasGuardadas = Array.from(
-                                    peliculasPresentadas
-                                ).map(peliculaItem => {
-                                    const peliculaTitulo = peliculaItem.querySelector(
-                                        'h2'
-                                    ).textContent
-                                    const peliculaImagen = peliculaItem.querySelector(
-                                        'img'
-                                    ).src
-                                    return {
-                                        titulo: peliculaTitulo,
-                                        imagen: peliculaImagen
-                                    }
+                        h2title.style.display = 'block'
+                        const guardarFormularioBtn = document.getElementById('guardarFormulario');
+                        guardarFormularioBtn.style.display = 'block';
+                        guardarFormularioBtn.addEventListener('click', function () {
+                            const peliculasPresentadas = document.querySelectorAll('#lista-resultados li');
+
+                            // Obtén los datos relevantes de cada película
+                            const peliculasGuardadas = Array.from(peliculasPresentadas).map(peliculaItem => {
+                                const peliculaTitulo = peliculaItem.querySelector('h2').textContent;
+                                const peliculaImagen = peliculaItem.querySelector('img').src;
+
+                                return {
+                                    titulo: peliculaTitulo,
+                                    imagen: peliculaImagen
+                                };
+                            });
+
+                            const data = {
+                                peliculas: peliculasGuardadas
+                            };
+
+                            fetch('/guardar-peliculas', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                                },
+                                body: JSON.stringify(data)
+                            })
+                                .then(response => response.json())
+                                .then(data => {
+                                    
+                                    console.log('Peliculas guardadas exitosamente:', data);
                                 })
-                                console.log(peliculasGuardadas)
-                            }
-                        )
+                                .catch(error => {
+                                    console.log(data)
+                                    console.error('Error al guardar las peliculas:', error);
+                                });
+                        });
                     }, 5000)
                 }
             })
@@ -263,3 +274,4 @@ document
             event.preventDefault() // Cancelar el envío del formulario
         }
     })
+
