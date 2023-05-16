@@ -4,7 +4,7 @@
     <div class="container">
         <h2>Crear registro en {{ $tabla }}</h2>
 
-        <form method="POST" action="{{ route('admin.store', ['tabla'->$tabla, 'valor' => true]) }}">
+        <form method="POST" action="{{ route('admin.store', [$tabla, 'valor' => true]) }}">
             @csrf
 
             @foreach ($columnas as $columna)
@@ -16,6 +16,6 @@
 
             <button type="submit" class="btn btn-primary">Crear Usuario</button>
         </form>
-        <a href="{{ route('admin.store', ['tabla' => $tabla, 'valor' => false]) }}" class="btn btn-primary">Crear Administrador</a>
+        <a href="{{ route('admin.store', [$tabla, 'valor' => false]) }}" class="btn btn-primary">Crear Administrador</a>
     </div>
 @endsection
