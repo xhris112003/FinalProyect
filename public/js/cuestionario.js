@@ -218,7 +218,12 @@ form.addEventListener('submit', event => {
                                 .then(response => response.json())
                                 .then(data => {
                                     
-                                    console.log('Peliculas guardadas exitosamente:', data);
+                                    Swal.fire({
+                                        title: '¡Exito!',
+                                        text: 'Se ha guardado correctamente!',
+                                        icon: 'success',
+                                        confirmButtonText: 'Aceptar'
+                                    })
                                 })
                                 .catch(error => {
                                     console.log(data)

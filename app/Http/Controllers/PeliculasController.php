@@ -12,7 +12,7 @@ class PeliculasController extends Controller
     {
         $peliculas = $request->input('peliculas');
         
-        $userId = Auth::id(); // Obtener el user_id del usuario autenticado
+        $userId = Auth::id(); 
 
         // Guardar las películas en la base de datos
         foreach ($peliculas as $pelicula) {
