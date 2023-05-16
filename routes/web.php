@@ -53,7 +53,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
-<<<<<<< HEAD
 
 //comprobar si el usuario está conectado
 Route::get('/api/auth/check', function () {
@@ -86,10 +85,8 @@ Route::get('/admin/{tabla}/{id}/edit', [AdminController::class, 'edit'])->name('
 Route::put('/admin/{tabla}/{id}', [AdminController::class, 'update'])->name('admin.update');
 Route::delete('/admin/{tabla}/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
-=======
 Route::get('/guardar-peliculas', [App\Http\Controllers\PeliculasController::class, 'guardarPeliculas'])->name('guardar.peliculas');
 
 
 Route::post('/guardar-peliculas', [App\Http\Controllers\PeliculasController::class, 'guardarPeliculas'])->name('guardar.peliculas');
->>>>>>> 88978e90a4a75636e77068a7b1b230d4096ff1ab
 
