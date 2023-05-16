@@ -181,7 +181,7 @@ form.addEventListener('submit', event => {
                             })
                                 .then(response => response.json())
                                 .then(data => {
-                                    
+
                                     Swal.fire({
                                         title: '¡Exito!',
                                         text: 'Se ha guardado correctamente!',
@@ -279,7 +279,4 @@ document
             event.preventDefault() // Cancelar el envío del formulario
         }
     })
-<<<<<<< HEAD
-=======
 
->>>>>>> 88978e90a4a75636e77068a7b1b230d4096ff1ab

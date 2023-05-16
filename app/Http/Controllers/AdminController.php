@@ -16,17 +16,17 @@ class AdminController extends Controller
     }
 
     public function show($tabla)
-{
-    // Obtener los registros de la tabla especificada
-    $registros = DB::table($tabla)->get();
+    {
+        // Obtener los registros de la tabla especificada
+        $registros = DB::table($tabla)->get();
 
-    if (!isset($registros) || $registros->isEmpty()) {
-        // Mostrar mensaje de tabla vacía
-        return view('admin.empty', compact('tabla'));
+        if (!isset($registros) || $registros->isEmpty()) {
+            // Mostrar mensaje de tabla vacía
+            return view('admin.empty', compact('tabla'));
+        }
+
+        return view('admin.show', compact('registros', 'tabla'));
     }
-
-    return view('admin.show', compact('registros', 'tabla'));
-}
 
 
     public function create($tabla)
