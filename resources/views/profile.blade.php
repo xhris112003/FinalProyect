@@ -46,7 +46,7 @@
             <span>{{ $genero }} </span>
           </p>
         </div>
-        <button class="edit-profile">
+        <button onclick="window.location.href='/edit-profile'" class="edit-profile">
           <b class="edit-profile1">Edit profile</b>
         </button>
       </div>

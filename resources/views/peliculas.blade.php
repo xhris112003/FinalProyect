@@ -20,6 +20,14 @@
                 <div class="iniciar-sesin">PERFIL</div>
               </div>
             </button>
+            @if(Auth::user()->hasRole('admin'))
+            <button onclick="window.location.href='/admin'" class="rectangle-parent">
+              <div class="rectangle"></div>
+              <div class="iniciar-sesin-wrapper">
+                <div class="iniciar-sesin">ADMIN</div>
+              </div>
+            </button>
+            @endif
             <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
               <div class="rectangle1"></div>
               <div class="registrarse-wrapper">
