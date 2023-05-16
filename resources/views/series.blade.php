@@ -41,7 +41,7 @@
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
