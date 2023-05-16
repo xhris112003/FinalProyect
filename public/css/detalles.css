@@ -239,13 +239,13 @@ nav ul li ul li {
 
 @media (min-width: 768px) {
   .col-md-4 {
-    
+
     max-width: 32.3333%;
   }
 }
 
 @media (min-width: 576px) {
- 
+
 }
 
 .card {
@@ -258,7 +258,7 @@ nav ul li ul li {
     width: 250px;
     height: auto;
     object-fit: cover;
-    min-width: 250px;  
+    min-width: 250px;
 }
 
 .card-title {
@@ -722,12 +722,6 @@ body {
 
 .card-text {
   text-align: justify;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 
 

@@ -282,7 +282,7 @@ body {
 #fotos-container{
   width: 50%;
   margin: 0 auto;
-  padding-top: 10%;
+  padding-top: 5%;
 }
 
 #fotos-container img{
@@ -340,3 +340,18 @@ body {
 #iniciar-sesion-a:hover {
   text-decoration: underline;
 }
+
+@keyframes aparecer {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .aparecer-con-efecto {
+    animation: aparecer 2s ease-in-out forwards;
+  }

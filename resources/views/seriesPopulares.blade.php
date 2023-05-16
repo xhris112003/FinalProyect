@@ -86,7 +86,7 @@
         <li class="menu-item">
           <a href="#">Explorar series</a>
           <ul class="submenu">
-            <li><a href="{{route('ultimosEstrenos')}}">Últimos estrenos</a></li>
+            <li><a href="{{route('seriesPopulares')}}">Series populares</a></li>
             <li><a href="{{route('seriesMejorValoradas')}}">Series mejor valoradas</a></li>
           </ul>
         </li>

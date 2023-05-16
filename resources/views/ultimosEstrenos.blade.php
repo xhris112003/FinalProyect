@@ -41,11 +41,11 @@
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
-            <a class="series" href="{{route('/')}}">Peliculas</a>
+            <a class="series" href="{{route('series')}}">Series</a>
           </div>
 
           <div class="group-parent">
@@ -72,7 +72,7 @@
     </nav>
     @endif
   </div>
-  <h1 class="section">Series populares</h1>
+  <h1 class="section">Últimos estrenos</h1>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <nav>
       <ul class="menu">
@@ -80,13 +80,15 @@
           <a href="#">Explorar películas</a>
           <ul class="submenu">
             <li><a href="{{route('ultimosEstrenos')}}">Últimos estrenos</a></li>
+          
             <li><a href="{{route('peliculasMejorValoradas')}}">Películas mejor valoradas</a></li>
+
           </ul>
         </li>
         <li class="menu-item">
           <a href="#">Explorar series</a>
           <ul class="submenu">
-            <li><a href="{{route('ultimosEstrenos')}}">Últimos estrenos</a></li>
+            <li><a href="{{route('ultimosEstrenosS')}}">Últimos estrenos</a></li>
             <li><a href="{{route('seriesMejorValoradas')}}">Series mejor valoradas</a></li>
           </ul>
         </li>

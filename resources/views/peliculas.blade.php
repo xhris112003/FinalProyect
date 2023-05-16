@@ -1,6 +1,4 @@
 @extends('layouts.peliculasTpl')
-
-
 <body>
   <div class="home">
     @if (Auth::check())
@@ -15,7 +13,7 @@
           </div>
 
           <div 1 class="group-parent">
-          
+
             <button onclick="window.location.href='/profile'" class="rectangle-parent">
               <div class="rectangle"></div>
               <div class="iniciar-sesin-wrapper">
@@ -43,15 +41,15 @@
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
             <a class="series" href="{{route('series')}}">Series</a>
           </div>
 
-          <div 1 class="group-parent">
-          
+          <div class="group-parent">
+
             <button onclick="window.location.href='/login'" class="rectangle-parent">
               <div class="rectangle"></div>
               <div class="iniciar-sesin-wrapper">
@@ -73,7 +71,6 @@
       </div>
     </nav>
     @endif
-
   </div>
   <h1 class="section">Películas populares</h1>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -82,15 +79,15 @@
         <li class="menu-item">
           <a href="#">Explorar películas</a>
           <ul class="submenu">
-            <li><a href="#">Últimos estrenos</a></li>
-            <li><a href="#">Películas mejor valoradas</a></li>
+            <li><a href="{{route('ultimosEstrenos')}}">Últimos estrenos</a></li>
+            <li><a href="{{route('peliculasMejorValoradas')}}">Películas mejor valoradas</a></li>
           </ul>
         </li>
         <li class="menu-item">
           <a href="#">Explorar series</a>
           <ul class="submenu">
-            <li><a href="#">Series populares</a></li>
-            <li><a href="#">Series mejor valoradas</a></li>
+            <li><a href="{{route('ultimosEstrenosS')}}">últimos estrenos</a></li>
+            <li><a href="{{route('seriesMejorValoradas')}}">Series mejor valoradas</a></li>
           </ul>
         </li>
       </ul>

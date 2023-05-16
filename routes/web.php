@@ -34,6 +34,25 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
+Route::get('/ultimosEstrenos', function () {
+    return view('ultimosEstrenos');
+})->name('ultimosEstrenos');
+
+Route::get('/ultimosEstrenosS', function () {
+    return view('ultimosEstrenosS');
+})->name('ultimosEstrenosS');
+
+
+Route::get('/seriesMejorValoradas', function () {
+    return view('seriesMejorValoradas');
+})->name('seriesMejorValoradas');
+
+Route::get('/peliculasMejorValoradas', function () {
+    return view('peliculasMejorValoradas');
+})->name('peliculasMejorValoradas');
+
+
+
 Route::get('/cuestionario', [App\Http\Controllers\CuestionarioController::class, 'index'])->name('cuestionario');
 
 
