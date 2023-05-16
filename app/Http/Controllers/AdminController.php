@@ -55,11 +55,11 @@ class AdminController extends Controller
             }
     
             return redirect()->route('admin.show', $tabla);
-        } else {
+        } else { // otras tablas
             $validatedData = $request->validate($request->all());
     
             DB::table($tabla)->insert($validatedData);
-    
+            
             return redirect()->route('admin.show', $tabla);
         }
     }
