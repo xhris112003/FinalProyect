@@ -20,14 +20,6 @@
                 <div class="iniciar-sesin">PERFIL</div>
               </div>
             </button>
-            @if(Auth::user()->hasRole('admin'))
-            <button onclick="window.location.href='/admin'" class="rectangle-parent">
-              <div class="rectangle"></div>
-              <div class="iniciar-sesin-wrapper">
-                <div class="iniciar-sesin">ADMIN</div>
-              </div>
-            </button>
-            @endif
             <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
               <div class="rectangle1"></div>
               <div class="registrarse-wrapper">
@@ -49,11 +41,11 @@
     <nav class="home-inner">
       <div class="frame-wrapper">
         <div class="mm-parent">
-          <div class="mm"><a href="{{route('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+          <div class="mm"><a href="{{route('home')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
           <div class="pelculas-parent">
             <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
-            <a class="series" href="{{route('series')}}">Series</a>
+            <a class="series" href="{{route('/')}}">Peliculas</a>
           </div>
 
           <div class="group-parent">
@@ -80,7 +72,7 @@
     </nav>
     @endif
   </div>
-  <h1 class="section">Películas populares</h1>
+  <h1 class="section">Series populares</h1>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <nav>
       <ul class="menu">
@@ -94,7 +86,7 @@
         <li class="menu-item">
           <a href="#">Explorar series</a>
           <ul class="submenu">
-            <li><a href="{{route('ultimosEstrenosS')}}">últimos estrenos</a></li>
+            <li><a href="{{route('seriesPopulares')}}">Series populares</a></li>
             <li><a href="{{route('seriesMejorValoradas')}}">Series mejor valoradas</a></li>
           </ul>
         </li>

@@ -92,10 +92,14 @@
 
 </div>
 </div>
+<div id="cargando" class="oculto" style="display: none;">
 
-    <div id="cargando" class="oculto" style="display: none;">
-        <img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
-    </div>
+<img src="https://media.tenor.com/joLYNfFQGDgAAAAC/loading.gif" alt="Cargando...">
+</div>
+
+
+<div id="fotos-container" style="display: none;" class="aparecer-con-efecto">
+<h2>Últimos estrenos</h2> </div>
     <div id="caja-resultados">
         <h1 style="display: none;" id="h2">Tus peliculas recomendadas</h1>
         <ul id="lista-resultados"></ul>
