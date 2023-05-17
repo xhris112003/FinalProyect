@@ -152,7 +152,7 @@ window.onload = function () {
         contenedorCards.appendChild(row);
     }
 
-  
+
 
     function getColorPuntuacion(puntuacion) {
         if (puntuacion >= 8) {
