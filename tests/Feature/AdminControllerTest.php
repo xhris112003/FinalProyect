@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -26,7 +27,7 @@ class AdminControllerTest extends TestCase
             $tableName = reset($table);
 
             try {
-                // Verificar si la tabla tiene registros
+                // Verificar si la tabla tiene registros(tabla vacia?)
                 $hasRecords = DB::table($tableName)->exists();
             } catch (QueryException $e) {
                 // Si hay un error al acceder a la tabla, continuar con la siguiente
@@ -122,7 +123,7 @@ class AdminControllerTest extends TestCase
             $tableName = reset($table);
             $recordId = 1; // Ajusta el ID del registro que deseas actualizar
 
-            // Obtener las reglas de validación para la tabla específica
+            // Obtener las reglas de validación para la tabla específica. Si no existen, saltará una alerta
             $validationRules = $this->getValidationRulesForTable($tableName);
 
             // Simular una solicitud HTTP POST a la ruta de actualización para un registro específico
@@ -135,15 +136,36 @@ class AdminControllerTest extends TestCase
         }
     }
 
-    //Reglas de validacion para cada tabla
+    //Reglas de validacion que se aplican a cada tabla
     private function getValidationRulesForTable($tableName)
     {
         // Define las reglas de validación para cada tabla
         $validationRules = [
             'users' => [
-                'campo1' => 'required|string',
-                'campo2' => 'numeric',
+                'name' => ['required', 'regex:/^[a-zA-Z]{4}[a-zA-Z0-9]*$/'],
+                'email' => 'required|email',
+                'password' => [
+                    'required',
+                    'string',
+                    'min:8',
+                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&\.]{8,}$/'
                 // Agrega las reglas de validación para los campos de la tabla 'users'
+                ]
+            ],
+            'roles' => [
+                'name' => ['required', 'alpha'],
+                'guard_name' => ['required', 'alpha'],
+                // Agrega las reglas de validación para los campos de la tabla 'otra_tabla'
+            ],
+            'forms_by_users_saved' => [
+                'nombre_pelicula' => 'required',
+                'foto_pelicula' => 'required',
+                // Agrega las reglas de validación para los campos de la tabla 'otra_tabla'
+            ],
+            'otra_tabla' => [
+                'campo1' => 'required',
+                'campo2' => 'email',
+                // Agrega las reglas de validación para los campos de la tabla 'otra_tabla'
             ],
             'otra_tabla' => [
                 'campo1' => 'required',
@@ -151,6 +173,7 @@ class AdminControllerTest extends TestCase
                 // Agrega las reglas de validación para los campos de la tabla 'otra_tabla'
             ],
             // Agrega más tablas y sus reglas de validación según sea necesario
+            
         ];
 
         return $validationRules[$tableName] ?? [];
