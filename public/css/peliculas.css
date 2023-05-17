@@ -674,3 +674,43 @@ rem
   color: black;
 }
 
+.navOculto {
+  display: none;
+  background-color: white;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+.show {
+  display: block;
+}
+
+#menu {
+  display: none;
+}
+
+.btnOculto{
+  background-color: var(--primario);
+  color: white;
+  border-radius: var(--br-10xs);
+  border: none;
+  cursor: pointer;
+}
+@media only screen and (max-width: 800px) {
+  .navOculto {
+    display: block;
+  }
+
+  .navOculto a{
+    color: black;
+  }
+  
+  .show {
+    display: none;
+  }
+  
+  #menu.show {
+    display: block;
+  }
+  
+}
