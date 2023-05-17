@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
