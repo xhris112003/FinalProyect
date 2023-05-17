@@ -1,4 +1,5 @@
 @extends('layouts.peliculasTpl')
+
 <body>
   <div class="home">
     @if (Auth::check())
@@ -11,8 +12,10 @@
             <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
             <a class="series" href="{{route('series')}}">Series</a>
           </div>
+        
 
-          <div 1 class="group-parent">
+
+          <div class="group-parent">
 
             <button onclick="window.location.href='/profile'" class="rectangle-parent">
               <div class="rectangle"></div>
@@ -81,6 +84,13 @@
     @endif
   </div>
   <h1 class="section">Películas populares</h1>
+
+  <div id="notificacion" class="notificacion" style="display: none;">
+    <p>¿No sabes qué ver? ¡Completa nuestro cuestionario y te recomendaremos una película!</p>
+    <a cl href="{{ route('quiz') }}">Ir al cuestionario</a>
+    <button id="cerrarNotificacion" class="cerrar">&times;</button>
+</div>
+
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <nav>
       <ul class="menu">
@@ -108,6 +118,7 @@
     </button>
   </form>
 
+
   <div id="contenedorCards"> </div>
 
   <footer class="footer">
@@ -124,5 +135,9 @@
   </footer>
 
   <script src="{{ asset('js/peliculas.js') }}"></script>
+
+  
+  <script src="{{ asset('js/notificacion.js') }}"></script>
 </body>
+
 </html>
