@@ -26,4 +26,5 @@ class PeliculasController extends Controller
         return response()->json(['message' => 'Peliculas guardadas exitosamente']);
     }
 
+
 }

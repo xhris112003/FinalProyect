@@ -31,9 +31,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const url_estreno = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es`;
     const url_seriesMejorV = `https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}&language=es`;
     const url_pelisMejorV = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=es`;
-    const url_proximos = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es`;
     const url_proximosS = `https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es`;
-    const url_series = `https://api.themoviedb.org/3/tv/airing_today?api_key=${apiKey}&language=es`;
 
     var currentUrl = window.location.pathname;
 console.log(currentUrl);
@@ -154,6 +152,8 @@ window.onload = function () {
         contenedorCards.appendChild(row);
     }
 
+  
+
     function getColorPuntuacion(puntuacion) {
         if (puntuacion >= 8) {
             return "green";
@@ -195,3 +195,5 @@ window.onload = function () {
         }
     });
 });
+
+
