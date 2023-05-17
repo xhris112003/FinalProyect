@@ -8,8 +8,8 @@
           <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"></a></div>
           <div class="pelculas-parent">
             <a class="pelculas"  href="{{route ('/')}}">Películas</a>
-            <a class="acerca-de">Acerca de </a>
-            <a class="series">Series</a>
+            <a class="acerca-de" href="{{route ('acercade')}}">Acerca de </a>
+            <a class="series" href="{{route ('series')}}">Series</a>
           </div>
           <button class="group-wrapper" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
             <div class="rectangle-parent">
@@ -35,7 +35,7 @@
         <div class="name">{{ $name }}</div>
       </div>
       <div class="datos-personales-parent">
-        <div class="datos-personales">Datos Personales:</div>
+        <div class="datos-personales">Datos Personales</div>
         <div class="correo-electrnico-ngomezcep-container">
           <p class="correo-electrnico-ngomezcep">
             <span class="correo-electrnico">Correo electrónico: </span>
@@ -47,7 +47,7 @@
           </p>
         </div>
         <button onclick="window.location.href='/edit-profile'" class="edit-profile">
-          <b class="edit-profile1">Edit profile</b>
+          <p class="edit-profile1">Editar perfil</p>
         </button>
       </div>
       <div class="estresado-parent">

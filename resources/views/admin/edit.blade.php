@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <div class="container">
@@ -14,36 +14,42 @@
                     @if ($columna === 'id')
                         <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}"
                             readonly>
+                    @elseif($columna === 'created_at')
+                        <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}"
+                            readonly>
+                    @elseif($columna === 'updated_at')
+                        <input type="text" id="{{ $columna }}" name="{{ $columna }}" value="{{ $valor }}"
+                            readonly>
                     @elseif($columna === 'password')
                         <input type="text" id="{{ $columna }}" name="{{ $columna }}">
                         @error($columna)
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Error de registro',
-                                    text: "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un carácter especial.",
-                                    confirmButtonColor: '#3085d6',
-                                    confirmButtonText: 'Aceptar'
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    Swal.fire({
+                                        icon: 'warning',
+                                        title: 'Error de registro',
+                                        text: "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un carácter especial.",
+                                        confirmButtonColor: '#3085d6',
+                                        confirmButtonText: 'Aceptar'
+                                    });
                                 });
-                            });
-                        </script>
+                            </script>
                         @enderror
                     @else
                         <input type="text" id="{{ $columna }}" name="{{ $columna }}"
                             value="{{ $valor }}">
-                            @error($columna)
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                Swal.fire({
-                                    icon: 'warning',
-                                    title: 'Error de registro',
-                                    text: "{{ $message }}",
-                                    confirmButtonColor: '#3085d6',
-                                    confirmButtonText: 'Aceptar'
+                        @error($columna)
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    Swal.fire({
+                                        icon: 'warning',
+                                        title: 'Error de registro',
+                                        text: "{{ $message }}",
+                                        confirmButtonColor: '#3085d6',
+                                        confirmButtonText: 'Aceptar'
+                                    });
                                 });
-                            });
-                        </script>
+                            </script>
                         @enderror
                     @endif
                 </div>
