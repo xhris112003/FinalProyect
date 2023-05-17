@@ -15,6 +15,19 @@
             <div class="form-group">
               <label for="email">Correo electrónico</label>
               <input class="group-item" placeholder="Correo electrónico" id="email" type="email" name="email" value="{{ old('email') }}" autofocus required autocomplete="email">
+              @if ($errors->has('email'))
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Error de registro',
+                                    text: "Este email ya esta registrado!",
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'Aceptar'
+                                });
+                            });
+                        </script>
+                    @endif
             </div>
 
             <div class="form-group">
@@ -25,6 +38,19 @@
             <div class="form-group">
               <label for="password">Contraseña</label>
               <input id="password" type="password" class="rectangle-input" placeholder="Contraseña" name="password" required autocomplete="new-password">
+              @if ($errors->has('password'))
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Error de registro',
+                                    text: "{{ $errors->first('password') }}",
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'Aceptar'
+                                });
+                            });
+                        </script>
+                    @endif
             </div>
 
             <div class="form-group">
