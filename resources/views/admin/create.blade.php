@@ -14,8 +14,10 @@
                 </div>
             @endforeach
 
-            <button type="submit" class="btn btn-primary">Crear Usuario</button>
+            <button type="submit" class="btn btn-primary">Crear</button>
         </form>
+        @if({{$tabla}} == 'users')
         <a href="{{ route('admin.store', [$tabla, 'valor' => false]) }}" class="btn btn-primary">Crear Administrador</a>
+        @endif
     </div>
 @endsection
