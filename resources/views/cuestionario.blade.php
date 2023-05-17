@@ -103,14 +103,16 @@
         <h1 style="display: none;" id="h2">Tus peliculas recomendadas</h1>
         <ul id="lista-resultados"></ul>
     </div>
-    <div id="detalles"> </div>
+    <div id="detalles"> </div>  <div class="proveedor">
+    </div>
+
     <div class="divG">
     <button style="display: none;" id="guardarFormulario">Guardar formulario</button>
     </div>
-    <div class="proveedor">
-    </div>
 
 </body>
+
+
 <script src="{{ asset('js/cuestionario.js') }}"></script>
 
 </html>

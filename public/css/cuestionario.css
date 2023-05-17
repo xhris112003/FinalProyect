@@ -26,14 +26,24 @@ body {
   align-items: center;
   justify-content: center;
   text-align: justify;
-  margin: 0 90px;
 
+  background-color: #f5f5f5;
+  margin: 22px;
+
+}
+
+#detalles p{
+    padding: 0 49px;
 }
 .proveedor{
   display: flex;
+  padding: 22px 96px 30px;
+  gap: 146px;
+  flex-wrap: wrap
 }
 .categoria img{
-  width: 35px;
+    padding: 0 7px;
+  width: 50px;
 }
 
 .plataforma {
@@ -368,4 +378,8 @@ body {
 
   .aparecer-con-efecto {
     animation: aparecer 2s ease-in-out forwards;
+  }
+
+  .swal2-confirm {
+    background-color: red;
   }

@@ -113,7 +113,7 @@ form.addEventListener("submit", (event) => {
             const buy = data.results.ES.buy;
             const rent = data.results.ES.rent;
             const flatrate = data.results.ES.flatrate;
-      
+
             // Función para crear el elemento de imagen con el logo de la plataforma
             function crearImagenPlataforma(urlLogo) {
               const imagen = document.createElement('img');
@@ -121,54 +121,54 @@ form.addEventListener("submit", (event) => {
               imagen.alt = 'Logo de la plataforma';
               return imagen;
             }
-      
+
             // Función para agregar una plataforma a la lista de plataformas de una categoría
             function agregarPlataforma(plataformasDiv, urlLogo) {
               const logo = crearImagenPlataforma(urlLogo);
               plataformasDiv.appendChild(logo);
             }
-      
+
             // Función para crear el contenedor de una categoría de plataformas
             function crearContenedorCategoria(titulo, plataformas) {
               const categoriaDiv = document.createElement('div');
               categoriaDiv.className = 'categoria';
-      
+
               const tituloElemento = document.createElement('h4');
               tituloElemento.textContent = titulo;
               categoriaDiv.appendChild(tituloElemento);
-      
+
               const plataformasDiv = document.createElement('div');
               plataformasDiv.className = 'plataformas';
               categoriaDiv.appendChild(plataformasDiv);
-      
+
               for (const plataforma of plataformas) {
                 agregarPlataforma(plataformasDiv, `https://image.tmdb.org/t/p/original${plataforma.logo_path}`);
               }
-      
+
               return categoriaDiv;
             }
-      
+
             // Obtener el contenedor donde se mostrarán las categorías de plataformas
             const contenedorPlataformas = document.querySelector('.proveedor');
-      
+
             // Vaciar el contenido del contenedor antes de agregar las categorías de plataformas
             contenedorPlataformas.innerHTML = '';
-      
+
             // Crear y mostrar la categoría de plataformas "Compra"
             const categoriaCompra = crearContenedorCategoria('Compra', buy);
             contenedorPlataformas.appendChild(categoriaCompra);
-      
+
             // Crear y mostrar la categoría de plataformas "Alquiler"
             const categoriaAlquiler = crearContenedorCategoria('Alquiler', flatrate);
             contenedorPlataformas.appendChild(categoriaAlquiler);
-      
+
             // Crear y mostrar la categoría de plataformas "Suscripción"
             const categoriaSuscripcion = crearContenedorCategoria('Suscripción', rent);
             contenedorPlataformas.appendChild(categoriaSuscripcion);
           })
           .catch((error) => console.log(error));
       }
-      
+
 
 
     /*********************************************************************************** */
@@ -227,7 +227,7 @@ form.addEventListener("submit", (event) => {
                                 peliculaTitulo.textContent = pelicula.title;
                                 p.textContent = pelicula.overview;
                                 votoTexto.textContent =
-                                    "Vote average: " + pelicula.vote_average;
+                                    " Puntuación : " + pelicula.vote_average;
                                 verTrailerBtn.textContent = "Ver trailer";
 
                                 verTrailerBtn.classList.add("ver-trailer-btn");
