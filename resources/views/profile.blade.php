@@ -64,7 +64,7 @@
         <div class="desktop-1-child">
             <div class="frame-group">
                 <div class="description-wrapper">
-                    <div class="datos-personales">Tus Favoritos</div>
+                    
                 </div>
                 <div class="image-parent">
                     <a class="image"> </a>

@@ -47,7 +47,7 @@ class ProfileController extends Controller
             $profile_photo = $user->profile_photo;
         }
 
-        return view('editProfile')->with([
+        return view('profile')->with([
             'id' => $id,
             'name' => $name,
             'email' => $email,

@@ -130,7 +130,7 @@
     <div id="contenedorCards"> </div>
 
     <footer class="footer">
-        <div><a href="{{ route('home') }}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer">
+        <div><a href="{{ route('/') }}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer">
             </a></div>
         <div>
             <p class="copy">Copyright 2023 © MovieMatch</p>

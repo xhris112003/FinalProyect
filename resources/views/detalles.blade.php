@@ -33,7 +33,7 @@
     <div id="contenedorPerfil"></div>
     <div id="contenedorRecomendacion"></div>
     <footer class="footer">
-      <div><a href="{{route('peliculas')}}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer"> </a></div>
+      <div><a href="{{route('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" class="logo-footer"> </a></div>
       <div >
       <p class="copy">Copyright 2023 © MovieMatch</p>
       <p>All Rights Reserved - Todos los derechos reservados</p>
