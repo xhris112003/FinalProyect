@@ -16,6 +16,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </head>
 
@@ -25,6 +27,10 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Home
+                </a>
+
+                <a class="navbar-brand" href="{{ url('/admin') }}">
+                    Admin
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
