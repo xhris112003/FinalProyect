@@ -13,6 +13,17 @@
   justify-content: flex-start;
 }
 
+
+.regstrate {
+  padding: 10px;
+  font-size: var(--font-size-31xl);
+  font-weight: 800;
+  font-family: var(--font-inter);
+  color: var(--letras);
+  display: flex;
+  justify-content: center;
+
+}
 .group-child {
   position: absolute;
   top: 0;
@@ -22,76 +33,10 @@
   height: 39.5rem;
 }
 
-.regstrate {
-  position: absolute;
-  top: 1.68rem;
-  left: 6.75rem;
-  font-size: var(--font-size-31xl);
-  font-weight: 800;
-  font-family: var(--font-inter);
-  color: var(--letras);
-  text-align: left;
-  display: inline-block;
-  width: 21rem;
-  height: 2.79rem;
-}
 
-.group-item {
-  border: 0;
-  background-color: var(--fondo-formulario);
-  position: absolute;
-  top: 6.26rem;
-  left: 3.06rem;
-  border-radius: var(--br-8xs);
-  width: 27.25rem;
-  height: 2.24rem;
-}
-
-.correo-electrnico {
-  position: absolute;
-  top: 6.93rem;
-  left: 3.56rem;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-anek-gurmukhi);
-  color: var(--color-gray-200);
-  text-align: left;
-  display: inline-block;
-  width: 9.63rem;
-  height: 1.34rem;
-}
-
-.acepto-la {
-  color: var(--color-lightslategray);
-}
-
-.poltica-de-privacidad {
-  color: var(--color-white);
-}
-
-.acepto-la-poltica-de-privacid {
-  margin: 0;
-}
-
-.tratamiento-de-mis {
-  margin: 0;
-  color: var(--color-lightslategray);
-}
-
-.acepto-la-poltica-container {
-  position: absolute;
-  top: 26.38rem;
-  left: 5.13rem;
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  font-family: var(--font-anek-gurmukhi);
-  text-align: left;
-  display: inline-block;
-  width: 21.25rem;
-  height: 3.18rem;
-}
 
 .opciones {
-  position: absolute;
+
   top: 27.25rem;
   left: 3.06rem;
   border-radius: var(--br-5xs);
@@ -102,20 +47,11 @@
 }
 
 .tengo-al-menos-container {
-  position: absolute;
-  top: 23.19rem;
-  left: 5.13rem;
-  font-size: var(--font-size-base);
-  font-weight: 600;
-  font-family: var(--font-anek-gurmukhi);
-  text-align: left;
-  display: inline-block;
-  width: 22.75rem;
-  height: 2.12rem;
+
+  font-size: 17px;
 }
 
 .opciones1 {
-  position: absolute;
   top: 23.19rem;
   left: 3.06rem;
   border-radius: var(--br-5xs);
@@ -128,7 +64,7 @@
 .rectangle,
 .registrarse {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 0;
 }
 
@@ -139,6 +75,14 @@
   height: 2.01rem;
 }
 
+.cajas{
+  display: flex;
+    align-items: center;
+}
+
+.politica, .terminos{
+  font-size: 10px;
+}
 .registrarse {
   font-size: var(--font-size-base);
   letter-spacing: 1.2px;
@@ -150,6 +94,29 @@
   display: inline-block;
   width: 8.8rem;
   height: 0.89rem;
+}
+
+.profile-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group, .select, .acepto-la-poltica-container {
+  margin-bottom: 20px;
+  padding-left: 10%;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+
+.form-group input::placeholder{
+  font-family: "Anek Gurmukhi";
+
 }
 
 .rectangle-group,
@@ -165,96 +132,18 @@
   cursor: pointer;
   border: 0;
   padding: 0;
-  background-color: transparent;
-  top: 32.07rem;
+  top: 35.07rem;
   left: 12.44rem;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   width: 9.56rem;
   height: 2.01rem;
 }
 
-.group-inner {
-  border: 0;
-  background-color: var(--fondo-formulario);
-  position: absolute;
-  top: 9.44rem;
-  left: 3.06rem;
-  border-radius: var(--br-8xs);
-  width: 27.25rem;
-  height: 2.35rem;
-}
-
-.nombre-de-usuario {
-  position: absolute;
-  top: 10.17rem;
-  left: 3.81rem;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-anek-gurmukhi);
-  color: var(--color-gray-200);
-  text-align: left;
-  display: inline-block;
-  width: 10.13rem;
-  height: 1.34rem;
-}
-
-.rectangle-input {
-  border: 0;
-  background-color: var(--fondo-formulario);
-  position: absolute;
-  top: 12.85rem;
-  left: 3.06rem;
-  border-radius: var(--br-8xs);
-  width: 27.25rem;
-  height: 2.35rem;
-}
-
-.contrasea {
-  position: absolute;
-  top: 13.52rem;
-  left: 3.81rem;
-  font-size: var(--font-size-xl);
-  font-family: var(--font-anek-gurmukhi);
-  color: var(--color-gray-200);
-  text-align: left;
-  display: inline-block;
-  width: 6rem;
-  height: 1.34rem;
-}
-
-.group-child1,
-.group-child2 {
-  border: 0;
-  background-color: var(--fondo-formulario);
-  position: absolute;
-  top: 16.15rem;
-  left: 3.06rem;
-  border-radius: var(--br-8xs);
-  width: 27.25rem;
-  height: 2.35rem;
-}
 
 .group-child2 {
   top: 19.44rem;
 }
 
-.repite-la-contrasea,
-.select {
-  position: absolute;
-  top: 16.76rem;
-  left: 3.81rem;
-  font-size: 15px;
-  font-family: var(--font-anek-gurmukhi);
-  color: var(--color-gray-200);
-  text-align: left;
-  display: inline-block;
-  width: 10.88rem;
-  height: 1.34rem;
-}
-
-.select {
-  top: 19.94rem;
-  left: 3.56rem;
-}
 
 .rectangle-parent {
   position: absolute;
@@ -298,4 +187,62 @@
   font-size: var(--font-size-31xl);
   color: var(--letras);
   font-family: var(--font-anek-gurmukhi);
+}
+
+.form-group label{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+
+.condiciones{
+  padding-left: 43px;
+    padding-right: 45px;
+}
+/* Estilos para los inputs del formulario */
+.group-item,
+.group-inner,
+.rectangle-input,
+.group-child1,
+.select select
+{
+  width: 80%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.select select{
+  width: 35%;
+}
+
+/* Estilos para el contenedor de "Acepto la Política de Privacidad" */
+.acepto-la-poltica-container {
+  margin-bottom: 10px;
+}
+
+/* Estilos para el texto "Acepto la Política de Privacidad" */
+.acepto-la {
+  font-weight: bold;
+}
+
+/* Estilos para el contenedor de "Tengo al menos 16 años y acepto los Términos de Uso" */
+.tengo-al-menos-container {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.registrarse-wrapper {
+  font-weight: bold;
+}
+
+.registrarse {
+  font-size: 18px;
+}
+
+/* Estilos para el mensaje de error */
+.error-message {
+  color: red;
+  margin-top: 10px;
 }

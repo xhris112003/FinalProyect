@@ -87,7 +87,7 @@
 
   <div id="notificacion" class="notificacion" style="display: none;">
     <p>¿No sabes qué ver? ¡Completa nuestro cuestionario y te recomendaremos una película!</p>
-    <a cl href="{{ route('cuestionario') }}">Ir al cuestionario</a>
+    <a cl href="{{ route('quiz') }}">Ir al cuestionario</a>
     <button id="cerrarNotificacion" class="cerrar">&times;</button>
 </div>
 

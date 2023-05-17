@@ -9,63 +9,71 @@
       <form class="group-wrapper" method="POST" action="{{ route('register') }}">
         @csrf
         <div class="rectangle-parent">
-          <div class="group-child"></div>
-          <div class="regstrate">REGÍSTRATE</div>
+          <div class="group-child">
+            <div class="regstrate">REGÍSTRATE</div>
 
-          <div class="acepto-la-poltica-container">
-            <p class="acepto-la-poltica-de-privacid">
-              <span class="acepto-la">Acepto la</span>
-              <span class="poltica-de-privacidad">
-                Política de Privacidad</span>
-              <span class="acepto-la"> y consiento la </span>
-            </p>
-            <p class="tratamiento-de-mis">
-              tratamiento de mis datos personales en
-            </p>
-            <p class="tratamiento-de-mis">de acuerdo con ello.</p>
-          </div>
-          <input class="opciones" type="checkbox" required>
-          <div class="tengo-al-menos-container">
-            <p class="acepto-la-poltica-de-privacid">
-              <span class="acepto-la">Tengo al menos 16 años y acepto los
-              </span>
-              <span class="poltica-de-privacidad">Términos de </span>
-            </p>
-            <p class="acepto-la-poltica-de-privacid">
-              <span class="poltica-de-privacidad">Usar</span>
-              <span class="acepto-la">.</span>
-            </p>
-          </div>
-
-
-          <input class="group-item" placeholder="Correo electrónico" id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-          <input id="name" class="group-inner" type="text" placeholder="Nombre de usuario" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-          <input id="password" type="password" class="rectangle-input" placeholder="Contraseña" name="password" required autocomplete="new-password">
-
-          <input id="password-confirm" class="group-child1" type="password" placeholder="Repite la contraseña" class="form-control" name="password_confirmation" required autocomplete="new-password">
-
-          <select class="select custom-select" name="genero" required>
-            <option value="">Seleccione el género</option>
-            <option value="male">Masculino</option>
-            <option value="female">Femenino</option>
-            <option value="other">Otro</option>
-          </select>
-
-          <input class="opciones1" type="checkbox" required>
-          <button type="submit" class="rectangle-group">
-            <div class="rectangle"></div>
-            <div class="registrarse-wrapper">
-              <div class="registrarse">registrarse</div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input class="group-item" placeholder="Correo electrónico" id="email" type="email" name="email" value="{{ old('email') }}" autofocus required autocomplete="email">
             </div>
-          </button>
 
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input id="name" class="group-inner" type="text" placeholder="Nombre de usuario" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+            </div>
 
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input id="password" type="password" class="rectangle-input" placeholder="Contraseña" name="password" required autocomplete="new-password">
+            </div>
+
+            <div class="form-group">
+              <label for="password-confirm">Confirma contraseña</label>
+              <input id="password-confirm" class="group-child1" type="password" placeholder="Repite la contraseña" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            </div>
+
+            <div class="select custom-select">
+              <select name="genero" required>
+                <option value="">Seleccione el género</option>
+                <option value="male">Masculino</option>
+                <option value="female">Femenino</option>
+                <option value="other">Otro</option>
+              </select>
+            </div>
+            <div class="condiciones">
+              <div class="cajas">
+                <input class="opciones" type="checkbox" required>
+                <div class="politica">
+                  <p>
+                    Acepto la Política de Privacidady consiento la
+                    tratamiento de mis datos personales en de acuerdo con ello.
+                  </p>
+                </div>
+              </div>
+              <div class="cajas">
+                <input class="opciones1" type="checkbox" required>
+                <div class="terminos">
+                  <p>
+                    Tengo al menos 16 años y acepto los Términos de Usar.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <button type="submit" class="rectangle-group registrarse rectangle">
+              Registrarse
+              <div class="registrarse-wrapper">
+              </div>
+            </button>
+          </div>
         </div>
       </form>
     </div>
   </div>
 </body>
+
+<style>
+
+</style>
 
 </html>
