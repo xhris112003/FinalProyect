@@ -1,320 +1,430 @@
-
-const form = document.querySelector('form')
-const listaResultados = document.getElementById('lista-resultados')
-const cargando = document.getElementById('cargando')
-const imagen1 = document.createElement('img')
-const imagen2 = document.createElement('img')
-const imagen3 = document.createElement('img')
-const fotosContainer = document.getElementById('fotos-container')
+const form = document.querySelector("form");
+const listaResultados = document.getElementById("lista-resultados");
+const cargando = document.getElementById("cargando");
+const imagen1 = document.createElement("img");
+const imagen2 = document.createElement("img");
+const imagen3 = document.createElement("img");
+const fotosContainer = document.getElementById("fotos-container");
 const duracionMinima = {
     corta: 0,
     larga: 120,
-    indiferente: 0
-}
+    indiferente: 0,
+};
 const generos = {
     feliz: 35, // Comedia
     triste: 18, // Drama
     enojado: 28, // Acción
     cansado: 99, // Documental
-    emocionado: 12 // Aventura
-}
+    emocionado: 12, // Aventura
+};
 const aptaParaTodoPublico = {
-    '0-6': 'G',
-    '7-13': 'PG',
-    '14-17': 'PG-13'
-}
-
+    "0-6": "G",
+    "7-13": "PG",
+    "14-17": "PG-13",
+};
 
 function mostrarFotosAleatorias() {
-    
-    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0202074c6fd19918f230acfa46a461d5')
-      .then(response => response.json())
-      .then(data => {
-        const peliculasAleatorias = []
-        while (peliculasAleatorias.length < 3 && data.results.length > 0) {
-          const indiceAleatorio = Math.floor(Math.random() * data.results.length)
-          peliculasAleatorias.push(data.results[indiceAleatorio])
-          data.results.splice(indiceAleatorio, 1)
-        }
-        
-        fotosContainer.style.display = 'block' // Agregar la clase 'oculto'
-        peliculasAleatorias.forEach(pelicula => {
-          const foto = document.createElement('img')
-          foto.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`
-          foto.alt = pelicula.title
-          foto.classList.add('imagen-resultados') // Agregar la clase CSS
-          fotosContainer.appendChild(foto)
-        })
-       
-      }) 
-    
-  }
-  
-  
-form.addEventListener('submit', event => {
-      mostrarFotosAleatorias()
-    event.preventDefault() // Evita que se envíe el formulario
-    form.classList.add('formulario-oculto')
-    cargando.style.display = 'block'
-    
-    const formData = new FormData(form)
+    fetch(
+        "https://api.themoviedb.org/3/movie/now_playing?api_key=0202074c6fd19918f230acfa46a461d5"
+    )
+        .then((response) => response.json())
+        .then((data) => {
+            const peliculasAleatorias = [];
+            while (peliculasAleatorias.length < 3 && data.results.length > 0) {
+                const indiceAleatorio = Math.floor(
+                    Math.random() * data.results.length
+                );
+                peliculasAleatorias.push(data.results[indiceAleatorio]);
+                data.results.splice(indiceAleatorio, 1);
+            }
+
+            fotosContainer.style.display = "block"; // Agregar la clase 'oculto'
+            peliculasAleatorias.forEach((pelicula) => {
+                const foto = document.createElement("img");
+                foto.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`;
+                foto.alt = pelicula.title;
+                foto.classList.add("imagen-resultados"); // Agregar la clase CSS
+                fotosContainer.appendChild(foto);
+            });
+        });
+}
+
+form.addEventListener("submit", (event) => {
+    mostrarFotosAleatorias();
+    event.preventDefault(); // Evita que se envíe el formulario
+    form.classList.add("formulario-oculto");
+    cargando.style.display = "block";
+
+    const formData = new FormData(form);
     const opciones = {
-        sentimiento: formData.get('sentimiento'),
-        edad: formData.get('edad'),
-        duracion: formData.get('duracion'),
-        maraton: formData.get('maraton')
-    }
+        sentimiento: formData.get("sentimiento"),
+        edad: formData.get("edad"),
+        duracion: formData.get("duracion"),
+        maraton: formData.get("maraton"),
+    };
     // Obtener la clasificación adecuada para la edad ingresada
-    const clasificacion = aptaParaTodoPublico[opciones.edad]
+    const clasificacion = aptaParaTodoPublico[opciones.edad];
     // Construir URL de la API con opciones de búsqueda
     const url =
         `https://api.themoviedb.org/3/discover/movie?api_key=0202074c6fd19918f230acfa46a461d5&language=es-ES&include_adult=false&include_video=false` +
         `&certification_country=US&certification=${clasificacion}` +
-        `&sort_by=popularity.desc&with_runtime.gte=${duracionMinima[opciones.duracion]
+        `&sort_by=popularity.desc&with_runtime.gte=${
+            duracionMinima[opciones.duracion]
         }` +
         `&with_genres=${generos[opciones.sentimiento]}` +
-        `&vote_count.gte=1000`
-    let totalResults = 0
-    let totalPages = 0
-    const peliculas = []
+        `&vote_count.gte=1000`;
+    let totalResults = 0;
+    let totalPages = 0;
+    const peliculas = [];
     // Mostrar GIF de carga
-    cargando.classList.remove('oculto')
-      
+    cargando.classList.remove("oculto");
+
+    function agregarPlataforma(
+        nombrePlataforma,
+        urlLogo,
+        contenedor,
+        categoria
+    ) {
+        const plataformaDiv = document.createElement("div");
+        plataformaDiv.className = "plataforma";
+
+        const titulo = document.createElement("h4");
+        titulo.textContent = categoria;
+
+        const nombre = document.createElement("p");
+        nombre.textContent = nombrePlataforma;
+
+        const logo = crearImagenPlataforma(urlLogo);
+
+        plataformaDiv.appendChild(titulo);
+        plataformaDiv.appendChild(logo);
+        plataformaDiv.appendChild(nombre);
+        contenedor.appendChild(plataformaDiv);
+    }
+
+
+    /******************************************************************************* */
+
+
+    function obtenerPlataformasDeTransmision(peliculaId) {
+        fetch(`https://api.themoviedb.org/3/movie/${peliculaId}/watch/providers?api_key=0202074c6fd19918f230acfa46a461d5`)
+          .then((response) => response.json())
+          .then((data) => {
+            const buy = data.results.ES.buy;
+            const rent = data.results.ES.rent;
+            const flatrate = data.results.ES.flatrate;
+
+            // Función para crear el elemento de imagen con el logo de la plataforma
+            function crearImagenPlataforma(urlLogo) {
+              const imagen = document.createElement('img');
+              imagen.src = urlLogo;
+              imagen.alt = 'Logo de la plataforma';
+              return imagen;
+            }
+
+            // Función para agregar una plataforma a la lista de plataformas de una categoría
+            function agregarPlataforma(plataformasDiv, urlLogo) {
+              const logo = crearImagenPlataforma(urlLogo);
+              plataformasDiv.appendChild(logo);
+            }
+
+            // Función para crear el contenedor de una categoría de plataformas
+            function crearContenedorCategoria(titulo, plataformas) {
+              const categoriaDiv = document.createElement('div');
+              categoriaDiv.className = 'categoria';
+
+              const tituloElemento = document.createElement('h4');
+              tituloElemento.textContent = titulo;
+              categoriaDiv.appendChild(tituloElemento);
+
+              const plataformasDiv = document.createElement('div');
+              plataformasDiv.className = 'plataformas';
+              categoriaDiv.appendChild(plataformasDiv);
+
+              for (const plataforma of plataformas) {
+                agregarPlataforma(plataformasDiv, `https://image.tmdb.org/t/p/original${plataforma.logo_path}`);
+              }
+
+              return categoriaDiv;
+            }
+
+            // Obtener el contenedor donde se mostrarán las categorías de plataformas
+            const contenedorPlataformas = document.querySelector('.proveedor');
+
+            // Vaciar el contenido del contenedor antes de agregar las categorías de plataformas
+            contenedorPlataformas.innerHTML = '';
+
+            // Crear y mostrar la categoría de plataformas "Compra"
+            const categoriaCompra = crearContenedorCategoria('Compra', buy);
+            contenedorPlataformas.appendChild(categoriaCompra);
+
+            // Crear y mostrar la categoría de plataformas "Alquiler"
+            const categoriaAlquiler = crearContenedorCategoria('Alquiler', flatrate);
+            contenedorPlataformas.appendChild(categoriaAlquiler);
+
+            // Crear y mostrar la categoría de plataformas "Suscripción"
+            const categoriaSuscripcion = crearContenedorCategoria('Suscripción', rent);
+            contenedorPlataformas.appendChild(categoriaSuscripcion);
+          })
+          .catch((error) => console.log(error));
+      }
+
+
+
+    /*********************************************************************************** */
     // Función para realizar la búsqueda paginada de películas
-    const buscarPeliculas = page => {
+    const buscarPeliculas = (page) => {
         fetch(`${url}&page=${page}`)
-            .then(response => response.json())
-            .then(data => {
-                totalResults = data.total_results
-                totalPages = data.total_pages
+            .then((response) => response.json())
+            .then((data) => {
+                totalResults = data.total_results;
+                totalPages = data.total_pages;
                 // Agregar las películas de esta página al array de resultados
-                peliculas.push(...data.results)
+                peliculas.push(...data.results);
                 // Si hay más páginas, buscar las siguientes
                 if (page < totalPages) {
-                    buscarPeliculas(page + 1)
+                    buscarPeliculas(page + 1);
                 } else {
                     // Si se han obtenido todas las películas, seleccionar aleatoriamente 5
-                    const peliculasAleatorias = []
+                    const peliculasAleatorias = [];
                     while (
                         peliculasAleatorias.length < 5 &&
                         peliculas.length > 0
                     ) {
                         const indiceAleatorio = Math.floor(
                             Math.random() * peliculas.length
-                        )
-                        peliculasAleatorias.push(peliculas[indiceAleatorio])
-                        peliculas.splice(indiceAleatorio, 1)
+                        );
+                        peliculasAleatorias.push(peliculas[indiceAleatorio]);
+                        peliculas.splice(indiceAleatorio, 1);
                     }
                     setTimeout(() => {
-                        cargando.style.display = 'none'
-                        fotosContainer.style.display = 'none';
+                        cargando.style.display = "none";
+                        fotosContainer.style.display = "none";
                         // Limpiar lista de resultados
-                        listaResultados.innerHTML = ''
+                        listaResultados.innerHTML = "";
                         // Mostrar cada película seleccionada aleatoriamente en la lista de resultados
-                        peliculasAleatorias.forEach(pelicula => {
-                            const peliculaItem = document.createElement('li')
+                        peliculasAleatorias.forEach((pelicula) => {
+                            const peliculaItem = document.createElement("li");
                             // Crear elemento de imagen de película
-                            const peliculaImagen = document.createElement('img')
-                            peliculaImagen.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`
-                            peliculaImagen.alt = pelicula.title
-                            peliculaItem.appendChild(peliculaImagen)
+                            const peliculaImagen =
+                                document.createElement("img");
+                            peliculaImagen.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`;
+                            peliculaImagen.alt = pelicula.title;
+                            peliculaItem.appendChild(peliculaImagen);
                             // Crear elementos para la información de la película
-                            const p = document.createElement('p')
-                            const votoTexto = document.createElement('p')
-                            const verTrailerBtn = document.createElement(
-                                'button'
-                            )
+                            const p = document.createElement("p");
+                            const votoTexto = document.createElement("p");
+                            const verTrailerBtn =
+                                document.createElement("button");
                             //Función seleccionar la película y abrir detalles
-                            peliculaItem.addEventListener('click', function () {
-                                const detalles = document.getElementById(
-                                    'detalles'
-                                )
-                                detalles.innerHTML = ''
+                            peliculaItem.addEventListener("click", function () {
+                                const detalles =
+                                    document.getElementById("detalles");
+                                detalles.innerHTML = "";
+                                const peliculaTitulo =
+                                    document.createElement("h2");
                                 // Agregar texto y clases a los elementos
-                                peliculaTitulo.textContent = pelicula.title
-                                p.textContent = pelicula.overview
+                                peliculaTitulo.textContent = pelicula.title;
+                                p.textContent = pelicula.overview;
                                 votoTexto.textContent =
-                                    'Vote average: ' + pelicula.vote_average
-                                verTrailerBtn.textContent = 'Ver trailer'
-                                verTrailerBtn.classList.add('ver-trailer-btn')
-                                detalles.classList.add('detalles')
+                                    " Puntuación : " + pelicula.vote_average;
+                                verTrailerBtn.textContent = "Ver trailer";
+
+                                verTrailerBtn.classList.add("ver-trailer-btn");
+                                detalles.classList.add("detalles");
                                 // Agregar elementos al contenedor de detalles
-                                detalles.appendChild(peliculaTitulo)
-                                detalles.appendChild(p)
-                                detalles.appendChild(votoTexto)
-                                detalles.appendChild(verTrailerBtn)
+                                detalles.appendChild(peliculaTitulo);
+                                detalles.appendChild(p);
+                                detalles.appendChild(votoTexto);
+                                detalles.appendChild(verTrailerBtn);
+                                obtenerPlataformasDeTransmision(pelicula.id);
                                 // Agregar el contenedor de detalles al contenedor principal
                                 verTrailerBtn.addEventListener(
-                                    'click',
+                                    "click",
                                     function () {
                                         fetch(
                                             `https://api.themoviedb.org/3/movie/${pelicula.id}/videos?api_key=0202074c6fd19918f230acfa46a461d5`
                                         )
-                                            .then(response => response.json())
-                                            .then(data => {
-                                                const video = data.results[0]
+                                            .then((response) => response.json())
+                                            .then((data) => {
+                                                const video = data.results[0];
                                                 if (video) {
-                                                    const trailerURL = `https://www.youtube.com/watch?v=${video.key}`
+                                                    const trailerURL = `https://www.youtube.com/watch?v=${video.key}`;
                                                     // Abrir una nueva ventana o pestaña con la URL del trailer
                                                     window.open(
                                                         trailerURL,
-                                                        '_blank'
-                                                    )
+                                                        "_blank"
+                                                    );
                                                 } else {
                                                     console.log(
-                                                        'No se encontraron videos para la película'
-                                                    )
+                                                        "No se encontraron videos para la película"
+                                                    );
                                                 }
                                             })
-                                            .catch(error => {
+                                            .catch((error) => {
                                                 console.log(
-                                                    'Error al obtener los videos de la película',
+                                                    "Error al obtener los videos de la película",
                                                     error
-                                                )
-                                            })
+                                                );
+                                            });
                                     }
-                                )
-                            })
-                            // Crear elemento de título de película
-                            const peliculaTitulo = document.createElement('h2')
-                            peliculaTitulo.textContent = pelicula.title
-                            peliculaItem.appendChild(peliculaTitulo)
-                            // Agregar película a la lista de resultados
-                            listaResultados.appendChild(peliculaItem)
-                        })
-
-                        const h2title = document.getElementById(
-                            'h2'
-                        )
-                        h2title.style.display = 'block'
-                        const guardarFormularioBtn = document.getElementById('guardarFormulario');
-                        guardarFormularioBtn.style.display = 'block';
-                        guardarFormularioBtn.addEventListener('click', function () {
-                            const peliculasPresentadas = document.querySelectorAll('#lista-resultados li');
-
-                            // Obtén los datos relevantes de cada película
-                            const peliculasGuardadas = Array.from(peliculasPresentadas).map(peliculaItem => {
-                                const peliculaTitulo = peliculaItem.querySelector('h2').textContent;
-                                const peliculaImagen = peliculaItem.querySelector('img').src;
-
-                                return {
-                                    titulo: peliculaTitulo,
-                                    imagen: peliculaImagen
-                                };
+                                );
                             });
-
-                            const data = {
-                                peliculas: peliculasGuardadas
-                            };
-
-                            fetch('/guardar-peliculas', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                                },
-                                body: JSON.stringify(data)
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-
-                                    Swal.fire({
-                                        title: '¡Exito!',
-                                        text: 'Se ha guardado correctamente!',
-                                        icon: 'success',
-                                        confirmButtonText: 'Aceptar'
-                                    })
-                                    guardarFormularioBtn.style.display = 'none';
-
-                                })
-                                .catch(error => {
-                                    console.log(data)
-                                    console.error('Error al guardar las peliculas:', error);
-                                });
+                            // Crear elemento de título de película
+                            const peliculaTitulo = document.createElement("h2");
+                            peliculaTitulo.textContent = pelicula.title;
+                            peliculaItem.appendChild(peliculaTitulo);
+                            // Agregar película a la lista de resultados
+                            listaResultados.appendChild(peliculaItem);
                         });
-                    }, 5000)
+
+                        const h2title = document.getElementById("h2");
+                        h2title.style.display = "block";
+                        const guardarFormularioBtn =
+                            document.getElementById("guardarFormulario");
+                        guardarFormularioBtn.style.display = "block";
+                        guardarFormularioBtn.addEventListener(
+                            "click",
+                            function () {
+                                const peliculasPresentadas =
+                                    document.querySelectorAll(
+                                        "#lista-resultados li"
+                                    );
+
+                                // Obtén los datos relevantes de cada película
+                                const peliculasGuardadas = Array.from(
+                                    peliculasPresentadas
+                                ).map((peliculaItem) => {
+                                    const peliculaTitulo =
+                                        peliculaItem.querySelector(
+                                            "h2"
+                                        ).textContent;
+                                    const peliculaImagen =
+                                        peliculaItem.querySelector("img").src;
+
+                                    return {
+                                        titulo: peliculaTitulo,
+                                        imagen: peliculaImagen,
+                                    };
+                                });
+
+                                const data = {
+                                    peliculas: peliculasGuardadas,
+                                };
+
+                                fetch("/guardar-peliculas", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                        "X-CSRF-TOKEN": document
+                                            .querySelector(
+                                                'meta[name="csrf-token"]'
+                                            )
+                                            .getAttribute("content"),
+                                    },
+                                    body: JSON.stringify(data),
+                                })
+                                    .then((response) => response.json())
+                                    .then((data) => {
+                                        Swal.fire({
+                                            title: "¡Exito!",
+                                            text: "Se ha guardado correctamente!",
+                                            icon: "success",
+                                            confirmButtonText: "Aceptar",
+                                        });
+                                        guardarFormularioBtn.style.display =
+                                            "none";
+                                    })
+                                    .catch((error) => {
+                                        console.log(data);
+                                        console.error(
+                                            "Error al guardar las peliculas:",
+                                            error
+                                        );
+                                    });
+                            }
+                        );
+                    }, 5000);
                 }
             })
-            .catch(error => console.log(error))
-    }
+            .catch((error) => console.log(error));
+    };
     // Iniciar la búsqueda en la página 1
-    buscarPeliculas(1)
-})
-var checkboxes = document.getElementById('checkboxes')
-var selectBox = document.getElementById('selectBox')
+    buscarPeliculas(1);
+});
+var checkboxes = document.getElementById("checkboxes");
+var selectBox = document.getElementById("selectBox");
 function showCheckboxes() {
     checkboxes.style.display =
-        checkboxes.style.display === 'block' ? 'none' : 'block'
+        checkboxes.style.display === "block" ? "none" : "block";
 }
 function getSelectedOptions() {
-    var selectedOptions = []
-    var checkboxes = document.getElementsByName('sentimiento')
+    var selectedOptions = [];
+    var checkboxes = document.getElementsByName("sentimiento");
     for (var i = 0; i < checkboxes.length; i++) {
         if (checkboxes[i].checked) {
-            selectedOptions.push(checkboxes[i].value)
+            selectedOptions.push(checkboxes[i].value);
         }
     }
-    return selectedOptions
+    return selectedOptions;
 }
-document.getElementById('sentimiento').addEventListener('change', function () {
-    var selectedOptions = getSelectedOptions()
+document.getElementById("sentimiento").addEventListener("change", function () {
+    var selectedOptions = getSelectedOptions();
     if (selectedOptions.length > 3) {
         // Deselecciona las opciones excedentes
         for (var i = 0; i < checkboxes.length; i++) {
             if (!checkboxes[i].checked) {
-                checkboxes[i].disabled = true
+                checkboxes[i].disabled = true;
             }
         }
     } else {
         // Habilita todas las opciones
         for (var i = 0; i < checkboxes.length; i++) {
-            checkboxes[i].disabled = false
+            checkboxes[i].disabled = false;
         }
     }
-})
+});
 // Obtén los valores seleccionados cuando se envíe el formulario
 document
-    .getElementById('movie-form')
-    .addEventListener('submit', function (event) {
-        event.preventDefault() // Evita el envío del formulario para este ejemplo
-        var selectedOptions = getSelectedOptions()
+    .getElementById("movie-form")
+    .addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita el envío del formulario para este ejemplo
+        var selectedOptions = getSelectedOptions();
         // Realiza las acciones que desees con los valores seleccionados
-        console.log(selectedOptions)
-    })
+    });
 document
-    .getElementById('search-button')
-    .addEventListener('click', function (event) {
+    .getElementById("search-button")
+    .addEventListener("click", function (event) {
         var checkboxes = document.querySelectorAll(
             "#checkboxes input[type='checkbox']:checked"
-        )
-        var selectedCount = checkboxes.length
+        );
+        var selectedCount = checkboxes.length;
         if (selectedCount > 3) {
             // Mostrar alerta utilizando SweetAlert
             Swal.fire({
-                title: '¡Alerta!',
-                text: 'Solo puedes seleccionar un máximo de 3 emociones',
-                icon: 'warning',
-                confirmButtonText: 'Aceptar'
-            })
-            event.preventDefault() // Cancelar el envío del formulario
+                title: "¡Alerta!",
+                text: "Solo puedes seleccionar un máximo de 3 emociones",
+                icon: "warning",
+                confirmButtonText: "Aceptar",
+            });
+            event.preventDefault(); // Cancelar el envío del formulario
         }
-    })
+    });
 document
-    .getElementById('search-button')
-    .addEventListener('click', function (event) {
+    .getElementById("search-button")
+    .addEventListener("click", function (event) {
         var checkboxes = document.querySelectorAll(
             "#checkboxes input[type='checkbox']:checked"
-        )
-        var selectedCount = checkboxes.length
+        );
+        var selectedCount = checkboxes.length;
         if (selectedCount == 0) {
             // Mostrar alerta utilizando SweetAlert
             Swal.fire({
-                title: '¡Alerta!',
-                text: 'Debes seleccionar minimo una!',
-                icon: 'warning',
-                confirmButtonText: 'Aceptar'
-            })
-            event.preventDefault() // Cancelar el envío del formulario
+                title: "¡Alerta!",
+                text: "Debes seleccionar minimo una!",
+                icon: "warning",
+                confirmButtonText: "Aceptar",
+            });
+            event.preventDefault(); // Cancelar el envío del formulario
         }
-    })
-
+    });
