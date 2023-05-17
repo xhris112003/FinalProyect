@@ -30,7 +30,7 @@
     </div>
     <div class="frame-parent">
       <div class="profile-parent">
-        <img class="profile-icon" alt="" src="./public/profile@2x.png" />
+        <img class="profile-icon" alt="" src="{{ asset('img/icon.jpg') }}" />
 
         <div class="name">{{ $name }}</div>
       </div>

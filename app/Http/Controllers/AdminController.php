@@ -45,7 +45,16 @@ class AdminController extends Controller
         if ($tabla == 'users') {
             $valor = $request->input('valor');
 
-            $validatedData = $request->validate($request->all());
+            $validatedData = $request->validate([
+                'name' => ['required', 'regex:/^[a-zA-Z]{4}[a-zA-Z0-9]*$/'],
+                'email' => 'required|email',
+                'password' => [
+                    'required',
+                    'string',
+                    'min:8',
+                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&\.]{8,}$/'
+                ],
+            ]);
             if ($valor == 0) {
                 DB::table($tabla)->insert($validatedData);
             } else {

@@ -86,6 +86,20 @@ window.onload = function () {
             let cuerpoCard = document.createElement("div");
             cuerpoCard.classList.add("card-body");
 
+            //CREAR BOTON DE LIKE
+            let likeButton = document.createElement("button");
+            likeButton.classList.add("btn");
+            likeButton.classList.add("btn-like");
+            likeButton.innerHTML = "<i class='fa fa-heart'></i>";
+            
+            //DIRIGIRLO AL CONTROLADOR
+            likeButton.addEventListener("click", function() {
+                let movieId = data.results[i].id;
+                window.location.href = "/" + movieId;
+            });
+            
+
+
             //AÑADIR LA IMAGEN
             let imagen = new Image();
             imagen.src =
@@ -130,13 +144,16 @@ window.onload = function () {
             punt.classList.add(getColorPuntuacion(puntuacion));
             punt.setAttribute("id", "puntuacion");
             punt.setAttribute("aria-label", "Nota: ");
-            punt.innerText = puntuacion;
+            punt.innerText = puntuacion;    
+
 
             cuerpoCard.appendChild(imagen);
             cuerpoCard.appendChild(punt);
             cuerpoCard.appendChild(titulo);
             cuerpoCard.appendChild(sinopsis);
+            cuerpoCard.appendChild(likeButton);
 
+            
             card.appendChild(cuerpoCard);
 
             col.appendChild(card);

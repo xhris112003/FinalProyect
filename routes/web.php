@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -113,3 +114,5 @@ Route::get('/guardar-peliculas', [App\Http\Controllers\PeliculasController::clas
 Route::post('/guardar-peliculas', [App\Http\Controllers\PeliculasController::class, 'guardarPeliculas'])->name('guardar.peliculas');
 
 Route::post('/profile/edit', [App\Http\Controllers\ProfileController::class, 'editarPerfil'])->name('profile.edit');
+
+Route::get('/{movieId}', [App\Http\Controllers\LikeController::class, 'like'])->name('like');
