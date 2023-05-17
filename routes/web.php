@@ -37,6 +37,25 @@ Route::get('/register', function () {
     return view('register');
 })->name('register');
 
+Route::get('/ultimosEstrenos', function () {
+    return view('ultimosEstrenos');
+})->name('ultimosEstrenos');
+
+Route::get('/ultimosEstrenosS', function () {
+    return view('ultimosEstrenosS');
+})->name('ultimosEstrenosS');
+
+
+Route::get('/seriesMejorValoradas', function () {
+    return view('seriesMejorValoradas');
+})->name('seriesMejorValoradas');
+
+Route::get('/peliculasMejorValoradas', function () {
+    return view('peliculasMejorValoradas');
+})->name('peliculasMejorValoradas');
+
+
+
 Route::get('/cuestionario', [App\Http\Controllers\CuestionarioController::class, 'index'])->name('cuestionario');
 
 
@@ -85,7 +104,7 @@ Route::get('/admin/{tabla}', [AdminController::class, 'show'])->name('admin.show
 Route::get('/admin/{tabla}/create', [AdminController::class, 'create'])->name('admin.create');
 Route::post('/admin/{tabla}', [AdminController::class, 'store'])->name('admin.store');
 Route::get('/admin/{tabla}/{id}/edit', [AdminController::class, 'edit'])->name('admin.edit');
-Route::put('/admin/{tabla}/{id}', [AdminController::class, 'update'])->name('admin.update');
+Route::put('/admin/{tabla}/{id}', 'App\Http\Controllers\AdminController@update')->name('admin.update');
 Route::delete('/admin/{tabla}/{id}', [AdminController::class, 'destroy'])->name('admin.destroy');
 
 Route::get('/guardar-peliculas', [App\Http\Controllers\PeliculasController::class, 'guardarPeliculas'])->name('guardar.peliculas');

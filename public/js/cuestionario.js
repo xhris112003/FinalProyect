@@ -2,6 +2,10 @@
 const form = document.querySelector('form')
 const listaResultados = document.getElementById('lista-resultados')
 const cargando = document.getElementById('cargando')
+const imagen1 = document.createElement('img')
+const imagen2 = document.createElement('img')
+const imagen3 = document.createElement('img')
+const fotosContainer = document.getElementById('fotos-container')
 const duracionMinima = {
     corta: 0,
     larga: 120,
@@ -19,10 +23,40 @@ const aptaParaTodoPublico = {
     '7-13': 'PG',
     '14-17': 'PG-13'
 }
+
+
+function mostrarFotosAleatorias() {
+    
+    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0202074c6fd19918f230acfa46a461d5')
+      .then(response => response.json())
+      .then(data => {
+        const peliculasAleatorias = []
+        while (peliculasAleatorias.length < 3 && data.results.length > 0) {
+          const indiceAleatorio = Math.floor(Math.random() * data.results.length)
+          peliculasAleatorias.push(data.results[indiceAleatorio])
+          data.results.splice(indiceAleatorio, 1)
+        }
+        
+        fotosContainer.style.display = 'block' // Agregar la clase 'oculto'
+        peliculasAleatorias.forEach(pelicula => {
+          const foto = document.createElement('img')
+          foto.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`
+          foto.alt = pelicula.title
+          foto.classList.add('imagen-resultados') // Agregar la clase CSS
+          fotosContainer.appendChild(foto)
+        })
+       
+      }) 
+    
+  }
+  
+  
 form.addEventListener('submit', event => {
+      mostrarFotosAleatorias()
     event.preventDefault() // Evita que se envíe el formulario
     form.classList.add('formulario-oculto')
     cargando.style.display = 'block'
+    
     const formData = new FormData(form)
     const opciones = {
         sentimiento: formData.get('sentimiento'),
@@ -45,6 +79,7 @@ form.addEventListener('submit', event => {
     const peliculas = []
     // Mostrar GIF de carga
     cargando.classList.remove('oculto')
+      
     // Función para realizar la búsqueda paginada de películas
     const buscarPeliculas = page => {
         fetch(`${url}&page=${page}`)
@@ -72,6 +107,7 @@ form.addEventListener('submit', event => {
                     }
                     setTimeout(() => {
                         cargando.style.display = 'none'
+                        fotosContainer.style.display = 'none';
                         // Limpiar lista de resultados
                         listaResultados.innerHTML = ''
                         // Mostrar cada película seleccionada aleatoriamente en la lista de resultados

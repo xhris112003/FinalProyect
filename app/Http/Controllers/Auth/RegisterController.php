@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/dashboard";
+    protected $redirectTo = "/";
 
     /**
      * Create a new controller instance.
@@ -52,10 +52,19 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'confirmed',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/'
+            ],
             'genero' => ['required', 'string', 'max:255'],
-        ]);
+        ], [
+                'password.regex' => 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un carácter especial.'
+            ]);
     }
+
 
     /**
      * Create a new user instance after a valid registration.

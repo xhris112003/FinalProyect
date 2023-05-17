@@ -1,58 +1,62 @@
-const menuItems = document.querySelectorAll('.menu-item');
+const menuItems = document.querySelectorAll(".menu-item");
 
-menuItems.forEach(item => {
-  const submenu = item.querySelector('.submenu');
-  const link = item.querySelector('a');
+menuItems.forEach((item) => {
+    const submenu = item.querySelector(".submenu");
+    const link = item.querySelector("a");
 
-  link.addEventListener('click', e => {
-    e.preventDefault();
-    menuItems.forEach(otherItem => otherItem.classList.remove('show-submenu'));
-    item.classList.toggle('show-submenu');
-  });
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        menuItems.forEach((otherItem) =>
+            otherItem.classList.remove("show-submenu")
+        );
+        item.classList.toggle("show-submenu");
+    });
 
-  submenu.addEventListener('click', e => {
-    e.stopPropagation();
-  });
+    submenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+    });
 
-  document.addEventListener('click', e => {
-    menuItems.forEach(otherItem => otherItem.classList.remove('show-submenu'));
-  });
+    document.addEventListener("click", (e) => {
+        menuItems.forEach((otherItem) =>
+            otherItem.classList.remove("show-submenu")
+        );
+    });
 });
-
 
 document.addEventListener("DOMContentLoaded", function (event) {
     const apiKey = "0202074c6fd19918f230acfa46a461d5";
     const url_pelisPopulares = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es`;
-    const url_estreno = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es`;
     const url_seriesPopulares = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=es`;
+
+    const url_estreno = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es`;
     const url_seriesMejorV = `https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}&language=es`;
     const url_pelisMejorV = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=es`;
+    const url_proximos = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es`;
+    const url_proximosS = `https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es`;
+    const url_series = `https://api.themoviedb.org/3/tv/airing_today?api_key=${apiKey}&language=es`;
 
-    var currentUrl = window.location.href;
+    var currentUrl = window.location.pathname;
+console.log(currentUrl);
 
-    let url_seleccionada = "";
+const urlMappings = {
+  "/series": url_seriesPopulares,
+  "/": url_pelisPopulares,
+  "/ultimosEstrenos": url_estreno,
+  "/ultimosEstrenosS": url_proximosS,
+  "/peliculasMejorValoradas": url_pelisMejorV,
+  "/seriesMejorValoradas": url_seriesMejorV
+};
 
-    if (currentUrl.indexOf("estrenos") !== -1) {
-        console.log("tiene estrenos");
-        url_seleccionada = url_estreno;
-    } else if (currentUrl.indexOf("pelisMejorV") !== -1) {
-        url_seleccionada = url_pelisMejorV;
-    } else if (currentUrl.indexOf("seriesMejorV") !== -1) {
-        url_seleccionada = url_seriesMejorV;
-    } else if (currentUrl.indexOf("seriesPopulares") !== -1) {
-        url_seleccionada = url_seriesPopulares;
-    } else if (currentUrl.indexOf("pelisPopulares") !== -1) {
-        url_seleccionada = url_pelisPopulares;
-    }
+let url_seleccionada = urlMappings[currentUrl] || url_pelisPopulares;
 
-    window.onload = function () {
-        getPelis(url_seleccionada);
-    };
+window.onload = function () {
+  getPelis(url_seleccionada);
+  console.log(url_seleccionada);
+};
+
 
     function getPelis(url_seleccionada) {
-        fetch(
-            `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=es`
-        )
+        fetch(url_seleccionada)
             .then((res) => res.json())
             .then((data) => {
                 buildHTML(data);
@@ -89,7 +93,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 data.results[i].poster_path;
             imagen.alt = "Cartel de la película";
             imagen.classList.add("card-img-top");
-
 
             let timeoutId;
             //AÑADIR EL EVENTO PARA MOSTRAR LA SINOPSIS AL PASAR EL RATÓN POR ENCIMA DE LA IMAGEN

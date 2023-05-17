@@ -20,14 +20,6 @@
                 <div class="iniciar-sesin">PERFIL</div>
               </div>
             </button>
-            @if(Auth::user()->hasRole('admin'))
-            <button onclick="window.location.href='/admin'" class="rectangle-parent">
-              <div class="rectangle"></div>
-              <div class="iniciar-sesin-wrapper">
-                <div class="iniciar-sesin">ADMIN</div>
-              </div>
-            </button>
-            @endif
             <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
               <div class="rectangle1"></div>
               <div class="registrarse-wrapper">
@@ -80,7 +72,7 @@
     </nav>
     @endif
   </div>
-  <h1 class="section">Películas populares</h1>
+  <h1 class="section">Películas mejor valoradas</h1>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <nav>
       <ul class="menu">
@@ -94,7 +86,7 @@
         <li class="menu-item">
           <a href="#">Explorar series</a>
           <ul class="submenu">
-            <li><a href="{{route('ultimosEstrenosS')}}">últimos estrenos</a></li>
+            <li><a href="{{route('ultimosEstrenosS')}}">Últimos estrenos</a></li>
             <li><a href="{{route('seriesMejorValoradas')}}">Series mejor valoradas</a></li>
           </ul>
         </li>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+    
 
 class AdminController extends Controller
 {
@@ -21,7 +23,7 @@ class AdminController extends Controller
         // Obtener los registros de la tabla especificada
         $registros = DB::table($tabla)->get();
 
-        if (!isset($registros) || $registros->isEmpty()) {
+        if (! isset($registros) || $registros->isEmpty()) {
             // Mostrar mensaje de tabla vacía
             return view('admin.empty', compact('tabla'));
         }
@@ -42,9 +44,8 @@ class AdminController extends Controller
     {
         if ($tabla == 'users') {
             $valor = $request->input('valor');
-            
+
             $validatedData = $request->validate($request->all());
-            
             if ($valor == 0) {
                 DB::table($tabla)->insert($validatedData);
             } else {
@@ -53,18 +54,18 @@ class AdminController extends Controller
                 // Asignar el rol al usuario
                 $usuario->assignRole('admin');
             }
-    
+
             return redirect()->route('admin.show', $tabla);
         } else { // otras tablas
             $validatedData = $request->validate($request->all());
-    
+
             DB::table($tabla)->insert($validatedData);
-            
+
             return redirect()->route('admin.show', $tabla);
         }
     }
-    
-    
+
+
 
     public function edit($tabla, $id)
     {
@@ -78,8 +79,33 @@ class AdminController extends Controller
     {
          
         // Validar los datos enviados por el usuario
-        $validatedData = $request->validate($request->all());
-        
+        if ($tabla == 'users') {
+            $validatedData = $request->validate([
+                'name' => ['required', 'regex:/^[a-zA-Z]{4}[a-zA-Z0-9]*$/'],
+                'email' => 'required|email',
+                'password' => [
+                    'required',
+                    'string',
+                    'min:8',
+                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&\.]{8,}$/'
+                ],
+            ]);
+
+            // Verificar si se proporcionó una nueva contraseña
+            if (isset($validatedData['password'])) {
+                $validatedData['password'] = Hash::make($validatedData['password']);
+            }
+        } else if ($tabla == 'roles') {
+            $validatedData = $request->validate([
+                'name' => ['required', 'alpha'],
+                'guard_name' => ['required', 'alpha'],
+            ]);
+        } else if ($tabla == 'forms_by_users_saved') {
+            $validatedData = $request->validate([
+                'nombre_pelicula' => 'required',
+                'foto_pelicula' => 'required',
+            ]);
+        }
         // Actualizar el registro de la tabla especificada con el ID especificado
         DB::table($tabla)->where('id', $id)->update($validatedData);
 

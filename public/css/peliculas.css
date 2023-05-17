@@ -137,8 +137,6 @@ nav ul li ul li {
   justify-content: flex-end;
   padding-right: 10%;
   gap: 2px;
-
-
 }
 
 
@@ -592,6 +590,7 @@ rem
   font-size: var(--font-size-21xl);
   color: var(--color-white);
 }
+
 
 .home {
   position: relative;
