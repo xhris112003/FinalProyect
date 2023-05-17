@@ -29,19 +29,15 @@ Los usuarios que se registren en nuestra página web. Tendremos 3 tipos de usuar
 
 +Los invitados, o Guest, que son usuarios temporales que pueden realizar una versión de prueba de nuestro servicio, antes de registrarse
 
-#### Movies
+#### Roles
 
-Las peliculas guardadas en nuestra base de datos. Contendrá datos que ya existen dentro de la base de datos interna de la API, pero los recogeremos igualmente para usarlos en otras tablas.
+Usamos los roles para gestionar el acceso a ciertas páginas de la web. Con estos roles, podemos tener personas que gestionan nuestra base de datos desde la página web como los administradores.
 
-#### Favorites
+#### Likes
 
-Aqui guardaremos las peliculas que nuestros usuarios seleccionen 
+Las peliculas marcadas como "me gusta por parte del usuario". Es el feedback que esperamos recibir de nuestros usuarios, para saber si nuestra recomendación ha sido acorde a sus gustos recogidos en el cuestionario.
 
-#### Ratings
-
-Las puntuaciones que nuestros usuarios han dado a las peliculas que nosotros recomendamos. Recogemos estos datos para comprobar la eficiencia y eficacia de nuestro filtro.
-
-#### Users-Forms
+#### Forms-by-Users
 
 Los datos de los cuestionarios rellenados por cada usuario se guardarán aquí, para facilitar el filtrado de películas para nuestros usuarios.
 

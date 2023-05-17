@@ -45,8 +45,16 @@ class AdminController extends Controller
         if ($tabla == 'users') {
             $valor = $request->input('valor');
 
-            $validatedData = $request->validate($request->all());
-
+            $validatedData = $request->validate([
+                'name' => ['required', 'regex:/^[a-zA-Z]{4}[a-zA-Z0-9]*$/'],
+                'email' => 'required|email',
+                'password' => [
+                    'required',
+                    'string',
+                    'min:8',
+                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&\.]{8,}$/'
+                ],
+            ]);
             if ($valor == 0) {
                 DB::table($tabla)->insert($validatedData);
             } else {
@@ -78,6 +86,7 @@ class AdminController extends Controller
 
     public function update(Request $request, $tabla, $id)
     {
+         
         // Validar los datos enviados por el usuario
         if ($tabla == 'users') {
             $validatedData = $request->validate([
@@ -112,11 +121,22 @@ class AdminController extends Controller
         return redirect()->route('admin.show', $tabla);
     }
 
-    public function destroy($tabla, $id)
+    public function testDestroy()
     {
-        // Eliminar el registro de la tabla especificada con el ID especificado
-        DB::table($tabla)->where('id', $id)->delete();
+        // Obtener todas las tablas de la base de datos
+        $tables = DB::select('SHOW TABLES');
 
-        return redirect()->route('admin.show', $tabla);
+        foreach ($tables as $table) {
+            $tableName = reset($table);
+            $recordId = 1; // Ajusta el ID del registro que deseas eliminar
+
+            // Simular una solicitud HTTP POST a la ruta de eliminación para un registro específico
+            $response = $this->post("/admin/destroy/$tableName/$recordId");
+
+            // Verificar que se redirija correctamente después de la eliminación
+            $response->assertRedirect(route('admin.show', $tableName));
+
+            // Agrega más aserciones según sea necesario
+        }
     }
 }
