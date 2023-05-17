@@ -1,5 +1,11 @@
 const menuItems = document.querySelectorAll(".menu-item");
 
+function toggleMenu() {
+    var menu = document.getElementById("menu");
+    menu.classList.toggle("show");
+  }
+
+  
 menuItems.forEach((item) => {
     const submenu = item.querySelector(".submenu");
     const link = item.querySelector("a");

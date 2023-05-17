@@ -1,77 +1,95 @@
 @extends('layouts.peliculasTpl')
 <body>
-  <div class="home">
-    @if (Auth::check())
-    <nav class="home-inner">
-      <div class="frame-wrapper">
-        <div class="mm-parent">
-          <div class="mm"><a href="{{route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
-          <div class="pelculas-parent">
-            <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
-            <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
-            <a class="series" href="{{route('series')}}">Series</a>
-          </div>
+<body>
+    <div class="home">
 
-          <div 1 class="group-parent">
+        <nav class="home-inner">
+            <div class="frame-wrapper">
+                <div class="mm-parent">
+                    <div class="mm"><a href="{{ route('/') }}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
+                    <div class="pelculas-parent">
+                        <a class="pelculas" href="{{ route('cuestionario') }}">Cuestionario</a>
+                        <a class="acerca-de" href="{{ route('acercade') }}">Acerca de </a>
+                        <a class="series" href="{{ route('series') }}">Series</a>
+                    </div>
 
-            <button onclick="window.location.href='/profile'" class="rectangle-parent">
-              <div class="rectangle"></div>
-              <div class="iniciar-sesin-wrapper">
-                <div class="iniciar-sesin">PERFIL</div>
-              </div>
-            </button>
-            <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
-              <div class="rectangle1"></div>
-              <div class="registrarse-wrapper">
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-                </form>
-                <div class="registrarse">LOGOUT</div>
-              </div>
-            </button>
+                    @if (Auth::check())
+                    <div class="group-parent">
+                        <button onclick="window.location.href='/profile'" class="rectangle-parent">
+                            <div class="rectangle"></div>
+                            <div class="iniciar-sesin-wrapper">
+                                <div class="iniciar-sesin">PERFIL</div>
+                            </div>
+                        </button>
+                        @if (Auth::user()->hasRole('admin'))
+                        <button onclick="window.location.href='/admin'" class="rectangle-parent">
+                            <div class="rectangle"></div>
+                            <div class="iniciar-sesin-wrapper">
+                                <div class="iniciar-sesin">ADMIN</div>
+                            </div>
+                        </button>
+                        @endif
+                        <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="rectangle-group">
+                            <div class="rectangle1"></div>
+                            <div class="registrarse-wrapper">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                                <div class="registrarse">LOGOUT</div>
+                            </div>
+                        </button>
 
-          </div>
-          <button class="image-3-wrapper">
-            <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
-          </button>
-        </div>
-      </div>
-    </nav>
-    @else
-    <nav class="home-inner">
-      <div class="frame-wrapper">
-        <div class="mm-parent">
-          <div class="mm"><a href="{{route('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN" id="logo"> </a></div>
-          <div class="pelculas-parent">
-            <a class="pelculas" href="{{route('cuestionario')}}">Cuestionario</a>
-            <a class="acerca-de" href="{{route('acercade')}}">Acerca de </a>
-            <a class="series" href="{{route('/')}}">Peliculas</a>
-          </div>
+                    </div>
+                    <button class="image-3-wrapper" onclick="toggleMenu()">
+                        <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+                    </button>
+                </div>
+            </div>
+        </nav>
+        @else
 
-          <div class="group-parent">
-
+        <div class="group-parent">
             <button onclick="window.location.href='/login'" class="rectangle-parent">
-              <div class="rectangle"></div>
-              <div class="iniciar-sesin-wrapper">
-                <div class="iniciar-sesin">INICIAR SESIÓN</div>
-              </div>
+                <div class="rectangle"></div>
+                <div class="iniciar-sesin-wrapper">
+                    <div class="iniciar-sesin">INICIAR SESIÓN</div>
+                </div>
             </button>
             <button onclick="window.location.href='/register'" class="rectangle-group">
-              <div class="rectangle1"></div>
-              <div class="registrarse-wrapper">
-                <div class="registrarse">Registrarse</div>
-              </div>
+                <div class="rectangle1"></div>
+                <div class="registrarse-wrapper">
+                    <div class="registrarse">Registrarse</div>
+                </div>
             </button>
 
-          </div>
-          <button class="image-3-wrapper">
-            <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
-          </button>
         </div>
-      </div>
+        <button class="image-3-wrapper" onclick="toggleMenu()">
+            <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
+        </button>
+    </div>
+    </div>
     </nav>
     @endif
-  </div>
+    </div>
+    <div class="navOculto" id="menu" style="position: absolute; right: 0;">
+        @if (Auth::check())
+        <button onclick="window.location.href='/profile'"  class="btnOculto">PERFIL</button>
+        @if (Auth::user()->hasRole('admin'))
+        <button onclick="window.location.href='/admin'" class="btnOculto">ADMIN</button>
+        @endif
+        <button onclick="event.preventDefault(); document.getElementById('logout-form').submit();"  class="btnOculto">LOGOUT</button>
+        @else
+        <button onclick="window.location.href='/login'" class="btnOculto">INICIAR SESIÓN</button>
+        <button onclick="window.location.href='/register'" class="btnOculto">Registrarse</button>
+        @endif
+
+        <div>
+            <a class="" href="{{ route('cuestionario') }}">Cuestionario</a><br>
+            <a class="" href="{{ route('acercade') }}">Acerca de</a><br>
+            <a class="" href="{{ route('series') }}">Series</a>
+        </div>
+    </div>
+
   <h1 class="section">Series populares</h1>
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <nav>

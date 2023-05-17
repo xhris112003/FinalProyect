@@ -7,9 +7,6 @@
                     <div class="mm"><a href="{{ route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN"
                                 id="logo"> </a></div>
                 </div>
-                <button class="image-3-wrapper">
-                    <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
-                </button>
             </div>
         </div>
     </div>
