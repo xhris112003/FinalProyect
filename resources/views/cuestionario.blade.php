@@ -1,5 +1,4 @@
 @extends('layouts.cuestionarioTpl')
-
 <body>
     <div class="home">
         <div class="home-inner">
@@ -7,7 +6,6 @@
                 <div class="mm-parent">
                     <div class="mm"><a href="{{ route ('/')}}"> <img src="img/logoMMOscuro.png" alt="MDN"
                                 id="logo"> </a></div>
-
                 </div>
                 <button class="image-3-wrapper">
                     <img class="image-3-icon" alt="" src="https://i.postimg.cc/J0wfG2Vg/icons8-men-30.png" />
@@ -48,8 +46,7 @@
                             aventurero
                         </label>
                     </div>
-
-                    <br /><br />
+                    <br /><br/>
 
                     <label for="apta-para-todo-publico">¿Prefieres una película que sea apta para todo público?</label>
                     <select id="apta-para-todo-publico" name="apta-para-todo-publico">
