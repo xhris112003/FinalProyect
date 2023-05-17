@@ -32,7 +32,7 @@
         </div>
         <div class="frame-parent">
             <div class="profile-parent">
-                <img class="profile-icon" src="{{ asset($profile_photo) }}" alt="Foto de perfil">
+                <img class="profile-icon" src="{{ Storage::url($profile_photo) }}" alt="Foto de perfil">
 
                 <div class="name">{{ $name }}</div>
             </div>

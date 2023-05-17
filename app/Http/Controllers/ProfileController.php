@@ -23,6 +23,7 @@ class ProfileController extends Controller
             $name = $user->name;
             $email = $user->email;
             $genero = $user->genero;
+            $profile_photo = $user->profile_photo;
         }
 
         return view('profile')->with([
@@ -30,6 +31,7 @@ class ProfileController extends Controller
             'name' => $name,
             'email' => $email,
             'genero' => $genero,
+            'profile_photo' => $profile_photo,
         ]);
     }
 
