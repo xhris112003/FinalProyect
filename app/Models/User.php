@@ -53,6 +53,6 @@ class User extends Authenticatable
         }
 
         // Devolver una imagen de perfil predeterminada o nula si no hay foto de perfil
-        return asset('path/to/default/profile-photo.jpg');
+        return asset('img/icon.jpg');
     }
 }

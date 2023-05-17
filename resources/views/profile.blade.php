@@ -32,8 +32,11 @@
         </div>
         <div class="frame-parent">
             <div class="profile-parent">
-                <img class="profile-icon" src="{{ Storage::url($profile_photo) }}" alt="Foto de perfil">
-
+                @if ($profile_photo === null)
+                    <img class="profile-icon" src="{{ asset('img/icon.jpg') }}" alt="Foto de perfil">
+                @else
+                    <img class="profile-icon" src="{{ Storage::url($profile_photo) }}" alt="Foto de perfil">
+                @endif
                 <div class="name">{{ $name }}</div>
             </div>
             <div class="datos-personales-parent">
@@ -64,7 +67,7 @@
         <div class="desktop-1-child">
             <div class="frame-group">
                 <div class="description-wrapper">
-                    
+
                 </div>
                 <div class="image-parent">
                     <a class="image"> </a>

@@ -68,7 +68,7 @@
 <body>
     <div class="container">
         <h1>Películas Recomendadas</h1>
-        <a href="{{ url()->previous() }}" class="back-button">Atrás</a>
+        <a href="{{ route('profile') }}" class="back-button">Atrás</a>
 
 
         <table>
@@ -78,12 +78,15 @@
                     <th>Foto Película</th>
                 </tr>
             </thead>
+            
             <tbody>
                 @foreach ($forms as $form)
+                @if(Auth::user() === $form->user_id)
                     <tr>
                         <td>{{ $form->nombre_pelicula }}</td>
                         <td><img src="{{ $form->foto_pelicula }}" alt=""></td>
                     </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>

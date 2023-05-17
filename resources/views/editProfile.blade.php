@@ -10,22 +10,9 @@
     <form class="profile-form" action="{{ route('profile.edit') }}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="name">Nombre</label>
+            <label for="name">Nombre(No modificable)</label>
             <input type="text" id="name" placeholder="Nombre" name="name" value="{{ Auth::user()->name }}"
-                required>
-            @error('name')
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: "{{ $message }}",
-                            confirmButtonColor: '#3085d6',
-                            confirmButtonText: 'Aceptar'
-                        });
-                    });
-                </script>
-            @enderror
+                readonly>
         </div>
         <div class="form-group">
             <label for="email">Correo electrónico</label>

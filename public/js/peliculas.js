@@ -155,7 +155,6 @@ window.onload = function () {
             cuerpoCard.appendChild(punt);
             cuerpoCard.appendChild(titulo);
             cuerpoCard.appendChild(sinopsis);
-            cuerpoCard.appendChild(likeButton);
 
             
             card.appendChild(cuerpoCard);

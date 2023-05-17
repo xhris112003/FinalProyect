@@ -47,7 +47,7 @@ class ProfileController extends Controller
             $profile_photo = $user->profile_photo;
         }
 
-        return view('profile')->with([
+        return view('editProfile')->with([
             'id' => $id,
             'name' => $name,
             'email' => $email,
@@ -69,7 +69,6 @@ class ProfileController extends Controller
 
         // Validar los campos del formulario
         $request->validate([
-            'name' => 'required|string|max:255|unique:users',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
             'profile_photo' => ['image', 'max:2048']
