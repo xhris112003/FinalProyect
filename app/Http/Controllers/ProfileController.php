@@ -42,6 +42,7 @@ class ProfileController extends Controller
             $name = $user->name;
             $email = $user->email;
             $genero = $user->genero;
+            $profile_photo = $user->profile_photo;
         }
 
         return view('editProfile')->with([
@@ -49,6 +50,7 @@ class ProfileController extends Controller
             'name' => $name,
             'email' => $email,
             'genero' => $genero,
+            'profile_photo' => $profile_photo,
         ]);
     }
 
@@ -57,12 +59,21 @@ class ProfileController extends Controller
         // Obtener el usuario autenticado
         $user = Auth::user();
 
+        if ($request->hasFile('profile_photo')) {
+            $profilePhoto = $request->file('profile_photo');
+            $profilePhotoPath = $profilePhoto->store('images', 'public');
+            $user->profile_photo = $profilePhotoPath;
+        }
+
         // Validar los campos del formulario
         $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255|unique:users',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'password' => 'nullable|string|min:8|confirmed',
+            'profile_photo' => ['image', 'max:2048']
         ]);
+
+
 
         // Actualizar los datos del usuario
         $user->name = $request->input('name');

@@ -24,6 +24,7 @@ class User extends Authenticatable
         'email',
         'password',
         'genero',
+        'profile_photo',
     ];
 
     /**
@@ -44,4 +45,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getProfilePhotoPathAttribute($value)
+    {
+        if ($value) {
+            return asset('storage/' . $value);
+        }
+
+        // Devolver una imagen de perfil predeterminada o nula si no hay foto de perfil
+        return asset('path/to/default/profile-photo.jpg');
+    }
 }

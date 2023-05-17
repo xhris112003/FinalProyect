@@ -6,10 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-    
+use Spatie\Permission\Middlewares\RoleMiddleware;
+
+
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['auth', RoleMiddleware::class . ':admin']);
+    }
+
     public function index()
     {
         $tablas = DB::select('SHOW TABLES');
@@ -23,7 +30,7 @@ class AdminController extends Controller
         // Obtener los registros de la tabla especificada
         $registros = DB::table($tabla)->get();
 
-        if (! isset($registros) || $registros->isEmpty()) {
+        if (!isset($registros) || $registros->isEmpty()) {
             // Mostrar mensaje de tabla vacía
             return view('admin.empty', compact('tabla'));
         }
@@ -45,15 +52,34 @@ class AdminController extends Controller
         if ($tabla == 'users') {
             $valor = $request->input('valor');
 
-            $validatedData = $request->validate($request->all());
+            $validatedData = $request->validate([
+                'name' => ['required', 'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9]{4,}$/'],
+                'email' => 'required|email',
+                'password' => [
+                    'required',
+                    'string',
+                    'min:8',
+                    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.])[A-Za-z\d@$!%*?&\.]{8,}$/'
+                ],
+                'genero' => 'required',
+                'created_at' => 'required',
+                'updated_at' => 'required',
 
-            if ($valor == 0) {
-                DB::table($tabla)->insert($validatedData);
-            } else {
-                $id = DB::table($tabla)->insertGetId($validatedData);
-                $usuario = User::find($id);
-                // Asignar el rol al usuario
+            ]);
+
+            // Verificar si se proporcionó una nueva contraseña
+            if (isset($validatedData['password'])) {
+                $validatedData['password'] = Hash::make($validatedData['password']);
+            }
+
+            $id = DB::table($tabla)->insertGetId($validatedData);
+            $usuario = User::find($id);
+
+            if ($valor === "false") {
+                // Asignar el rol de administrador al usuario
                 $usuario->assignRole('admin');
+            }else{
+                $usuario->assignRole('user');
             }
 
             return redirect()->route('admin.show', $tabla);
@@ -81,7 +107,7 @@ class AdminController extends Controller
         // Validar los datos enviados por el usuario
         if ($tabla == 'users') {
             $validatedData = $request->validate([
-                'name' => ['required', 'regex:/^[a-zA-Z]{4}[a-zA-Z0-9]*$/'],
+                'name' => ['required', 'regex:/^(?=.*[a-zA-Z])[a-zA-Z0-9]{4,}$/'],
                 'email' => 'required|email',
                 'password' => [
                     'required',

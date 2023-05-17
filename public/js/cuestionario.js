@@ -26,7 +26,7 @@ const aptaParaTodoPublico = {
 
 
 function mostrarFotosAleatorias() {
-    
+
     fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0202074c6fd19918f230acfa46a461d5')
       .then(response => response.json())
       .then(data => {
@@ -36,7 +36,7 @@ function mostrarFotosAleatorias() {
           peliculasAleatorias.push(data.results[indiceAleatorio])
           data.results.splice(indiceAleatorio, 1)
         }
-        
+
         fotosContainer.style.display = 'block' // Agregar la clase 'oculto'
         peliculasAleatorias.forEach(pelicula => {
           const foto = document.createElement('img')
@@ -45,18 +45,18 @@ function mostrarFotosAleatorias() {
           foto.classList.add('imagen-resultados') // Agregar la clase CSS
           fotosContainer.appendChild(foto)
         })
-       
-      }) 
-    
+
+      })
+
   }
-  
-  
+
+
 form.addEventListener('submit', event => {
       mostrarFotosAleatorias()
     event.preventDefault() // Evita que se envíe el formulario
     form.classList.add('formulario-oculto')
     cargando.style.display = 'block'
-    
+
     const formData = new FormData(form)
     const opciones = {
         sentimiento: formData.get('sentimiento'),
@@ -79,7 +79,7 @@ form.addEventListener('submit', event => {
     const peliculas = []
     // Mostrar GIF de carga
     cargando.classList.remove('oculto')
-      
+
     // Función para realizar la búsqueda paginada de películas
     const buscarPeliculas = page => {
         fetch(`${url}&page=${page}`)
@@ -222,7 +222,7 @@ form.addEventListener('submit', event => {
                                         title: '¡Exito!',
                                         text: 'Se ha guardado correctamente!',
                                         icon: 'success',
-                                        confirmButtonText: 'Aceptar'
+                                        showCloseButton: true,
                                     })
                                     guardarFormularioBtn.style.display = 'none';
 

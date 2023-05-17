@@ -27,12 +27,25 @@
                                 });
                             });
                         </script>
-                    @endif
+                @endif
             </div>
 
             <div class="form-group">
               <label for="name">Nombre</label>
               <input id="name" class="group-inner" type="text" placeholder="Nombre de usuario" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+              @if ($errors->has('name'))
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                Swal.fire({
+                                    icon: 'warning',
+                                    title: 'Error de registro',
+                                    text: "{{ $errors->first('name') }}",
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'Aceptar'
+                                });
+                            });
+                        </script>
+                @endif
             </div>
 
             <div class="form-group">

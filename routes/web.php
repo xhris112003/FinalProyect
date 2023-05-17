@@ -113,3 +113,5 @@ Route::get('/guardar-peliculas', [App\Http\Controllers\PeliculasController::clas
 Route::post('/guardar-peliculas', [App\Http\Controllers\PeliculasController::class, 'guardarPeliculas'])->name('guardar.peliculas');
 
 Route::post('/profile/edit', [App\Http\Controllers\ProfileController::class, 'editarPerfil'])->name('profile.edit');
+
+Route::get('/formularios-guardados', [App\Http\Controllers\FormByUserSavedController::class, 'index'])->name('formularios.guardados');

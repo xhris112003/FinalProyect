@@ -10,4 +10,5 @@
       href="https://fonts.googleapis.com/css2?family=Anek Gurmukhi:wght@400;600;800&display=swap"
     />
     <link rel="stylesheet" href="{{ asset('css/editProfile.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
