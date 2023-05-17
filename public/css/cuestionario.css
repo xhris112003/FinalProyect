@@ -21,12 +21,23 @@ body {
 }
 
 #detalles {
-  padding-top: 3em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  text-align: justify;
+  margin: 0 90px;
+
+}
+.proveedor{
+  display: flex;
+}
+.categoria img{
+  width: 35px;
+}
+
+.plataforma {
+  display: flex;
 }
 
 #login-message {
@@ -71,6 +82,9 @@ body {
   height: 0.75rem;
 }
 
+.divG{
+  padding-bottom: 61px;
+}
 .pelculas {
   left: 0;
   width: 8.38rem;

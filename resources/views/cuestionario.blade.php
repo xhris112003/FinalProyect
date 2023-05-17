@@ -104,8 +104,11 @@
         <ul id="lista-resultados"></ul>
     </div>
     <div id="detalles"> </div>
+    <div class="divG">
     <button style="display: none;" id="guardarFormulario">Guardar formulario</button>
-
+    </div>
+    <div class="proveedor">
+    </div>
 
 </body>
 <script src="{{ asset('js/cuestionario.js') }}"></script>
