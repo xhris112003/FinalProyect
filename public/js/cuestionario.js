@@ -178,34 +178,7 @@ form.addEventListener('submit', event => {
                                 );
                             });
 
-                            const data = {
-                                peliculas: peliculasGuardadas
-                            };
-
-                            fetch('/guardar-peliculas', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                                },
-                                body: JSON.stringify(data)
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-
-                                    Swal.fire({
-                                        title: '¡Exito!',
-                                        text: 'Se ha guardado correctamente!',
-                                        icon: 'success',
-                                        showCloseButton: true,
-                                    })
-                                    guardarFormularioBtn.style.display = 'none';
-
-                                })
-                                .catch(error => {
-                                    console.log(data)
-                                    console.error('Error al guardar las peliculas:', error);
-                                });
+                    
                         });
 
                         const h2title = document.getElementById("h2");
