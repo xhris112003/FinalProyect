@@ -26,31 +26,31 @@ const aptaParaTodoPublico = {
 function mostrarFotosAleatorias() {
 
     fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0202074c6fd19918f230acfa46a461d5')
-      .then(response => response.json())
-      .then(data => {
-        const peliculasAleatorias = []
-        while (peliculasAleatorias.length < 3 && data.results.length > 0) {
-          const indiceAleatorio = Math.floor(Math.random() * data.results.length)
-          peliculasAleatorias.push(data.results[indiceAleatorio])
-          data.results.splice(indiceAleatorio, 1)
-        }
+        .then(response => response.json())
+        .then(data => {
+            const peliculasAleatorias = []
+            while (peliculasAleatorias.length < 3 && data.results.length > 0) {
+                const indiceAleatorio = Math.floor(Math.random() * data.results.length)
+                peliculasAleatorias.push(data.results[indiceAleatorio])
+                data.results.splice(indiceAleatorio, 1)
+            }
 
-        fotosContainer.style.display = 'block' // Agregar la clase 'oculto'
-        peliculasAleatorias.forEach(pelicula => {
-          const foto = document.createElement('img')
-          foto.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`
-          foto.alt = pelicula.title
-          foto.classList.add('imagen-resultados') // Agregar la clase CSS
-          fotosContainer.appendChild(foto)
+            fotosContainer.style.display = 'block' // Agregar la clase 'oculto'
+            peliculasAleatorias.forEach(pelicula => {
+                const foto = document.createElement('img')
+                foto.src = `https://image.tmdb.org/t/p/w200${pelicula.poster_path}`
+                foto.alt = pelicula.title
+                foto.classList.add('imagen-resultados') // Agregar la clase CSS
+                fotosContainer.appendChild(foto)
+            })
+
         })
 
-      })
-
-  }
+}
 
 
 form.addEventListener('submit', event => {
-      mostrarFotosAleatorias()
+    mostrarFotosAleatorias()
     event.preventDefault() // Evita que se envíe el formulario
     form.classList.add('formulario-oculto')
     cargando.style.display = 'block'
@@ -68,8 +68,7 @@ form.addEventListener('submit', event => {
     const url =
         `https://api.themoviedb.org/3/discover/movie?api_key=0202074c6fd19918f230acfa46a461d5&language=es-ES&include_adult=false&include_video=false` +
         `&certification_country=US&certification=${clasificacion}` +
-        `&sort_by=popularity.desc&with_runtime.gte=${
-            duracionMinima[opciones.duracion]
+        `&sort_by=popularity.desc&with_runtime.gte=${duracionMinima[opciones.duracion]
         }` +
         `&with_genres=${generos[opciones.sentimiento]}` +
         `&vote_count.gte=1000`;
@@ -177,8 +176,13 @@ form.addEventListener('submit', event => {
                                     }
                                 );
                             });
+                            // Crear elemento de título de película
+                            const peliculaTitulo = document.createElement('h2')
+                            peliculaTitulo.textContent = pelicula.title
+                            peliculaItem.appendChild(peliculaTitulo)
+                            // Agregar película a la lista de resultados
+                            listaResultados.appendChild(peliculaItem)
 
-                    
                         });
 
                         const h2title = document.getElementById("h2");
